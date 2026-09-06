@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
-/* Three-layer token system per design-system.md §9, with the emerald accent
-   swap recommended by the portfolio content brief. Dark is the default theme;
-   :root[data-theme="light"] overrides the semantic layer only. */
+/* Three-layer token system per design-system.md §2–§3 and §9.
+   Dark is the default theme (warm brown + gold); :root[data-theme="light"]
+   overrides the semantic layer only (cream + muted dark green), set via the
+   3-state System/Dark/Light toggle (theme.ts, §7.1). */
 :root {
   color-scheme: dark;
 
@@ -13,8 +14,8 @@
   --light-bg: #f0ece3;
   --light-fg: #0d0d14;
   --light-muted: #9a9aaa;
-  --accent-dark: #10b981;
-  --accent-light: #047857;
+  --accent-dark: #d4a84b;
+  --accent-light: #3a6e00;
 
   /* Semantic (default: dark) */
   --bg: var(--dark-bg);
@@ -22,7 +23,7 @@
   --muted: var(--dark-muted);
   --accent: var(--accent-dark);
   --card-bg: rgba(28, 24, 20, 0.82);
-  --card-border: rgba(16, 185, 129, 0.2);
+  --card-border: rgba(212, 168, 75, 0.2);
 
   /* Typography */
   --font-display: "Bebas Neue", sans-serif;
@@ -32,6 +33,15 @@
   --hairline: 0.0625rem;
   --ui-inset: 2rem;
   --z-ui: 10;
+
+  /* Status semantics (calculator margin badges) */
+  --status-ok: #4ade80;
+  --status-warn: #fbbf24;
+  --status-crit: #f87171;
+
+  /* Portrait duotone (design-system.md §7.2: visual assets follow the theme) —
+     warm monochrome B&W on dark, single-accent treatment */
+  --portrait-filter: grayscale(1) sepia(0.42) contrast(1.05);
 }
 
 :root[data-theme="light"] {
@@ -41,11 +51,24 @@
   --muted: var(--light-muted);
   --accent: var(--accent-light);
   --card-bg: rgba(240, 236, 227, 0.08);
-  --card-border: rgba(4, 120, 87, 0.14);
+  --card-border: rgba(58, 110, 0, 0.14);
+  --status-ok: #15803d;
+  --status-warn: #b45309;
+  --status-crit: #dc2626;
+
+  /* Green monochrome duotone for light mode, matching --accent-light */
+  --portrait-filter: grayscale(1) sepia(1) hue-rotate(75deg) saturate(1.5) contrast(1.03);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -56,4 +79,9 @@ body {
   transition:
     background 0.3s ease,
     color 0.3s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
 }

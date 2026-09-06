@@ -52,7 +52,7 @@
     "removeRow": "Hapus",
     "kpis": {
       "totalCogs": "Total HPP (Rp)",
-      "actualRatio": "Rasio Food Cost Aktual %",
+      "actualRatio": "Actual Food Cost Ratio %",
       "recommendedPrice": "Rekomendasi Harga Jual Ideal (Rp)"
     },
     "status": {
@@ -76,6 +76,7 @@
       "cases": [
         {
           "id": "A1",
+          "tab": "SMC Tlogorejo",
           "name": "RS SMC Tlogorejo, Semarang",
           "tagline": "RS ambisius yang ingin naik kelas ke standar hotel — transformasi budaya besar-besaran berujung lonjakan CSI dua digit.",
           "client": "RS swasta berbasis yayasan keagamaan, 1.800–2.000 staf",
@@ -86,6 +87,7 @@
         },
         {
           "id": "A2",
+          "tab": "RSUD Rembang",
           "name": "RSUD Rembang",
           "tagline": "RS pemerintah dengan mindset birokratis — pembuktian bahwa perubahan sistemik lebih bernilai daripada angka instan.",
           "client": "RS Pemerintah, 1.000–1.300 karyawan",
@@ -96,6 +98,7 @@
         },
         {
           "id": "A3",
+          "tab": "Santa Elisabeth",
           "name": "RS Santa Elisabeth",
           "tagline": "RS berusia hampir satu abad dengan disiplin tinggi warisan Belanda — hasil tercepat dan paling memuaskan dari ketiganya.",
           "client": "RS swasta berbasis yayasan keagamaan, berdiri sejak era Hindia Belanda (~100 tahun)",
@@ -114,7 +117,7 @@
           "name": "Digitalisasi Operasional — Hanania Kitchen and Brew",
           "client": "Hanania Kitchen and Brew, Semarang (peran saat ini)",
           "condition": "Koordinasi multi-outlet yang kompleks, kebocoran margin dari food waste, fluktuasi biaya utilitas (LPG) yang sulit dipantau.",
-          "solution": "Sistem operasi Notion terintegrasi (database HR & inventaris), SOP penerimaan barang digital dengan checklist peran, analisis P&L bulanan (price-vs-consumption breakdown untuk LPG).",
+          "solution": "Alih-alih memaksakan software generik, Win merancang tiga tools andalan pelindung margin. Staggered Shift Payroll Optimizer memetakan setiap pola shift di seluruh outlet untuk menghapus pemborosan gaji akibat over- dan under-staffing. Menu Engineering Worksheet menilai setiap menu berdasarkan kontribusi margin riil — menunjukkan hidangan mana yang menghasilkan laba dan mana yang diam-diam menggerusnya. Food Cost & Margin Calculator — mesin yang sama dengan demo live di halaman ini — menetapkan harga jual ideal menu apa pun dalam hitungan detik, mengubah tebakan menjadi keputusan harga yang percaya diri.",
           "result": "Kontrol margin terlindungi, transparansi audit gudang meningkat, waktu administratif manajemen terpangkas signifikan."
         },
         {
@@ -160,7 +163,7 @@
       { "year": "2007", "role": "Front Office Manager", "org": "Legian Beach Bali / Sentosa Private Villa & Spa / Harris Tuban Bali" },
       { "year": "2010", "role": "Butler", "org": "Raffles Makkah Palace, Saudi Arabia" },
       { "year": "2012", "role": "Duty Manager", "org": "JW Marriott Surabaya" },
-      { "year": "2013", "role": "General Manager", "org": "Patuno Resort Wakatobi (redesain insentif 12x)" },
+      { "year": "2013", "role": "General Manager", "org": "Patuno Resort Wakatobi (12x incentive redesign)" },
       { "year": "2014", "role": "Pre-Opening GM", "org": "Rumah Kito Resort, Jambi" },
       { "year": "2015", "role": "Independent HR & Operations Consultant", "org": "6 klien rumah sakit di Jawa Tengah" },
       { "year": "2018", "role": "Head of Operation", "org": "AJAR Media Digital (LMS hospitality, kemitraan lintas negara)" },
@@ -176,7 +179,10 @@
       "name": "Nama",
       "email": "Email",
       "message": "Pesan",
-      "submit": "Kirim Pesan"
+      "submit": "Kirim Pesan",
+      "sending": "Mengirim…",
+      "success": "Pesan terkirim — saya akan segera membalas.",
+      "error": "Terjadi kendala. Silakan kirim email langsung atau coba lagi."
     },
     "location": "Semarang, Jawa Tengah, Indonesia"
   }

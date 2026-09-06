@@ -76,6 +76,7 @@
       "cases": [
         {
           "id": "A1",
+          "tab": "SMC Tlogorejo",
           "name": "SMC Tlogorejo Hospital, Semarang",
           "tagline": "An ambitious hospital aiming for hotel-grade standards — a large-scale culture transformation that ended in a double-digit CSI jump.",
           "client": "Private hospital under a religious foundation, 1,800–2,000 staff",
@@ -86,6 +87,7 @@
         },
         {
           "id": "A2",
+          "tab": "RSUD Rembang",
           "name": "RSUD Rembang (Regional Public Hospital)",
           "tagline": "A government hospital with a bureaucratic mindset — proof that systemic change matters more than instant numbers.",
           "client": "Government hospital, 1,000–1,300 employees",
@@ -96,6 +98,7 @@
         },
         {
           "id": "A3",
+          "tab": "Santa Elisabeth",
           "name": "Santa Elisabeth Hospital",
           "tagline": "A nearly century-old hospital with Dutch-era discipline — the fastest and most satisfying result of the three.",
           "client": "Private hospital under a religious foundation, founded during the Dutch colonial era (~100 years old)",
@@ -114,7 +117,7 @@
           "name": "Operational Digitalization — Hanania Kitchen and Brew",
           "client": "Hanania Kitchen and Brew, Semarang (current role)",
           "condition": "Complex multi-outlet coordination, margin leakage from food waste, and hard-to-track utility cost fluctuations (LPG).",
-          "solution": "Built an integrated Notion operating system (HR & inventory databases), a digital goods-receiving SOP with role-based checklists, and monthly P&L analysis (price-vs-consumption breakdown for LPG).",
+          "solution": "Rather than force generic software onto the business, Win engineered three proprietary tools to protect margins. The Staggered Shift Payroll Optimizer maps every staggered shift across outlets to erase silent payroll waste from over- and under-staffing. The Menu Engineering Worksheet scores every dish by real contribution margin, exposing which items earn the profit and which quietly bleed it. The Food Cost & Margin Calculator — the same engine running live on this page — sets the ideal selling price for any menu item in seconds, turning guesswork into confident pricing decisions.",
           "result": "Margins are now protected, warehouse audit transparency has improved, and management's administrative time has been significantly cut."
         },
         {
@@ -176,7 +179,10 @@
       "name": "Name",
       "email": "Email",
       "message": "Message",
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "sending": "Sending…",
+      "success": "Message sent — I'll get back to you soon.",
+      "error": "Something went wrong. Please email me directly or try again."
     },
     "location": "Semarang, Central Java, Indonesia"
   }
