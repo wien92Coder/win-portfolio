@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* Three-layer token system per design-system.md §9, with the emerald accent
+   swap recommended by the portfolio content brief. Dark is the default theme;
+   :root[data-theme="light"] overrides the semantic layer only. */
+:root {
+  color-scheme: dark;
+
+  /* Primitive */
+  --dark-bg: #1c1814;
+  --dark-fg: #ede8df;
+  --dark-muted: #8a7b6e;
+  --light-bg: #f0ece3;
+  --light-fg: #0d0d14;
+  --light-muted: #9a9aaa;
+  --accent-dark: #10b981;
+  --accent-light: #047857;
+
+  /* Semantic (default: dark) */
+  --bg: var(--dark-bg);
+  --fg: var(--dark-fg);
+  --muted: var(--dark-muted);
+  --accent: var(--accent-dark);
+  --card-bg: rgba(28, 24, 20, 0.82);
+  --card-border: rgba(16, 185, 129, 0.2);
+
+  /* Typography */
+  --font-display: "Bebas Neue", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  /* Spacing & misc */
+  --hairline: 0.0625rem;
+  --ui-inset: 2rem;
+  --z-ui: 10;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: var(--light-bg);
+  --fg: var(--light-fg);
+  --muted: var(--light-muted);
+  --accent: var(--accent-light);
+  --card-bg: rgba(240, 236, 227, 0.08);
+  --card-border: rgba(4, 120, 87, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}

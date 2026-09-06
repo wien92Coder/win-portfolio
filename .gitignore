@@ -1,2 +1,8 @@
 # Freebuff tool metadata
 .freebuff/
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/

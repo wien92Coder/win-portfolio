@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "title": "Win Winarno — Tech-Operator Hospitality & Healthcare",
+    "description": "30+ tahun kepemimpinan operasional hospitality & healthcare, didukung Vibe Coding — otomatisasi, sistem operasi digital, dan solusi kustom."
+  },
+  "nav": {
+    "hero": "Hero",
+    "playground": "Playground",
+    "caseStudies": "Studi Kasus",
+    "competency": "Kompetensi Ganda",
+    "about": "Tentang",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "h1": "Saya Tidak Sekadar Menulis Kode. Saya Membangun Sistem yang Mengoptimalkan Operasi.",
+    "subheadline": "Memadukan 30+ tahun kepemimpinan operasional hospitality & healthcare dengan kekuatan Vibe Coding (Claude Code, n8n, Notion, & AI) untuk menciptakan otomatisasi, sistem operasi digital, dan solusi kustom yang menggerakkan profitabilitas bisnis Anda.",
+    "bridge": "Saya pakai kode sebagai alat operasional — bukan tujuan itu sendiri.",
+    "proof": [
+      { "value": "70% → 92%", "label": "CSI, SMC Tlogorejo" },
+      { "value": "4.1 → 4.8 ⭐", "label": "Google Review, RS Santa Elisabeth" },
+      { "value": "12x", "label": "Kenaikan pendapatan staf, Patuno Resort Wakatobi" },
+      { "value": "33 tahun", "label": "Pengalaman lapangan (1993–sekarang)" }
+    ],
+    "badges": [
+      "30+ Tahun Pengalaman Industri",
+      "Trainer & Assessor Bersertifikat — TAFE Queensland, Australia",
+      "Virtual Assistant Bersertifikat — Singapura"
+    ],
+    "ctaPrimary": "Coba Demo Kalkulator Saya",
+    "ctaSecondary": "Konsultasi Bersama Win"
+  },
+  "playground": {
+    "title": "Playground Interaktif",
+    "tagline": "Kalkulator Food Cost & Margin",
+    "labels": {
+      "menuName": "Nama Menu",
+      "targetFoodCost": "Target Food Cost %",
+      "targetPrice": "Target Harga Jual",
+      "ingredients": "Bahan Baku",
+      "ingredientName": "Nama Bahan",
+      "purchasePrice": "Harga Beli",
+      "packageVolume": "Volume Kemasan",
+      "quantityUsed": "Jumlah Digunakan",
+      "yield": "Yield %"
+    },
+    "defaults": {
+      "menuItem": "Kopi Susu Gula Aren",
+      "ingredientName": "Susu UHT",
+      "yield": 100
+    },
+    "addRow": "Tambah Bahan",
+    "removeRow": "Hapus",
+    "kpis": {
+      "totalCogs": "Total HPP (Rp)",
+      "actualRatio": "Rasio Food Cost Aktual %",
+      "recommendedPrice": "Rekomendasi Harga Jual Ideal (Rp)"
+    },
+    "status": {
+      "healthy": "HEALTHY MARGIN",
+      "warning": "WARNING",
+      "critical": "CRITICAL MARGIN"
+    },
+    "credibility": "Kalkulator ini terinspirasi langsung dari pekerjaan P&L dan cost-ratio analysis Win di Hanania Kitchen and Brew — bukan template generik."
+  },
+  "caseStudies": {
+    "title": "Studi Kasus",
+    "labels": {
+      "client": "Klien",
+      "period": "Periode",
+      "condition": "Kondisi Awal",
+      "solution": "Solusi",
+      "result": "Hasil"
+    },
+    "pillarA": {
+      "title": "Pilar A — Healthcare Service Culture Transformation",
+      "cases": [
+        {
+          "id": "A1",
+          "name": "RS SMC Tlogorejo, Semarang",
+          "tagline": "RS ambisius yang ingin naik kelas ke standar hotel — transformasi budaya besar-besaran berujung lonjakan CSI dua digit.",
+          "client": "RS swasta berbasis yayasan keagamaan, 1.800–2.000 staf",
+          "period": "Maret 2015 – Mei 2016 (1,5 tahun)",
+          "condition": "RS sedang ekspansi gedung baru dan ingin menghadirkan standar layanan setara hotel internasional. Seluruh lini staf dan dokter — meski RS sudah lama berdiri — membutuhkan refreshment training menyeluruh di bidang Service Excellence.",
+          "solution": "Merancang dan memimpin pelatihan Train-The-Trainer, Leadership, dan Effective Communication untuk seluruh jajaran Direktur hingga Penanggung Jawab (PJ). Mendampingi para leader ini secara langsung untuk mengalirkan pelatihan SMART Care ke seluruh karyawan secara bertahap (cascading).",
+          "result": "CSI naik dari 70% → 92%. Engagement terhadap pasien, keluarga, dan pengunjung meningkat; teamwork lintas departemen dan ruang membaik. Modul yang diterapkan: People & Process."
+        },
+        {
+          "id": "A2",
+          "name": "RSUD Rembang",
+          "tagline": "RS pemerintah dengan mindset birokratis — pembuktian bahwa perubahan sistemik lebih bernilai daripada angka instan.",
+          "client": "RS Pemerintah, 1.000–1.300 karyawan",
+          "period": "Mei 2016 – Desember 2017 (1,5 tahun)",
+          "condition": "Tantangan klasik institusi pemerintah — mindset \"bekerja sampai pensiun\", motivasi kerja rendah, sistem reward-punishment yang tidak berjalan, dan peran kepemimpinan lini yang sangat lemah.",
+          "solution": "Menerapkan kerangka SMART Care yang sama seperti di Tlogorejo, ditambah coaching intensif satu-per-satu untuk seluruh leader agar mampu menggerakkan kesadaran perbaikan diri staf mereka sendiri — bukan sekadar instruksi top-down. Turut merombak sistem reservasi pasien yang sebelumnya hanya bisa datang langsung, dipecah menjadi kanal telepon (CS) dan WhatsApp.",
+          "result": "Perbaikan CSI di sini berjalan lebih bertahap dibanding dua RS lainnya — bukti nyata bahwa mengubah birokrasi butuh waktu lebih panjang dari mengubah institusi swasta. Namun perubahan struktural yang ditanamkan justru lebih tahan lama: RSUD Rembang kini dikenal sebagai salah satu RSUD dengan pelayanan terbaik di Indonesia, dengan akses reservasi yang jauh lebih modern. Modul yang diterapkan: People, Process, sebagian Product."
+        },
+        {
+          "id": "A3",
+          "name": "RS Santa Elisabeth",
+          "tagline": "RS berusia hampir satu abad dengan disiplin tinggi warisan Belanda — hasil tercepat dan paling memuaskan dari ketiganya.",
+          "client": "RS swasta berbasis yayasan keagamaan, berdiri sejak era Hindia Belanda (~100 tahun)",
+          "period": "November 2023 – November 2024 (1 tahun)",
+          "condition": "Standar kerja yang diwariskan turun-temurun sejak era suster-suster Belanda — sangat disiplin, tapi kaku dalam pendekatan layanan. Rating Google Review hanya 4,1 bintang (November 2023), mengindikasikan banyak keluhan sisi pelayanan meski disiplin operasional tinggi.",
+          "solution": "Kerangka SMART Care yang sama, dijalankan dengan intensitas coaching individual tertinggi — bekerja langsung dan rutin bersama para Direktur dan Suster Kepala.",
+          "result": "Google Review naik dari 4,1 → 4,8 bintang dalam satu tahun. Engagement antara atasan dan bawahan meningkat tajam, teamwork ikut terbentuk kuat. Modul yang diterapkan hanya People — namun eksekusinya paling konsisten di antara ketiga RS, menghasilkan dampak paling memuaskan secara keseluruhan."
+        }
+      ]
+    },
+    "pillarB": {
+      "title": "Pilar B — Hospitality & Business Operations",
+      "cases": [
+        {
+          "id": "B1",
+          "name": "Digitalisasi Operasional — Hanania Kitchen and Brew",
+          "client": "Hanania Kitchen and Brew, Semarang (peran saat ini)",
+          "condition": "Koordinasi multi-outlet yang kompleks, kebocoran margin dari food waste, fluktuasi biaya utilitas (LPG) yang sulit dipantau.",
+          "solution": "Sistem operasi Notion terintegrasi (database HR & inventaris), SOP penerimaan barang digital dengan checklist peran, analisis P&L bulanan (price-vs-consumption breakdown untuk LPG).",
+          "result": "Kontrol margin terlindungi, transparansi audit gudang meningkat, waktu administratif manajemen terpangkas signifikan."
+        },
+        {
+          "id": "B2",
+          "name": "Redesain Insentif Resor (The 12x Earnings Formula)",
+          "client": "Patuno Resort Wakatobi (GM, Mar 2013–Mei 2014)",
+          "condition": "Turnover staf tinggi akibat pembagian service charge & insentif yang tidak transparan.",
+          "solution": "Skema insentif performa berbasis lembar kerja otomatis, transparan bagi seluruh lapisan staf.",
+          "result": "Pendapatan service charge staf naik 12x lipat (Rp 75.000 → Rp 900.000/bulan), turnover menurun, tanpa menggerus margin laba resor."
+        }
+      ]
+    }
+  },
+  "competency": {
+    "title": "Grid Kompetensi Ganda",
+    "operationalTitle": "Operational & People Leadership",
+    "techTitle": "Vibe Coding & Tech Stack",
+    "operational": [
+      "Cafe, Restaurant & Resort Operations",
+      "SOP & Operational Policy Development",
+      "Financial P&L & Cost Ratio Control",
+      "Purchasing & Inventory Audits",
+      "Recruitment, Onboarding, Performance Management",
+      "Certified Master Trainer & Assessor (TAFE Queensland)"
+    ],
+    "tech": [
+      "AI Development — Vibe Coding via Claude Code & OpenClaw",
+      "Otomatisasi Alur Kerja — n8n, Google Workspace",
+      "Custom Notion Database & Sistem Operasi Digital",
+      "AI-assisted reporting & prompt engineering",
+      "Certified Virtual Assistant — Lead Gen & Social Media (Singapore)",
+      "LMS/Platform Operations (AJAR Media, 2018–2022)"
+    ]
+  },
+  "about": {
+    "title": "Kenal Win Winarno",
+    "timeline": [
+      { "year": "1993", "role": "Bellboy & Telephone Operator", "org": "Puri Garden Hotel Semarang" },
+      { "year": "1996", "role": "Assistant Front Office Manager", "org": "Ibis Rajawali Surabaya" },
+      { "year": "2000", "role": "Duty Manager", "org": "Novotel Bogor" },
+      { "year": "2002", "role": "Night Manager", "org": "Ciputra Hotel Semarang" },
+      { "year": "2006", "role": "Food Court Manager", "org": "Ciputra Mall Semarang" },
+      { "year": "2007", "role": "Front Office Manager", "org": "Legian Beach Bali / Sentosa Private Villa & Spa / Harris Tuban Bali" },
+      { "year": "2010", "role": "Butler", "org": "Raffles Makkah Palace, Saudi Arabia" },
+      { "year": "2012", "role": "Duty Manager", "org": "JW Marriott Surabaya" },
+      { "year": "2013", "role": "General Manager", "org": "Patuno Resort Wakatobi (redesain insentif 12x)" },
+      { "year": "2014", "role": "Pre-Opening GM", "org": "Rumah Kito Resort, Jambi" },
+      { "year": "2015", "role": "Independent HR & Operations Consultant", "org": "6 klien rumah sakit di Jawa Tengah" },
+      { "year": "2018", "role": "Head of Operation", "org": "AJAR Media Digital (LMS hospitality, kemitraan lintas negara)" },
+      { "year": "2023", "role": "HR & Operations Consultant", "org": "Hanania Kitchen and Brew" },
+      { "year": "2026", "role": "Operational Manager", "org": "Hanania Kitchen and Brew (sekarang)" },
+      { "year": "2026", "role": "Menguasai Vibe Coding", "org": "membangun sistem & web app sendiri" }
+    ],
+    "closing": "Dari Bellboy tahun 1993 hingga menjadi Operational Manager yang membangun sistem digitalnya sendiri — perjalanan ini bukan soal ganti profesi, tapi soal terus mencari alat yang paling efektif untuk menyelesaikan masalah operasional nyata. Hari ini, alat itu adalah kode."
+  },
+  "contact": {
+    "title": "Kontak",
+    "form": {
+      "name": "Nama",
+      "email": "Email",
+      "message": "Pesan",
+      "submit": "Kirim Pesan"
+    },
+    "location": "Semarang, Jawa Tengah, Indonesia"
+  }
+}
