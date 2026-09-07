@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { motion } from 'motion/react';
 import { LANGUAGES, normalizeLanguage, setLanguage } from './config';
 
 export function LanguageToggle() {
@@ -20,13 +21,21 @@ export function LanguageToggle() {
             onClick={() => setLanguage(lang)}
             aria-pressed={isActive}
             title={lang === 'id' ? 'Bahasa Indonesia' : 'English'}
-            className={`px-3 py-1.5 text-[0.6rem] uppercase tracking-[0.25em] transition-colors duration-300 ${
+            className={`relative px-3 py-1.5 text-[0.6rem] uppercase tracking-[0.25em] transition-colors duration-300 ${
               isActive
-                ? 'bg-[color:var(--card-bg)] text-[var(--accent)]'
+                ? 'text-[var(--accent)]'
                 : 'text-[var(--muted)] hover:text-[var(--fg)]'
             }`}
           >
-            {lang}
+            {isActive && (
+              <motion.span
+                layoutId="lang-indicator"
+                transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                className="absolute inset-0 bg-[color:var(--card-bg)]"
+                aria-hidden="true"
+              />
+            )}
+            <span className="relative">{lang}</span>
           </button>
         );
       })}

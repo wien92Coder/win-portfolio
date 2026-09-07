@@ -38,7 +38,8 @@ Create `.env.local` at the repo root (gitignored):
 VITE_CONTACT_ENDPOINT=https://<your-host>/contact.php
 ```
 
-The form then POSTs `{ name, email, message, website, sentAt }`; `website` is
-the honeypot field. Success/failure copy is shown to the visitor in the active
-locale. Until the env var is set, the form renders but does not send (it logs a
-warning).
+The form then POSTs `{ name, email, phone, message, website, sentAt }`;
+`website` is the honeypot field and `phone` is the visitor's number with the
+dial code (e.g. `+62 812 3456 7890`) from the country picker. Success/failure
+copy is shown to the visitor in the active locale. Until the env var is set,
+the form renders but does not send (it logs a warning).

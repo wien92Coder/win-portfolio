@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'motion/react';
 import { normalizeLanguage } from '../i18n/config';
 import { formatRupiah } from '../lib/format';
 import { calculateFoodCost, type FoodCostStatus } from '../lib/foodCost';
@@ -238,7 +239,15 @@ export function FoodCostCalculator() {
                 {t('playground.kpis.totalCogs')}
               </dt>
               <dd className="mt-1 font-[family-name:var(--font-display)] text-[2.2rem] leading-none text-[var(--fg)]">
-                {formatRupiah(result.totalCogs, locale)}
+                <motion.span
+                  key={result.totalCogs}
+                  initial={{ opacity: 0.4, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, ease: 'easeOut' }}
+                  className="inline-block"
+                >
+                  {formatRupiah(result.totalCogs, locale)}
+                </motion.span>
               </dd>
             </div>
             <div>
@@ -246,7 +255,15 @@ export function FoodCostCalculator() {
                 {t('playground.kpis.actualRatio')}
               </dt>
               <dd className="mt-1 font-[family-name:var(--font-display)] text-[2.2rem] leading-none text-[var(--fg)]">
-                {result.actualFoodCostPercent === null ? '—' : `${result.actualFoodCostPercent}%`}
+                <motion.span
+                  key={result.actualFoodCostPercent}
+                  initial={{ opacity: 0.4, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, ease: 'easeOut' }}
+                  className="inline-block"
+                >
+                  {result.actualFoodCostPercent === null ? '—' : `${result.actualFoodCostPercent}%`}
+                </motion.span>
               </dd>
               {result.status && (
                 <span
@@ -262,9 +279,17 @@ export function FoodCostCalculator() {
                 {t('playground.kpis.recommendedPrice')}
               </dt>
               <dd className="mt-1 font-[family-name:var(--font-display)] text-[2.2rem] leading-none text-[var(--accent)]">
-                {result.recommendedSellingPrice === null
-                  ? '—'
-                  : formatRupiah(result.recommendedSellingPrice, locale)}
+                <motion.span
+                  key={result.recommendedSellingPrice}
+                  initial={{ opacity: 0.4, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, ease: 'easeOut' }}
+                  className="inline-block"
+                >
+                  {result.recommendedSellingPrice === null
+                    ? '—'
+                    : formatRupiah(result.recommendedSellingPrice, locale)}
+                </motion.span>
               </dd>
             </div>
           </dl>

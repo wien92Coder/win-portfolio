@@ -1,7 +1,23 @@
 import { useTranslation } from 'react-i18next';
+import { motion, type Variants } from 'motion/react';
 import { HeroPortrait } from './HeroPortrait';
 
 type Proof = Array<{ value: string; label: string }>;
+
+const container: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.08 } },
+};
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const proofList: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.07 } },
+};
 
 export function Hero() {
   const { t } = useTranslation();
@@ -9,38 +25,64 @@ export function Hero() {
   const badges = t('hero.badges', { returnObjects: true }) as string[];
 
   return (
-    <section id="hero" className="flex min-h-screen flex-col justify-center py-28">
+    <motion.section
+      id="hero"
+      className="flex min-h-screen flex-col justify-center py-28"
+      variants={container}
+      initial="hidden"
+      animate="show"
+    >
       <div className="grid items-center gap-x-14 gap-y-12 lg:grid-cols-[minmax(0,1fr)_auto]">
         <div>
-          <p className="mb-6 text-[0.6rem] uppercase tracking-[0.25em] text-[var(--muted)]">
+          <motion.p
+            variants={item}
+            className="mb-6 text-[0.6rem] uppercase tracking-[0.25em] text-[var(--muted)]"
+          >
             {t('competency.operationalTitle')} / {t('competency.techTitle')}
-          </p>
-          <h1 className="max-w-4xl font-[family-name:var(--font-display)] text-[clamp(3rem,8vw,6.5rem)] leading-[0.92] tracking-[0.03em]">
+          </motion.p>
+          <motion.h1
+            variants={item}
+            className="max-w-4xl font-[family-name:var(--font-display)] text-[clamp(3rem,8vw,6.5rem)] leading-[0.92] tracking-[0.03em]"
+          >
             {t('hero.h1')}
-          </h1>
-          <p className="mt-8 max-w-2xl text-[0.78rem] leading-[1.8] text-[var(--muted)]">
+          </motion.h1>
+          <motion.p
+            variants={item}
+            className="mt-8 max-w-2xl text-[0.78rem] leading-[1.8] text-[var(--muted)]"
+          >
             {t('hero.subheadline')}
-          </p>
-          <p className="mt-4 text-[0.7rem] italic">{t('hero.bridge')}</p>
+          </motion.p>
+          <motion.p variants={item} className="mt-4 text-[0.7rem] italic">
+            {t('hero.bridge')}
+          </motion.p>
         </div>
 
-        <HeroPortrait />
+        <motion.div variants={item}>
+          <HeroPortrait />
+        </motion.div>
       </div>
 
-      <ul className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4">
-        {proof.map((item) => (
-          <li key={item.label} className="border-l border-[color:var(--card-border)] pl-4">
+      <motion.ul
+        variants={proofList}
+        className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4"
+      >
+        {proof.map((proofItem) => (
+          <motion.li
+            key={proofItem.label}
+            variants={item}
+            className="border-l border-[color:var(--card-border)] pl-4"
+          >
             <span className="block font-[family-name:var(--font-display)] text-[2.2rem] leading-none text-[var(--accent)]">
-              {item.value}
+              {proofItem.value}
             </span>
             <span className="mt-2 block text-[0.58rem] uppercase tracking-[0.2em] text-[var(--muted)]">
-              {item.label}
+              {proofItem.label}
             </span>
-          </li>
+          </motion.li>
         ))}
-      </ul>
+      </motion.ul>
 
-      <ul className="mt-10 flex flex-wrap gap-3">
+      <motion.ul variants={item} className="mt-10 flex flex-wrap gap-3">
         {badges.map((badge) => (
           <li
             key={badge}
@@ -49,9 +91,9 @@ export function Hero() {
             {badge}
           </li>
         ))}
-      </ul>
+      </motion.ul>
 
-      <div className="mt-14 flex flex-wrap gap-4">
+      <motion.div variants={item} className="mt-14 flex flex-wrap gap-4">
         <a
           href="#playground"
           className="border border-[var(--accent)] px-5 py-3 text-[0.62rem] uppercase tracking-[0.18em] transition-colors duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)]"
@@ -64,7 +106,7 @@ export function Hero() {
         >
           {t('hero.ctaSecondary')}
         </a>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

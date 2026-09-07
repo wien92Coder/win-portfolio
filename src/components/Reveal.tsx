@@ -1,44 +1,28 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { motion } from 'motion/react';
+import type { ReactNode } from 'react';
 
 interface RevealProps {
   children: ReactNode;
   className?: string;
+  /** Seconds to wait after entering the viewport before animating. */
+  delay?: number;
+  /** Vertical travel distance in px (0 for a pure fade). */
+  y?: number;
 }
 
-/** Reveals its children on scroll (IntersectionObserver) — or immediately
- *  when the user prefers reduced motion (design-system.md §8 recommendation). */
-export function Reveal({ children, className = '' }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setVisible(true);
-      return;
-    }
-    const node = ref.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            observer.disconnect();
-          }
-        }
-      },
-      { threshold: 0.12 },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
+/** Reveals its children when scrolled into view (Framer Motion). Transform
+ *  animations are auto-disabled for reduced-motion users via
+ *  <MotionConfig reducedMotion="user"> (design-system.md §8). */
+export function Reveal({ children, className = '', delay = 0, y = 18 }: RevealProps) {
   return (
-    <div
-      ref={ref}
-      className={`transition-opacity duration-500 ease-out ${visible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'} ${className}`}
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

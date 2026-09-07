@@ -7,9 +7,12 @@
     "hero": "Hero",
     "playground": "Playground",
     "caseStudies": "Studi Kasus",
+    "webProject": "Web",
     "competency": "Kompetensi Ganda",
     "about": "Tentang",
-    "contact": "Kontak"
+    "contact": "Kontak",
+    "openMenu": "Buka menu",
+    "closeMenu": "Tutup menu"
   },
   "hero": {
     "h1": "Saya Tidak Sekadar Menulis Kode. Saya Membangun Sistem yang Mengoptimalkan Operasi.",
@@ -109,6 +112,12 @@
         }
       ]
     },
+    "webProject": {
+      "tag": "Proyek Web",
+      "title": "Six Faces — Walking The Cow",
+      "description": "Showcase kubus 3D yang digerakkan scroll — enam scene, enam gambar, satu objek. Pengalaman web imersif yang mengubah scroll menjadi rotasi fisik, dibangun di atas design system yang sama dengan halaman ini.",
+      "cta": "Jelajahi Pengalaman"
+    },
     "pillarB": {
       "title": "Pilar B — Hospitality & Business Operations",
       "cases": [
@@ -178,6 +187,9 @@
     "form": {
       "name": "Nama",
       "email": "Email",
+      "country": "Negara",
+      "phone": "Nomor Handphone",
+      "phonePlaceholder": "812 3456 7890",
       "message": "Pesan",
       "submit": "Kirim Pesan",
       "sending": "Mengirim…",
@@ -185,5 +197,8 @@
       "error": "Terjadi kendala. Silakan kirim email langsung atau coba lagi."
     },
     "location": "Semarang, Jawa Tengah, Indonesia"
+  },
+  "sixFaces": {
+    "back": "Kembali"
   }
 }

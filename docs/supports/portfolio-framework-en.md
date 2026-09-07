@@ -252,7 +252,7 @@ A linear narrative, best visualized as a vertical timeline (fits the design syst
 
 ### 3.6 Contact
 
-- Message form (name, email, message) — dummy endpoint, set up to connect to an n8n webhook (WhatsApp/Email), consistent with Win's automation expertise
+- Message form (name, email, country + phone number with flag picker, message) — delivered straight to Gmail via an open-source PHP endpoint (PHPMailer/SMTP), no paid service
 
 ---
 
@@ -269,9 +269,7 @@ From the supporting brainstorming documents, there are a few *product-thinking* 
 
 ## 5. Tech Stack Decision (Final)
 
-After consideration: this site **stays single-page** (no firm plan for multiple pages in the near term), so TanStack Router and TanStack Query are **not being used** — both would add complexity without real benefit for this case (the *Abstraction Tax* principle from your own design-tokens document applies exactly here).
-
-**Final stack: React (Vite) + TypeScript + Tailwind CSS.** If the site later grows into a multi-page setup (e.g., the "Lab" page for Phase 2 SaaS ideas actually gets built), a router can be added then — it's far easier to add later than to rip out a structure that's already in place.
+**Final stack: React (Vite) + TypeScript + Tailwind CSS + react-router** (v8, added when the immersive Six Faces page `/six-faces` was built as a separate route — see §3.6/Case Studies). TanStack Query is not used (no server-side data to cache); TanStack Router is not used since routing needs are just two simple routes.
 
 ## 6. Condensed Instructions for Claude Code
 

@@ -252,7 +252,7 @@ Narasi linear, bisa divisualisasikan sebagai timeline vertikal (cocok dengan est
 
 ### 3.6 Contact
 
-- Form pesan (nama, email, pesan) — endpoint dummy, disiapkan untuk terhubung ke n8n webhook (WhatsApp/Email) sesuai keahlian otomatisasi Win
+- Form pesan (nama, email, negara + nomor handphone dengan pemilih bendera, pesan) — dikirim langsung ke Gmail via endpoint PHP open-source (PHPMailer/SMTP), tanpa layanan berbayar
 
 ---
 
@@ -269,9 +269,7 @@ Dari dokumen-dokumen brainstorming pendukung, ada beberapa ide *product thinking
 
 ## 5. Keputusan Tech Stack (Final)
 
-Setelah dipertimbangkan: situs ini **tetap single-page** (tidak ada rencana pasti multi-halaman dalam waktu dekat), jadi TanStack Router dan TanStack Query **tidak dipasang** — keduanya menambah kompleksitas tanpa manfaat nyata untuk kasus ini (prinsip *Abstraction Tax* dari dokumen design-tokens kamu sendiri berlaku persis di sini).
-
-**Stack final: React (Vite) + TypeScript + Tailwind CSS.** Kalau nanti situs berkembang jadi multi-halaman (misal halaman "Lab" untuk ide SaaS Fase 2 benar-benar dibangun), Router bisa ditambahkan belakangan — jauh lebih mudah menambah daripada mencabut struktur yang sudah kadung terpasang.
+**Stack final: React (Vite) + TypeScript + Tailwind CSS + react-router** (v8, ditambahkan saat halaman imersif Six Faces `/six-faces` dibangun sebagai route terpisah — lihat §3.6/Case Studies). TanStack Query tidak dipasang (tidak ada data server-side yang perlu di-cache); TanStack Router tidak digunakan karena kebutuhan routing saat ini hanya dua route sederhana.
 
 ## 6. Instruksi Ringkas untuk Claude Code
 

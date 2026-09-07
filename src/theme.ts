@@ -30,6 +30,9 @@ export function getThemeSetting(): ThemeSetting {
 export function applyTheme(theme: Theme): void {
   document.documentElement.setAttribute('data-theme', theme);
   document.documentElement.style.colorScheme = theme;
+  // Notify theme-aware consumers (e.g. the Six Faces cube swapping
+  // light/dark face images) without them having to poll data-theme.
+  window.dispatchEvent(new CustomEvent<Theme>('themechange', { detail: theme }));
 }
 
 export function setTheme(setting: ThemeSetting): void {

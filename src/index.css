@@ -85,3 +85,69 @@ body {
   background: var(--accent);
   color: var(--bg);
 }
+
+/* Nav link underline — hairline that grows from the left on hover/focus
+   (design-system.md §3: hairline as the dominant decorative element). */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.3rem;
+  height: var(--hairline);
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link::after {
+    transition: none;
+  }
+}
+
+/* Mobile burger icon — three hairline bars morphing into a close X.
+   (design-system.md §3: hairline as the dominant decorative element.) */
+.burger-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 16px;
+}
+
+.burger-icon span {
+  display: block;
+  height: var(--hairline);
+  background: currentColor;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.burger-icon.open span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.burger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-icon.open span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .burger-icon span {
+    transition: none;
+  }
+}

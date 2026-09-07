@@ -1,6 +1,9 @@
 import { useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { AnimatePresence, motion } from 'motion/react';
 import { Reveal } from './Reveal';
+import { CountrySelect } from './CountrySelect';
+import { DEFAULT_COUNTRY } from '../lib/countries';
 
 // The form POSTs to the open-source PHP endpoint configured via
 // VITE_CONTACT_ENDPOINT (see public/contact.php and docs/contact-php/README.md).
@@ -15,6 +18,7 @@ type SendStatus = 'idle' | 'sending' | 'success' | 'error';
 export function Contact() {
   const { t } = useTranslation();
   const [status, setStatus] = useState<SendStatus>('idle');
+  const [country, setCountry] = useState(DEFAULT_COUNTRY);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -26,9 +30,11 @@ export function Contact() {
     }
 
     const data = new FormData(form);
+    const digits = String(data.get('phone') ?? '').trim();
     const payload = {
       name: String(data.get('name') ?? ''),
       email: String(data.get('email') ?? ''),
+      phone: digits ? `${country.dialCode} ${digits}` : '',
       message: String(data.get('message') ?? ''),
       website: String(data.get('website') ?? ''), // honeypot — contact.php drops filled submissions
       sentAt: new Date().toISOString(),
@@ -86,6 +92,28 @@ export function Contact() {
             </label>
             <input id="contact-email" name="email" type="email" required className={`${INPUT_CLASS} mt-2`} />
           </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-[11rem_1fr]">
+            <div>
+              <label id="contact-country-label" className="block text-[0.58rem] uppercase tracking-[0.2em] text-[var(--muted)]">
+                {t('contact.form.country')}
+              </label>
+              <CountrySelect value={country} onChange={setCountry} labelId="contact-country-label" />
+            </div>
+            <div>
+              <label htmlFor="contact-phone" className="block text-[0.58rem] uppercase tracking-[0.2em] text-[var(--muted)]">
+                {t('contact.form.phone')}
+              </label>
+              <input
+                id="contact-phone"
+                name="phone"
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel-national"
+                placeholder={t('contact.form.phonePlaceholder')}
+                className={`${INPUT_CLASS} mt-2`}
+              />
+            </div>
+          </div>
           <div>
             <label htmlFor="contact-message" className="block text-[0.58rem] uppercase tracking-[0.2em] text-[var(--muted)]">
               {t('contact.form.message')}
@@ -100,16 +128,34 @@ export function Contact() {
             >
               {status === 'sending' ? t('contact.form.sending') : t('contact.form.submit')}
             </button>
-            {status === 'success' && (
-              <p role="status" className="text-[0.7rem] text-[var(--status-ok)]">
-                {t('contact.form.success')}
-              </p>
-            )}
-            {status === 'error' && (
-              <p role="alert" className="text-[0.7rem] text-[var(--status-crit)]">
-                {t('contact.form.error')}
-              </p>
-            )}
+            <AnimatePresence initial={false}>
+              {status === 'success' && (
+                <motion.p
+                  key="success"
+                  role="status"
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
+                  className="text-[0.7rem] text-[var(--status-ok)]"
+                >
+                  {t('contact.form.success')}
+                </motion.p>
+              )}
+              {status === 'error' && (
+                <motion.p
+                  key="error"
+                  role="alert"
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
+                  className="text-[0.7rem] text-[var(--status-crit)]"
+                >
+                  {t('contact.form.error')}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
         </form>
       </Reveal>

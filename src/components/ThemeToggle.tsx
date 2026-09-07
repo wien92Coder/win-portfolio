@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import { getThemeSetting, setTheme, type ThemeSetting } from '../theme';
 
 const OPTIONS: ThemeSetting[] = ['system', 'dark', 'light'];
@@ -17,7 +18,11 @@ export function ThemeToggle() {
   }
 
   return (
-    <div className="flex items-stretch border border-[color:var(--card-border)]" role="group" aria-label="Theme">
+    <div
+      className="flex items-stretch border border-[color:var(--card-border)]"
+      role="group"
+      aria-label="Theme"
+    >
       {OPTIONS.map((option) => {
         const isActive = option === setting;
         return (
@@ -27,13 +32,21 @@ export function ThemeToggle() {
             onClick={() => choose(option)}
             aria-pressed={isActive}
             title={LABELS[option]}
-            className={`px-2 py-1.5 text-[0.55rem] uppercase tracking-[0.2em] transition-colors duration-300 ${
+            className={`relative px-2 py-1.5 text-[0.55rem] uppercase tracking-[0.2em] transition-colors duration-300 ${
               isActive
-                ? 'bg-[color:var(--card-bg)] text-[var(--accent)]'
+                ? 'text-[var(--accent)]'
                 : 'text-[var(--muted)] hover:text-[var(--fg)]'
             }`}
           >
-            {option === 'system' ? 'Sys' : option}
+            {isActive && (
+              <motion.span
+                layoutId="theme-indicator"
+                transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                className="absolute inset-0 bg-[color:var(--card-bg)]"
+                aria-hidden="true"
+              />
+            )}
+            <span className="relative">{option === 'system' ? 'Sys' : option}</span>
           </button>
         );
       })}

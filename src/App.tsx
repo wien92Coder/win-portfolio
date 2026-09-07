@@ -1,33 +1,47 @@
-import { useTranslation } from 'react-i18next';
-import { LocaleHygiene } from './i18n/LocaleHygiene';
-import { Nav } from './components/Nav';
-import { Hero } from './components/Hero';
-import { FoodCostCalculator } from './components/FoodCostCalculator';
-import { CaseStudies } from './components/CaseStudies';
-import { CompetencyGrid } from './components/CompetencyGrid';
-import { Timeline } from './components/Timeline';
-import { Contact } from './components/Contact';
+import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router';
+import { MotionConfig, motion } from 'motion/react';
+import { Home } from './Home';
+import { SixFaces } from './pages/SixFaces';
+
+/** Each route change starts at the top of the page. */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+/** Fades each route in (Home ⇄ /six-faces). The previous page unmounts
+ *  immediately — AnimatePresence exit-out is deliberately avoided: with
+ *  React 19 StrictMode its mode="wait" exit can stall and block the next
+ *  route from mounting. */
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <motion.div
+      key={location.pathname}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+    >
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        <Route path="/six-faces" element={<SixFaces />} />
+      </Routes>
+    </motion.div>
+  );
+}
 
 export default function App() {
-  const { t } = useTranslation();
-
   return (
-    <div className="min-h-screen bg-[var(--bg)] text-[var(--fg)] transition-colors duration-300">
-      <LocaleHygiene />
-      <Nav />
-
-      <main className="mx-auto max-w-5xl px-6">
-        <Hero />
-        <FoodCostCalculator />
-        <CaseStudies />
-        <CompetencyGrid />
-        <Timeline />
-        <Contact />
-      </main>
-
-      <footer className="border-t border-[color:var(--card-border)] py-10 text-center text-[0.6rem] uppercase tracking-[0.2em] text-[var(--muted)]">
-        {t('contact.location')} · © {new Date().getFullYear()} Win Winarno
-      </footer>
-    </div>
+    // reducedMotion="user" disables transform/layout animations for
+    // visitors who prefer reduced motion (design-system.md §8) — opacity
+    // fades are kept, which is the recommended fallback.
+    <MotionConfig reducedMotion="user">
+      <ScrollToTop />
+      <AnimatedRoutes />
+    </MotionConfig>
   );
 }

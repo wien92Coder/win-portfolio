@@ -7,9 +7,12 @@
     "hero": "Hero",
     "playground": "Playground",
     "caseStudies": "Case Studies",
+    "webProject": "Web",
     "competency": "Dual Competency",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "h1": "I Don't Just Write Code. I Build Systems That Optimize Operations.",
@@ -109,6 +112,12 @@
         }
       ]
     },
+    "webProject": {
+      "tag": "Web Project",
+      "title": "Six Faces — Walking The Cow",
+      "description": "A scroll-driven 3D cube showcase — six scenes, six images, one object. An immersive web experience that turns scrolling into a physical rotation, built on the same design system as this page.",
+      "cta": "Explore the Experience"
+    },
     "pillarB": {
       "title": "Pillar B — Hospitality & Business Operations",
       "cases": [
@@ -178,6 +187,9 @@
     "form": {
       "name": "Name",
       "email": "Email",
+      "country": "Country",
+      "phone": "Phone",
+      "phonePlaceholder": "812 3456 7890",
       "message": "Message",
       "submit": "Send Message",
       "sending": "Sending…",
@@ -185,5 +197,8 @@
       "error": "Something went wrong. Please email me directly or try again."
     },
     "location": "Semarang, Central Java, Indonesia"
+  },
+  "sixFaces": {
+    "back": "Back"
   }
 }
