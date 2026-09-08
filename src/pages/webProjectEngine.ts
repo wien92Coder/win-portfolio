@@ -7,7 +7,7 @@
  *  - Theme follows the site's 3-state theme (no own toggle). Face images
  *    swap between light/dark variants on the `themechange` CustomEvent
  *    dispatched by theme.ts.
- *  - Face images are local assets under public/web-project/; a missing image
+ *  - Face images are local assets under public/cube/; a missing image
  *    falls back to the design-system face placeholder (grid + label) —
  *    drop in face-01.webp … face-06.webp (+ -dark.webp variants) later
  *    and they appear without touching code.
@@ -18,7 +18,7 @@
 
 const IMAGE_SRCS = Array.from(
   { length: 6 },
-  (_, i) => `${import.meta.env.BASE_URL}web-project/face-0${i + 1}.webp`,
+  (_, i) => `${import.meta.env.BASE_URL}cube/face-0${i + 1}.webp`,
 );
 
 const FACE_NAMES = ['HANANIA', 'AKAR JOGJA', 'AZWA', 'BLIHO', 'CAFE RESTO', 'HOTEL VILLA'];
