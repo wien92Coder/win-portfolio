@@ -114,9 +114,9 @@
     },
     "webProject": {
       "tag": "Web Project",
-      "title": "Six Faces — Walking The Cow",
-      "description": "A scroll-driven 3D cube showcase — six scenes, six images, one object. An immersive web experience that turns scrolling into a physical rotation, built on the same design system as this page.",
-      "cta": "Explore the Experience"
+      "title": "The Right Tool for Every Website",
+      "description": "WordPress when clients want to edit it themselves — hand-coded HTML, CSS & JS when it should stay feather-light — ReactJS when it needs to feel alive, and vibe coding when speed matters most. I match the approach to the goal, so every website ships fast, stays maintainable, and holds one design standard.",
+      "cta": "Explore the project"
     },
     "pillarB": {
       "title": "Pillar B — Hospitality & Business Operations",
@@ -198,7 +198,51 @@
     },
     "location": "Semarang, Central Java, Indonesia"
   },
-  "sixFaces": {
-    "back": "Back"
+  "webProject": {
+    "documentTitle": "Web Project",
+    "back": "Back",
+    "turn": "Turn",
+    "enter": "Enter",
+    "beginAgain": "Begin again",
+    "credit": "Reverse Creativity",
+    "faces": ["TOP", "FRONT", "RIGHT", "BACK", "LEFT", "BOTTOM"],
+    "stats": {
+      "works": "Works",
+      "degrees": "Degrees",
+      "object": "Object"
+    },
+    "scenes": [
+      {
+        "tag": "Kitchen - Brew",
+        "title": ["REKAM", "JEJAK", "HANANIA"],
+        "description": "A Modern and Industrial Cafe Resto in Ungaran, Kabupaten Semarang. Serving western food and authentic nusantara cuisine.",
+        "link": "https://rjhanania.com"
+      },
+      {
+        "tag": "Akar - Jogja",
+        "title": ["AKAR", "JOGJA"],
+        "description": "Akar Jogja is a professional hospitality training institution in Jogja - DIY. An educational institution focused on Housekeeping and Kitchen."
+      },
+      {
+        "tag": "AZWA - Outsourcing",
+        "title": ["OUTSOURCING", "COMPANY"],
+        "description": "A trusted outsourcing company with many clients across Java. Headquartered in the heart of Sleman, DIY."
+      },
+      {
+        "tag": "Bliho - Ecommerce",
+        "title": ["DIGITAL PRODUCT", "MARKETPLACE"],
+        "description": "Bliho was born for every need of the Hospitality Industry — from SOPs and PowerPoint templates to more."
+      },
+      {
+        "tag": "Cafe Website",
+        "title": ["PROJECT", "CAFE RESTO", "WEBSITE"],
+        "description": "A website that serves as information, reservations, and CRM (Customer Relationship Management)."
+      },
+      {
+        "tag": "Hotel - Villa",
+        "title": ["PROJECT", "HOTEL VILLA", "WEBSITE"],
+        "description": "A hotel and villa website with online booking and a Google Business dashboard."
+      }
+    ]
   }
 }

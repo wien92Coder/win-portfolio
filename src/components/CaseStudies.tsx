@@ -159,7 +159,7 @@ export function CaseStudies() {
             {t('caseStudies.webProject.description')}
           </p>
           <Link
-            to="/six-faces"
+            to="/web-project"
             className="mt-6 inline-flex items-center gap-2 border border-[var(--accent)] px-4 py-2 text-[0.62rem] uppercase tracking-[0.18em] text-[var(--accent)] transition-colors duration-200 hover:bg-[var(--accent)] hover:text-[var(--bg)]"
           >
             {t('caseStudies.webProject.cta')}

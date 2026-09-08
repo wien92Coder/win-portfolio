@@ -269,7 +269,7 @@ From the supporting brainstorming documents, there are a few *product-thinking* 
 
 ## 5. Tech Stack Decision (Final)
 
-**Final stack: React (Vite) + TypeScript + Tailwind CSS + react-router** (v8, added when the immersive Six Faces page `/six-faces` was built as a separate route — see §3.6/Case Studies). TanStack Query is not used (no server-side data to cache); TanStack Router is not used since routing needs are just two simple routes.
+**Final stack: React (Vite) + TypeScript + Tailwind CSS + react-router** (v8, added when the immersive Web Project page `/web-project` was built as a separate route — see §3.6/Case Studies). TanStack Query is not used (no server-side data to cache); TanStack Router is not used since routing needs are just two simple routes.
 
 ## 6. Condensed Instructions for Claude Code
 

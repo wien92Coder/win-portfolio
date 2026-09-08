@@ -114,9 +114,9 @@
     },
     "webProject": {
       "tag": "Proyek Web",
-      "title": "Six Faces — Walking The Cow",
-      "description": "Showcase kubus 3D yang digerakkan scroll — enam scene, enam gambar, satu objek. Pengalaman web imersif yang mengubah scroll menjadi rotasi fisik, dibangun di atas design system yang sama dengan halaman ini.",
-      "cta": "Jelajahi Pengalaman"
+      "title": "Alat yang Tepat untuk Setiap Website",
+      "description": "WordPress saat klien ingin mengelolanya sendiri — HTML, CSS & JS murni saat website harus ringan — ReactJS saat perlu terasa hidup, dan vibe coding saat kecepatan menjadi kunci. Saya menyesuaikan pendekatan dengan tujuannya, sehingga setiap website terbit cepat, mudah dirawat, dan konsisten pada satu standar desain.",
+      "cta": "Jelajahi proyek"
     },
     "pillarB": {
       "title": "Pilar B — Hospitality & Business Operations",
@@ -198,7 +198,51 @@
     },
     "location": "Semarang, Jawa Tengah, Indonesia"
   },
-  "sixFaces": {
-    "back": "Kembali"
+  "webProject": {
+    "documentTitle": "Proyek Web",
+    "back": "Kembali",
+    "turn": "Putar",
+    "enter": "Masuk",
+    "beginAgain": "Mulai lagi",
+    "credit": "Reverse Creativity",
+    "faces": ["ATAS", "DEPAN", "KANAN", "BELAKANG", "KIRI", "BAWAH"],
+    "stats": {
+      "works": "Karya",
+      "degrees": "Derajat",
+      "object": "Objek"
+    },
+    "scenes": [
+      {
+        "tag": "Kitchen - Brew",
+        "title": ["REKAM", "JEJAK", "HANANIA"],
+        "description": "Kafe restoran modern dan industrial di Ungaran, Kabupaten Semarang. Menyajikan makanan western dan kuliner nusantara autentik.",
+        "link": "https://rjhanania.com"
+      },
+      {
+        "tag": "Akar - Jogja",
+        "title": ["AKAR", "JOGJA"],
+        "description": "Akar Jogja adalah lembaga pelatihan kerja hospitality profesional yang berada di kota Jogja - DIY. Lembaga pendidikan yang fokus di bidang Housekeeping and kitchen."
+      },
+      {
+        "tag": "AZWA - Outsourcing",
+        "title": ["OUTSOURCING", "COMPANY"],
+        "description": "Sebuah outsourcing terpercaya yang sudah mempunyai banyak klien di Pulau Jawa. Kantor pusat berada di pusat Sleman, DIY."
+      },
+      {
+        "tag": "Bliho - Ecommerce",
+        "title": ["DIGITAL PRODUCT", "MARKETPLACE"],
+        "description": "Bliho terlahir untuk semua kebutuhan yang diperlukan oleh Hospitality Industry. Berbagai kebutuhan seperti SOP, Template Powerpoint, dll."
+      },
+      {
+        "tag": "Cafe Website",
+        "title": ["PROJECT", "CAFE RESTO", "WEBSITE"],
+        "description": "Sebuah website yang berfungsi sebagai informasi, reservasi dan juga CRM (Customer Relationship Management)."
+      },
+      {
+        "tag": "Hotel - Villa",
+        "title": ["PROJECT", "HOTEL VILLA", "WEBSITE"],
+        "description": "Website hotel dan villa disertai dengan booking online dan Google Business dashboard."
+      }
+    ]
   }
 }

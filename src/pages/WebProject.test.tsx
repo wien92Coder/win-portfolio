@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { MemoryRouter, Routes, Route } from 'react-router';
 import { describe, expect, it, beforeAll } from 'vitest';
 import '../i18n/config';
-import { SixFaces } from './SixFaces';
+import { WebProject } from './WebProject';
 
 // Opt into React's act() environment (no @testing-library/react here).
 (globalThis as Record<string, unknown>).IS_REACT_ACT_ENVIRONMENT = true;
@@ -39,17 +39,17 @@ beforeAll(() => {
   window.ResizeObserver = StubResizeObserver as unknown as typeof ResizeObserver;
 });
 
-describe('SixFaces page', () => {
-  it('renders the immersive cube experience on /six-faces', () => {
+describe('WebProject page', () => {
+  it('renders the immersive cube experience on /web-project', () => {
     const container = document.createElement('div');
     document.body.appendChild(container);
     const root = createRoot(container);
 
     act(() => {
       root.render(
-        <MemoryRouter initialEntries={['/six-faces']}>
+        <MemoryRouter initialEntries={['/web-project']}>
           <Routes>
-            <Route path="/six-faces" element={<SixFaces />} />
+            <Route path="/web-project" element={<WebProject />} />
           </Routes>
         </MemoryRouter>,
       );

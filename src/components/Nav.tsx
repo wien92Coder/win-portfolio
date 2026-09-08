@@ -9,7 +9,7 @@ const LINKS = [
   { id: 'hero', key: 'hero' },
   { id: 'playground', key: 'playground' },
   { id: 'case-studies', key: 'caseStudies' },
-  { id: '/six-faces', key: 'webProject', route: true },
+  { id: '/web-project', key: 'webProject', route: true },
   { id: 'competency', key: 'competency' },
   { id: 'about', key: 'about' },
   { id: 'contact', key: 'contact' },

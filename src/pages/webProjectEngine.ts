@@ -1,5 +1,5 @@
 /**
- * "Six Faces / Walking The Cow" — a scroll-driven 3D cube.
+ * "Web Project" — a scroll-driven 3D cube.
  *
  * Ported from CodePen ZYpyoRV by Luis Alberto Martinez Riancho and adapted
  * for the portfolio:
@@ -7,7 +7,7 @@
  *  - Theme follows the site's 3-state theme (no own toggle). Face images
  *    swap between light/dark variants on the `themechange` CustomEvent
  *    dispatched by theme.ts.
- *  - Face images are local assets under public/six-faces/; a missing image
+ *  - Face images are local assets under public/web-project/; a missing image
  *    falls back to the design-system face placeholder (grid + label) —
  *    drop in face-01.webp … face-06.webp (+ -dark.webp variants) later
  *    and they appear without touching code.
@@ -18,10 +18,10 @@
 
 const IMAGE_SRCS = Array.from(
   { length: 6 },
-  (_, i) => `${import.meta.env.BASE_URL}six-faces/face-0${i + 1}.webp`,
+  (_, i) => `${import.meta.env.BASE_URL}web-project/face-0${i + 1}.webp`,
 );
 
-const FACE_NAMES = ['DESCENT', 'REBELLION', 'MOO WALK', 'BAD ART', 'NO RULES', 'SUPER'];
+const FACE_NAMES = ['HANANIA', 'AKAR JOGJA', 'AZWA', 'BLIHO', 'CAFE RESTO', 'HOTEL VILLA'];
 
 const SWAP_RADIUS = 3;
 const N = IMAGE_SRCS.length;
@@ -58,7 +58,7 @@ const easeInOutCubic = (t: number): number =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 const dynamicFriction = (v: number): number => (Math.abs(v) > 200 ? 0.8 : 0.9);
 
-export function initSixFaces(root: HTMLElement): () => void {
+export function initWebProject(root: HTMLElement): () => void {
   const q = <T extends Element>(sel: string): T | null => root.querySelector<T>(sel);
   const qa = <T extends Element>(sel: string): T[] => Array.from(root.querySelectorAll<T>(sel));
 

@@ -269,7 +269,7 @@ Dari dokumen-dokumen brainstorming pendukung, ada beberapa ide *product thinking
 
 ## 5. Keputusan Tech Stack (Final)
 
-**Stack final: React (Vite) + TypeScript + Tailwind CSS + react-router** (v8, ditambahkan saat halaman imersif Six Faces `/six-faces` dibangun sebagai route terpisah — lihat §3.6/Case Studies). TanStack Query tidak dipasang (tidak ada data server-side yang perlu di-cache); TanStack Router tidak digunakan karena kebutuhan routing saat ini hanya dua route sederhana.
+**Stack final: React (Vite) + TypeScript + Tailwind CSS + react-router** (v8, ditambahkan saat halaman imersif Web Project `/web-project` dibangun sebagai route terpisah — lihat §3.6/Case Studies). TanStack Query tidak dipasang (tidak ada data server-side yang perlu di-cache); TanStack Router tidak digunakan karena kebutuhan routing saat ini hanya dua route sederhana.
 
 ## 6. Instruksi Ringkas untuk Claude Code
 

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router';
 import { MotionConfig, motion } from 'motion/react';
 import { Home } from './Home';
-import { SixFaces } from './pages/SixFaces';
+import { WebProject } from './pages/WebProject';
 
 /** Each route change starts at the top of the page. */
 function ScrollToTop() {
@@ -13,7 +13,7 @@ function ScrollToTop() {
   return null;
 }
 
-/** Fades each route in (Home ⇄ /six-faces). The previous page unmounts
+/** Fades each route in (Home ⇄ /web-project). The previous page unmounts
  *  immediately — AnimatePresence exit-out is deliberately avoided: with
  *  React 19 StrictMode its mode="wait" exit can stall and block the next
  *  route from mounting. */
@@ -28,7 +28,7 @@ function AnimatedRoutes() {
     >
       <Routes location={location}>
         <Route path="/" element={<Home />} />
-        <Route path="/six-faces" element={<SixFaces />} />
+        <Route path="/web-project" element={<WebProject />} />
       </Routes>
     </motion.div>
   );
