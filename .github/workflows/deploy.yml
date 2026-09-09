@@ -1,0 +1,82 @@
+# Deploy to VPS
+#
+# Builds the site and rsyncs `dist/` to your VPS on every push to `main`.
+# Also runnable manually via the "Run workflow" button (Actions tab).
+#
+# Required repository secrets (Settings → Secrets and variables → Actions):
+#   VPS_HOST      – IP or domain of the VPS, e.g. 203.0.113.10
+#   VPS_USER      – SSH user, e.g. root or deploy
+#   VPS_SSH_KEY   – private SSH key (BEGIN OPENSSH PRIVATE KEY block) that can
+#                   log in as VPS_USER; add its public key to ~/.ssh/authorized_keys
+#   DEPLOY_PATH   – web root on the VPS, e.g. /var/www/win-portfolio
+#
+# Optional:
+#   VPS_PORT      – SSH port, defaults to 22
+#
+# Repository variable (Settings → Variables, NOT secrets — it's a public URL):
+#   VITE_CONTACT_ENDPOINT – e.g. https://your-domain.com/contact.php, baked into
+#                           the build so the contact form actually sends mail.
+#
+# One-time setup on the VPS (run as the deploy user):
+#   sudo chown -R ubuntu:www-data /var/www/win-portfolio
+#   (so the SSH user can write to the web root; nginx still reads it fine)
+#
+# WARNING: rsync runs with `--delete`, so files in DEPLOY_PATH that are not in
+# the build get removed. `config.local.php` is excluded on purpose: it holds
+# per-server PHP config and is gitignored, so it would otherwise be deleted.
+
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-vps
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: |
+          if [ -n "$VITE_CONTACT_ENDPOINT" ]; then
+            echo "VITE_CONTACT_ENDPOINT=$VITE_CONTACT_ENDPOINT" > .env.production
+          fi
+          npm run build
+        env:
+          VITE_CONTACT_ENDPOINT: ${{ vars.VITE_CONTACT_ENDPOINT }}
+
+      - name: Deploy via rsync
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_PORT: ${{ secrets.VPS_PORT || '22' }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          echo "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
+          rsync -avz --delete --exclude=config.local.php \
+            -e "ssh -i ~/.ssh/deploy_key -p ${VPS_PORT} -o IdentitiesOnly=yes -o StrictHostKeyChecking=no" \
+            dist/ "${VPS_USER}@${VPS_HOST}:${DEPLOY_PATH}/"
