@@ -1,5 +1,45 @@
 @import "tailwindcss";
 
+/* Self-hosted webfonts — files in public/fonts (latin subset, woff2).
+   Previously these came from fonts.googleapis.com + fonts.gstatic.com. The
+   stylesheet always loaded, but the font *files* live on fonts.gstatic.com,
+   which intermittently fails to resolve/connect on some networks (seen with
+   Indonesian ISP resolvers). Because font-display:swap gives up after one
+   failed fetch, the page then keeps the fallback for the whole session — the
+   display font silently "disappears". Serving them same-origin removes the
+   third-party dependency, the extra DNS lookup and the extra round-trip. */
+@font-face {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/dm-mono-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/dm-mono-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Mono";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/dm-mono-latin-400-italic.woff2") format("woff2");
+}
+
 /* Three-layer token system per design-system.md §2–§3 and §9.
    Dark is the default theme (warm brown + gold); :root[data-theme="light"]
    overrides the semantic layer only (cream + muted dark green), set via the
