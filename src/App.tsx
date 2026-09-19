@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router';
 import { MotionConfig, motion } from 'motion/react';
+import { CustomCursor } from './components/CustomCursor';
 import { Home } from './Home';
 import { WebProject } from './pages/WebProject';
 
@@ -41,6 +42,7 @@ export default function App() {
     // fades are kept, which is the recommended fallback.
     <MotionConfig reducedMotion="user">
       <ScrollToTop />
+      <CustomCursor />
       <AnimatedRoutes />
     </MotionConfig>
   );

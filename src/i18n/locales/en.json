@@ -4,11 +4,10 @@
     "description": "30+ years of hospitality & healthcare operational leadership, powered by Vibe Coding — automation, digital operating systems, and custom solutions."
   },
   "nav": {
-    "hero": "Hero",
     "playground": "Playground",
     "caseStudies": "Case Studies",
     "webProject": "Web",
-    "competency": "Dual Competency",
+    "competency": "Competency",
     "about": "About",
     "contact": "Contact",
     "openMenu": "Open menu",

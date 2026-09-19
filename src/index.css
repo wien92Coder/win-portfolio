@@ -1,21 +1,67 @@
 @import "tailwindcss";
 
-/* Self-hosted webfonts — files in public/fonts (latin subset, woff2).
-   Previously these came from fonts.googleapis.com + fonts.gstatic.com. The
-   stylesheet always loaded, but the font *files* live on fonts.gstatic.com,
-   which intermittently fails to resolve/connect on some networks (seen with
-   Indonesian ISP resolvers). Because font-display:swap gives up after one
-   failed fetch, the page then keeps the fallback for the whole session — the
-   display font silently "disappears". Serving them same-origin removes the
-   third-party dependency, the extra DNS lookup and the extra round-trip. */
+/* ───────────────────────────────────────────────────────────────────────────
+   Self-hosted webfonts — files in public/fonts (latin subset, woff2).
+   Never load fonts from a third-party CDN: fonts.gstatic.com intermittently
+   fails to resolve on some networks (seen with Indonesian ISP resolvers) and
+   font-display:swap gives up after one failed fetch, silently keeping the
+   fallback for the whole session. Serving them same-origin removes that risk.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Display serif (LUMEN design system) — hero/section headings */
 @font-face {
-  font-family: "Bebas Neue";
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-latin-300-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-latin-300-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+  src: url("/fonts/cormorant-garamond-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/cormorant-garamond-latin-400-italic.woff2") format("woff2");
 }
 
+/* Geometric sans (LUMEN design system) — logo, card titles, numeric badges */
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/syne-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/syne-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/fonts/syne-latin-800-normal.woff2") format("woff2");
+}
+
+/* Monospace body font */
 @font-face {
   font-family: "DM Mono";
   font-style: normal;
@@ -23,7 +69,6 @@
   font-display: swap;
   src: url("/fonts/dm-mono-latin-400-normal.woff2") format("woff2");
 }
-
 @font-face {
   font-family: "DM Mono";
   font-style: normal;
@@ -31,7 +76,6 @@
   font-display: swap;
   src: url("/fonts/dm-mono-latin-500-normal.woff2") format("woff2");
 }
-
 @font-face {
   font-family: "DM Mono";
   font-style: italic;
@@ -40,33 +84,38 @@
   src: url("/fonts/dm-mono-latin-400-italic.woff2") format("woff2");
 }
 
-/* Three-layer token system per design-system.md §2–§3 and §9.
-   Dark is the default theme (warm brown + gold); :root[data-theme="light"]
-   overrides the semantic layer only (cream + muted dark green), set via the
-   3-state System/Dark/Light toggle (theme.ts, §7.1). */
+/* ───────────────────────────────────────────────────────────────────────────
+   Three-layer token system (design-system.md §2–§3 and §9).
+
+   DARK is the default theme and mirrors the LUMEN design system 1:1 —
+   near-black surfaces (#060608/#0d0d12/#12121a), warm text (#d4cfc8/#f0e8d8),
+   amber accent (#f5c97a), hairline borders at 6% white.
+
+   LIGHT keeps the site's previous palette (cream + muted dark green) — only
+   the semantic layer is overridden, driven by the 3-state System/Dark/Light
+   toggle (theme.ts, §7.1).
+   ─────────────────────────────────────────────────────────────────────────── */
 :root {
   color-scheme: dark;
 
-  /* Primitive */
-  --dark-bg: #1c1814;
-  --dark-fg: #ede8df;
-  --dark-muted: #8a7b6e;
-  --light-bg: #f0ece3;
-  --light-fg: #0d0d14;
-  --light-muted: #9a9aaa;
-  --accent-dark: #d4a84b;
-  --accent-light: #3a6e00;
-
-  /* Semantic (default: dark) */
-  --bg: var(--dark-bg);
-  --fg: var(--dark-fg);
-  --muted: var(--dark-muted);
-  --accent: var(--accent-dark);
-  --card-bg: rgba(28, 24, 20, 0.82);
-  --card-border: rgba(212, 168, 75, 0.2);
+  /* Semantic — dark (exact LUMEN values) */
+  --bg: #060608;
+  --bg2: #0d0d12;
+  --bg3: #12121a;
+  --border: rgba(255, 255, 255, 0.06);
+  --fg: #d4cfc8;
+  --warm: #f0e8d8;
+  --muted: #6b6870;
+  --accent: #f5c97a; /* amber */
+  --accent-dim: #a8823a;
+  --accent-glow: rgba(245, 201, 122, 0.15);
+  --card-bg: rgba(6, 6, 8, 0.8);
+  --card-border: var(--border);
+  --radius: 4px;
 
   /* Typography */
-  --font-display: "Bebas Neue", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+  --font-accent: "Syne", sans-serif;
   --font-mono: "DM Mono", monospace;
 
   /* Spacing & misc */
@@ -74,24 +123,34 @@
   --ui-inset: 2rem;
   --z-ui: 10;
 
+  /* Grain overlay (body::after) */
+  --grain-opacity: 0.5;
+
   /* Status semantics (calculator margin badges) */
   --status-ok: #4ade80;
   --status-warn: #fbbf24;
   --status-crit: #f87171;
 
-  /* Portrait duotone (design-system.md §7.2: visual assets follow the theme) —
-     warm monochrome B&W on dark, single-accent treatment */
+  /* Portrait duotone (design-system.md §7.2) — warm amber-tinted B&W on dark */
   --portrait-filter: grayscale(1) sepia(0.42) contrast(1.05);
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --bg: var(--light-bg);
-  --fg: var(--light-fg);
-  --muted: var(--light-muted);
-  --accent: var(--accent-light);
+  /* Palette intentionally unchanged from the previous light theme. */
+  --bg: #f0ece3;
+  --bg2: #e7e2d7;
+  --bg3: #ded8cb;
+  --border: rgba(13, 13, 20, 0.12);
+  --fg: #0d0d14;
+  --warm: #0d0d14;
+  --muted: #9a9aaa;
+  --accent: #3a6e00;
+  --accent-dim: #3a6e00;
+  --accent-glow: rgba(58, 110, 0, 0.12);
   --card-bg: rgba(240, 236, 227, 0.08);
   --card-border: rgba(58, 110, 0, 0.14);
+  --grain-opacity: 0.3;
   --status-ok: #15803d;
   --status-warn: #b45309;
   --status-crit: #dc2626;
@@ -116,6 +175,8 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-mono);
+  font-weight: 300;
+  overflow-x: hidden;
   transition:
     background 0.3s ease,
     color 0.3s ease;
@@ -126,8 +187,275 @@ body {
   color: var(--bg);
 }
 
-/* Nav link underline — hairline that grows from the left on hover/focus
-   (design-system.md §3: hairline as the dominant decorative element). */
+/* ─── NOISE GRAIN (LUMEN) ─────────────────────────────────────────────── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: var(--grain-opacity);
+}
+
+/* ─── CUSTOM CURSOR (LUMEN: amber dot + trailing ring) ──────────────────
+   Only on fine pointers with motion allowed — otherwise the native cursor
+   stays and the CustomCursor component renders nothing. */
+#cur,
+#cur-ring {
+  display: none;
+}
+
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body,
+  body a,
+  body button {
+    cursor: none;
+  }
+
+  #cur {
+    display: block;
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.15s, height 0.15s, background 0.15s;
+  }
+
+  #cur-ring {
+    display: block;
+    position: fixed;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.25s, height 0.25s, opacity 0.25s;
+    opacity: 0.35;
+  }
+
+  #cur-ring.cursor-ring-active {
+    width: 44px;
+    height: 44px;
+    opacity: 0.7;
+  }
+}
+
+/* ─── MARQUEE STRIP (LUMEN) ───────────────────────────────────────────── */
+.marquee-strip {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+  background: var(--bg2);
+}
+
+.marquee-inner {
+  display: flex;
+  white-space: nowrap;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.marquee-inner span {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 40px;
+}
+
+.marquee-inner span.marquee-accent {
+  color: var(--accent);
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ─── HERO DECOR (LUMEN: glow orb, orbiting rings, rising particles) ──── */
+/* Parallax wrapper: the mouse-driven translate lives here so it never
+   fights the glow's own pulse-glow transform animation (the source pen
+   applied both to one element, where the animation always won). */
+.hero-glow-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    ellipse at center,
+    var(--accent-glow) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  animation: pulse-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from {
+    opacity: 0.7;
+    transform: translate(-50%, -55%) scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -55%) scale(1.08);
+  }
+}
+
+.hero-ring {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 340px;
+  height: 340px;
+  border: 1px solid var(--accent-glow);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate-ring 30s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-ring::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-ring-2 {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 520px;
+  height: 520px;
+  border: 1px dashed color-mix(in srgb, var(--accent) 12%, transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate-ring 60s linear infinite reverse;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes rotate-ring {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: float-particle linear infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  10% {
+    opacity: 0.6;
+    transform: translateY(-10px) scale(1);
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px) scale(0.5);
+  }
+}
+
+/* Scroll hint at the bottom of the hero */
+.scroll-hint {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--accent-dim), transparent);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(0.6);
+  }
+}
+
+/* ─── Reduced motion: decor breathes but never moves ──────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-inner,
+  .hero-glow,
+  .hero-ring,
+  .hero-ring-2,
+  .particle,
+  .scroll-line {
+    animation: none !important;
+  }
+
+  .particle {
+    opacity: 0;
+  }
+}
+
+/* ─── Nav link underline — hairline that grows from the left on hover/focus
+   (design-system.md §3: hairline as the dominant decorative element). ─── */
 .nav-link {
   position: relative;
 }
@@ -156,8 +484,7 @@ body {
   }
 }
 
-/* Mobile burger icon — three hairline bars morphing into a close X.
-   (design-system.md §3: hairline as the dominant decorative element.) */
+/* ─── Mobile burger icon — three hairline bars morphing into a close X. ── */
 .burger-icon {
   display: flex;
   flex-direction: column;

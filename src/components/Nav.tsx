@@ -6,7 +6,6 @@ import { LanguageToggle } from '../i18n/LanguageToggle';
 import { ThemeToggle } from './ThemeToggle';
 
 const LINKS = [
-  { id: 'hero', key: 'hero' },
   { id: 'playground', key: 'playground' },
   { id: 'case-studies', key: 'caseStudies' },
   { id: '/web-project', key: 'webProject', route: true },
@@ -16,7 +15,7 @@ const LINKS = [
 ] as const;
 
 const LINK_CLASS =
-  'nav-link text-[0.55rem] uppercase tracking-[0.2em] text-[var(--muted)] transition-colors duration-300 hover:text-[var(--fg)]';
+  'nav-link whitespace-nowrap text-[0.55rem] uppercase tracking-[0.2em] text-[var(--muted)] transition-colors duration-300 hover:text-[var(--fg)]';
 
 const MENU_LIST: Variants = {
   hidden: {},
@@ -70,10 +69,14 @@ export function Nav() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-[var(--z-ui)] border-b border-[color:var(--card-border)] bg-[color:var(--card-bg)] backdrop-blur-sm">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-x-6 px-6 py-3">
-        <a href="#hero" className="text-[0.65rem] font-medium uppercase tracking-[0.3em]">
+      <header className="fixed inset-x-0 top-0 z-[var(--z-ui)] border-b border-[color:var(--card-border)] bg-[color:var(--card-bg)] backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-x-6 px-6 py-3 lg:gap-x-4 xl:gap-x-8">
+        <a
+          href="#hero"
+          className="font-[family-name:var(--font-accent)] text-[0.9rem] font-extrabold uppercase tracking-[0.15em] text-[var(--warm)]"
+        >
           Win Winarno
+          <sup className="ml-0.5 text-[0.5rem] text-[var(--accent)]">®</sup>
         </a>
 
         {/* Desktop links */}

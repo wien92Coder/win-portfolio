@@ -84,7 +84,7 @@ export function CaseStudies() {
   const active = pillarA.cases.find((item) => item.id === activeId) ?? pillarA.cases[0];
 
   return (
-    <section id="case-studies" className="py-24">
+    <section id="case-studies" className="mx-auto max-w-5xl px-6 py-24">
       <Reveal>
         <p className="text-[0.6rem] uppercase tracking-[0.25em] text-[var(--muted)]">{t('nav.caseStudies')}</p>
         <h2 className="mt-2 font-[family-name:var(--font-display)] text-[clamp(2.2rem,5vw,4rem)] leading-[0.92] tracking-[0.03em]">

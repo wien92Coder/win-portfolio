@@ -23,7 +23,7 @@ export function Timeline() {
   const timeline = t('about.timeline', { returnObjects: true }) as TimelineEntry[];
 
   return (
-    <section id="about" className="py-24">
+    <section id="about" className="mx-auto max-w-5xl px-6 py-24">
       <Reveal>
         <p className="text-[0.6rem] uppercase tracking-[0.25em] text-[var(--muted)]">{t('nav.about')}</p>
         <h2 className="mt-2 font-[family-name:var(--font-display)] text-[clamp(2.2rem,5vw,4rem)] leading-[0.92] tracking-[0.03em]">
