@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
 import { motion, type Variants } from 'motion/react';
 import { LanguageToggle } from '../i18n/LanguageToggle';
 import { ThemeToggle } from './ThemeToggle';
 
 const LINKS = [
   { id: 'playground', key: 'playground' },
+  { id: 'projects', key: 'projects' },
   { id: 'case-studies', key: 'caseStudies' },
-  { id: '/web-project', key: 'webProject', route: true },
   { id: 'competency', key: 'competency' },
   { id: 'about', key: 'about' },
   { id: 'contact', key: 'contact' },
@@ -53,11 +52,6 @@ export function Nav() {
     return () => document.removeEventListener('keydown', onKey);
   }, [open]);
 
-  function close() {
-    setOpen(false);
-    burgerRef.current?.focus();
-  }
-
   /** Section anchor — close the menu first, then scroll once the scroll
    *  lock has been released (scrollIntoView is blocked while hidden). */
   function goToSection(href: string) {
@@ -81,17 +75,11 @@ export function Nav() {
 
         {/* Desktop links */}
         <nav aria-label="Sections" className="hidden items-center gap-x-4 md:flex">
-          {LINKS.map((link) =>
-            'route' in link ? (
-              <Link key={link.id} to={link.id} className={LINK_CLASS}>
-                {t(`nav.${link.key}`)}
-              </Link>
-            ) : (
-              <a key={link.id} href={`#${link.id}`} className={LINK_CLASS}>
-                {t(`nav.${link.key}`)}
-              </a>
-            ),
-          )}
+          {LINKS.map((link) => (
+            <a key={link.id} href={`#${link.id}`} className={LINK_CLASS}>
+              {t(`nav.${link.key}`)}
+            </a>
+          ))}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -142,23 +130,17 @@ export function Nav() {
                   'font-[family-name:var(--font-display)] text-[clamp(1.8rem,8vw,2.6rem)] leading-none tracking-[0.04em] text-[var(--fg)] transition-colors duration-300 hover:text-[var(--accent)]';
                 return (
                   <motion.li key={link.id} variants={MENU_ITEM}>
-                    {'route' in link ? (
-                      <Link ref={index === 0 ? firstLinkRef : undefined} to={link.id} onClick={close} className={className}>
-                        {label}
-                      </Link>
-                    ) : (
-                      <a
-                        ref={index === 0 ? firstLinkRef : undefined}
-                        href={`#${link.id}`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          goToSection(`#${link.id}`);
-                        }}
-                        className={className}
-                      >
-                        {label}
-                      </a>
-                    )}
+                    <a
+                      ref={index === 0 ? firstLinkRef : undefined}
+                      href={`#${link.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        goToSection(`#${link.id}`);
+                      }}
+                      className={className}
+                    >
+                      {label}
+                    </a>
                   </motion.li>
                 );
               })}

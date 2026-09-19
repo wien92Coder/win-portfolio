@@ -549,3 +549,182 @@ body::after {
     transition: none;
   }
 }
+
+/* ── PROJECTS — list rows + cursor-following hover image ──────────────
+   Framework ported from the second reference pen's #projects section
+   (num / name+description / tech badges / link grid, one shared floating
+   preview that trails the cursor on row hover). Every color, font and
+   motion value comes from this site's design system — no pen tokens. */
+
+.project-item {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 1rem;
+  margin: 0 -1rem;
+  border-bottom: 1px solid var(--card-border);
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    background 0.3s ease,
+    padding 0.3s ease;
+}
+
+.project-item:first-child {
+  border-top: 1px solid var(--card-border);
+}
+
+/* Accent rail on the left edge, scaled in on hover (pen ::before rail). */
+.project-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover::before {
+  transform: scaleY(1);
+}
+
+.project-item:hover {
+  background: var(--bg3);
+}
+
+.project-num {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.project-name {
+  display: block;
+  font-family: var(--font-accent);
+  font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--fg);
+  transition: color 0.3s ease;
+}
+
+.project-item:hover .project-name {
+  color: var(--accent);
+}
+
+/* Status label beside the project name (e.g. Bliho "in development"):
+   DM Mono, all caps, warning-yellow in both themes. */
+.project-badge {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--status-warn);
+  margin-left: 0.75rem;
+  vertical-align: middle;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.tech-badge {
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--card-border);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.project-link svg {
+  transition: transform 0.2s ease;
+}
+
+.project-item:hover .project-link svg {
+  transform: translate(3px, -3px);
+}
+
+/* The shared floating preview (pen #proj-hover-img): fixed, cursor offset
+   baked into margins so the JS lerp loop only sets left/top. Sits under
+   the custom cursor (z 10000) and under the grain overlay by paint order. */
+.project-float {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 180px;
+  margin-left: 24px;
+  margin-top: -90px;
+  z-index: 9999;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--card-border);
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.project-float--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hide the native cursor only where the custom cursor is actually active
+   (same media gate as .custom-cursor) — reduced-motion users keep theirs. */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .project-item {
+    cursor: none;
+  }
+}
+
+/* Rows collapse on small screens: num / name+description / link. The
+   floating image is pointer-gated anyway, so this is safe. */
+@media (max-width: 640px) {
+  .project-item {
+    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    gap: 0.75rem 1rem;
+    padding: 1.25rem 0.5rem;
+    margin: 0 -0.5rem;
+  }
+
+  .project-tech {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-item,
+  .project-item::before,
+  .project-name,
+  .project-link svg,
+  .project-float {
+    transition: none;
+  }
+}

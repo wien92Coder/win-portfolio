@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
 import { AnimatePresence, motion } from 'motion/react';
 import { Reveal } from './Reveal';
 
@@ -41,8 +40,8 @@ function CaseBlock({
   return (
     <article className="glow-card border border-[color:var(--card-border)] bg-[var(--bg3)] p-6 md:p-8">
       <h3
-        className={`font-[family-name:var(--font-display)] text-[clamp(1.8rem,5vw,3.5rem)] leading-none tracking-[0.08em] ${
-          alignTitles ? 'lg:min-h-[calc(4*clamp(1.8rem,5vw,3.5rem))]' : ''
+        className={`font-[family-name:var(--font-accent)] text-[clamp(1.05rem,2.2vw,1.5rem)] uppercase leading-snug tracking-[0.06em] ${
+          alignTitles ? 'lg:min-h-[calc(2.75*clamp(1.05rem,2.2vw,1.5rem))]' : ''
         }`}
       >
         {item.name}
@@ -147,35 +146,6 @@ export function CaseStudies() {
         </div>
       </Reveal>
 
-      <Reveal>
-        <div className="glow-card mt-20 border border-[color:var(--card-border)] bg-[var(--bg3)] p-8 md:p-10">
-          <p className="text-[0.6rem] uppercase tracking-[0.25em] text-[var(--accent)]">
-            {t('caseStudies.webProject.tag')}
-          </p>
-          <h3 className="mt-3 font-[family-name:var(--font-display)] text-[clamp(1.8rem,5vw,3.5rem)] leading-none tracking-[0.04em]">
-            {t('caseStudies.webProject.title')}
-          </h3>
-          <p className="mt-4 max-w-3xl text-[0.78rem] leading-[1.8]">
-            {t('caseStudies.webProject.description')}
-          </p>
-          <Link
-            to="/web-project"
-            className="mt-6 inline-flex items-center gap-2 border border-[var(--accent)] px-4 py-2 text-[0.62rem] uppercase tracking-[0.18em] text-[var(--accent)] transition-colors duration-200 hover:bg-[var(--accent)] hover:text-[var(--bg)]"
-          >
-            {t('caseStudies.webProject.cta')}
-            <svg
-              viewBox="0 0 12 12"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              className="h-[0.6875rem] w-[0.6875rem]"
-              aria-hidden="true"
-            >
-              <path d="M1 6h10M6 1l5 5-5 5" />
-            </svg>
-          </Link>
-        </div>
-      </Reveal>
     </section>
   );
 }

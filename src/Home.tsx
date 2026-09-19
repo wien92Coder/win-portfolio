@@ -5,6 +5,7 @@ import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
 import { Marquee } from './components/Marquee';
 import { FoodCostCalculator } from './components/FoodCostCalculator';
+import { Projects } from './components/Projects';
 import { CaseStudies } from './components/CaseStudies';
 import { CompetencyGrid } from './components/CompetencyGrid';
 import { Timeline } from './components/Timeline';
@@ -38,15 +39,18 @@ export function Home() {
           <FoodCostCalculator />
         </Band>
         <Band>
+          <Projects />
+        </Band>
+        <Band tone="bg2">
           <CaseStudies />
         </Band>
-        <Band tone="bg2">
+        <Band>
           <CompetencyGrid />
         </Band>
-        <Band>
+        <Band tone="bg2">
           <Timeline />
         </Band>
-        <Band tone="bg2">
+        <Band>
           <Contact />
         </Band>
       </main>
