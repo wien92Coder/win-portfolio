@@ -1,6 +1,6 @@
 export function HeroPortrait() {
   return (
-    <figure className="relative w-full max-w-[19rem]">
+    <figure className="relative w-full max-w-[19rem] lg:-translate-y-8">
       {/* Offset ghost frame — hairline mat behind the portrait */}
       <div
         aria-hidden

@@ -94,7 +94,7 @@ export function Hero() {
     >
       <HeroDecor />
 
-      <div className="relative z-[2] grid items-center gap-x-14 gap-y-12 lg:grid-cols-[minmax(0,1fr)_auto]">
+      <div className="relative z-[2] grid items-center gap-x-14 gap-y-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-x-20">
         <div>
           <motion.p
             variants={item}

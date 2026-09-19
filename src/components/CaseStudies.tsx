@@ -39,7 +39,7 @@ function CaseBlock({
   ];
 
   return (
-    <article>
+    <article className="glow-card border border-[color:var(--card-border)] bg-[var(--bg3)] p-6 md:p-8">
       <h3
         className={`font-[family-name:var(--font-display)] text-[clamp(1.8rem,5vw,3.5rem)] leading-none tracking-[0.08em] ${
           alignTitles ? 'lg:min-h-[calc(4*clamp(1.8rem,5vw,3.5rem))]' : ''
@@ -148,7 +148,7 @@ export function CaseStudies() {
       </Reveal>
 
       <Reveal>
-        <div className="mt-20 border border-[color:var(--card-border)] p-8 md:p-10">
+        <div className="glow-card mt-20 border border-[color:var(--card-border)] bg-[var(--bg3)] p-8 md:p-10">
           <p className="text-[0.6rem] uppercase tracking-[0.25em] text-[var(--accent)]">
             {t('caseStudies.webProject.tag')}
           </p>

@@ -281,6 +281,37 @@ body::after {
   }
 }
 
+/* ─── GLOW CARDS (LUMEN preview-card hover) ─────────────────────────────
+   A soft radial accent glow fades in under the content while hovered. */
+.glow-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 20% 20%,
+    var(--accent-glow),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-card::before {
+    transition: none;
+  }
+}
+
 /* ─── HERO DECOR (LUMEN: glow orb, orbiting rings, rising particles) ──── */
 /* Parallax wrapper: the mouse-driven translate lives here so it never
    fights the glow's own pulse-glow transform animation (the source pen
