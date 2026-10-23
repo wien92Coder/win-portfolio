@@ -1,5 +1,11 @@
 # DESIGN.md — Portfolio v2
 
+> **Arah v2 (disetujui 23 Okt 2026):** visual & layout dari template **FORM&CO**
+> (`~/Desktop/my-portfolio`, lisensi *DiMaac Free Template* — boleh personal & komersial,
+> tanpa wajib atribusi; dilarang mendistribusikan ulang source-nya sebagai template).
+> **Konten tetap milik v1.** Integrasi: porting ke React + Vite, bukan pindah framework.
+> Spesifikasi lengkap v2 ada di §9; §3–§7 adalah baseline v1 yang diarsipkan.
+
 Sumber kebenaran arah desain untuk branch `redesign-v2`.
 **Baca file ini di awal setiap sesi sebelum mengubah apa pun.**
 
@@ -156,24 +162,134 @@ dan key `nav.*` di `src/i18n/locales/{en,id}.json` pada commit yang sama.
 
 ## 8. Yang akan diubah di v2
 
-> **BELUM DIPUTUSKAN.** Isi bagian ini sebelum menulis kode v2, lalu tunggu persetujuan
-> pengguna. Format yang diharapkan:
+Arah sudah diputuskan: **visual, layout, dan motion dari FORM&CO; konten dari v1.**
+Rincian teknis di §9. Ringkasan per section:
 
 ```
-- [ ] Hero:        <apa yang berubah, mengapa>
-- [ ] Projects:    <…>
-- [ ] Case Studies:<…>
-- [ ] Tipografi:   <tetap / ganti ke …>
-- [ ] Palet:       <tetap / arah baru …>
-- [ ] Motion:      <tetap / lebih tenang / lebih hidup …>
+- [x] Palet:       gelap amber → terang ivory + cobalt #2f50f2
+- [x] Tipografi:   Cormorant/Syne/DM Mono → Archivo Black/Archivo/Space Mono
+- [x] Hero:        portrait + glow → kolase editorial (wordmark mega, band cobalt, slider)
+- [x] Projects:    daftar baris + float hover → grid 2 kolom staggered grayscale→warna
+- [x] Motion:      Reveal fade biasa → Lenis + mask text reveal + page wipe
+- [x] Dark mode:   dibuang — situs terang saja (keputusan 23 Okt 2026)
+- [x] Routing:     multi-halaman ala template (react-router v8)
 ```
 
 Yang **tidak** boleh berubah tanpa keputusan eksplisit: identitas `Win Winarno®`,
-struktur bilingual `en`/`id`, form kontak + endpoint PHP, dan token di §3–§5.
+struktur bilingual `en`/`id`, form kontak + endpoint PHP, dan konten 4 project
+(Rekam Jejak Hanania, Akar Jogja, Bliho, RMS) beserta case study-nya.
 
 ---
 
-## 9. Verifikasi sebelum usul merge (Langkah 5)
+## 9. Spesifikasi v2 — diturunkan dari FORM&CO
+
+Diekstrak dari `tailwind.config.ts` + `app/globals.css` template. **Nilai di bawah
+menggantikan §3–§5 untuk v2.** Template memakai Tailwind v4.3.3 — sama dengan repo ini,
+sehingga tidak perlu penyesuaian sintaks v3→v4.
+
+### 9.1 Palet
+
+| Token | Nilai | Peran |
+|---|---|---|
+| `--paper` | `#faf9f6` | latar utama (ivory hangat) |
+| `--ink` | `#101014` | teks & near-black |
+| `--accent` | `#2f50f2` | cobalt elektrik — satu-satunya warna kuat |
+| `--moss` | `#e8ecff` | tint cobalt untuk fill halus |
+| `--muted` | `rgba(16,16,20,0.55)` | teks sekunder |
+| hairline | `rgba(16,16,20,0.13)` | garis pemisah 1px |
+
+Aturan: tidak ada warna lain. Semua penekanan memakai cobalt atau opacity ink.
+
+### 9.2 Tipografi (self-hosted, wajib)
+
+| Keluarga | Token | Weight | Peran |
+|---|---|---|---|
+| **Archivo Black** | `--font-display` | 400 | wordmark mega, heading lowercase, angka besar |
+| **Archivo** | `--font-sans` | 400/500/600 | body copy, UI |
+| **Space Mono** | `--font-mono` | 400/700 | label 10–11px uppercase, micro-copy |
+
+Template memuatnya via `next/font/google`; di Vite kita **unduh woff2 latin ke
+`public/fonts/`** dan deklarasikan `@font-face` — alasan sama dengan §4 (CDN Google
+tidak reliabel di sebagian ISP Indonesia). Tidak ada dependensi `next/font`.
+
+Skala: `text-mega` = `clamp(4.5rem, 18vw, 16rem)`, `text-huge` = `clamp(3rem, 9vw, 8rem)`,
+label `10px`/`11px` + `tracking: 0.22em`, body `15px`/`17px` `leading 1.6`.
+
+### 9.3 Utility wajib (pindahkan ke `src/index.css`)
+
+`.label` · `.micro-copy` · `.body-copy` · `.link-line` (underline wipe) ·
+`.img-editorial` (grayscale → warna, 900ms expo) · `.grain` (fixed, opacity .05,
+tanpa `mix-blend-mode` karena memicu repaint tiap frame) · `.no-scrollbar` ·
+`.reveal-mask` (clip untuk text reveal).
+
+### 9.4 Motion
+
+| Kurva | Nilai | Pakai untuk |
+|---|---|---|
+| `editorial` | `cubic-bezier(0.76,0,0.24,1)` | wipe, reveal simetris |
+| `expo` | `cubic-bezier(0.16,1,0.3,1)` | hover feedback, zoom |
+
+Tambahan dependensi: **`lenis`** (smooth scroll) + `motion` (sudah ada, v13 — API
+kompatibel dengan `framer-motion` v11 template). Semua animasi tetap tunduk pada
+`prefers-reduced-motion` seperti §7.
+
+### 9.5 Pemetaan halaman v1 → v2
+
+| Route v2 | Isi v1 | Setara di template |
+|---|---|---|
+| `/` | Hero, 4 project terpilih, services/competency, stats, CTA | `app/page.tsx` |
+| `/work` | Daftar lengkap 4 project + filter/kategori | `app/work/page.tsx` |
+| `/work/:slug` | Case study per project (Pillar A/B v1) | `app/work/[slug]` |
+| `/studio` | About + Timeline + kompetensi lengkap | `app/studio/page.tsx` |
+| `/contact` | Form kontak + CountrySelect + endpoint PHP | `app/contact/page.tsx` |
+
+Slug: `rekam-jejak-hanania`, `akar-jogja`, `bliho`, `revenue-management-system`.
+Komponen lintas halaman: `Header`, `FullscreenMenu`, `Footer`, `Cursor`,
+`PageWrapper`, `LenisProvider`, `TransitionLink` + `TransitionContext` (page wipe).
+
+**Konsekuensi deploy (wajib sebelum go-live):** SPA multi-halaman butuh nginx
+mengarahkan deep link ke `index.html`:
+
+```nginx
+location / { try_files $uri $uri/ /index.html; }
+```
+
+File: `/etc/nginx/sites-available/win-portfolio` di VPS. Tanpa baris ini,
+membuka `https://win-portfolio.my.id/work/bliho` langsung akan 404. Perubahan
+nginx **butuh persetujuan pengguna** (guardrail 3) dan diverifikasi setelah deploy.
+Alternatif bila nginx tidak boleh diubah: router mode hash (URL jadi `/#/work`).
+
+### 9.6 Aset & lisensi
+
+- Gambar demo Pexels template **tidak dipakai** — semua diganti aset project v1
+  (`public/projects/*.webp`) plus foto tambahan milik sendiri.
+- Jangan menyalin teks, nama klien, atau angka dari template (Helio Energy, 60 project,
+  14 awards, dst.). Semua copy dari `src/i18n/locales/`.
+- `node_modules`, `.next`, dan `package-lock.json` template tidak disalin.
+
+### 9.7 Urutan commit yang direncanakan
+
+1. `chore: token & font v2 (Archivo/Space Mono, palet ivory-cobalt)` + hapus dark mode
+2. `feat: shell multi-halaman (router, header, menu, footer, cursor, Lenis, wipe)`
+3. `feat: hero kolase editorial`
+4. `feat: marquee + intro + grid selected work`
+5. `feat: lookbook drag-rail + services + stats + CTA`
+6. `feat: halaman /work + /work/:slug dari case study v1`
+7. `feat: /studio + /contact (form PHP & CountrySelect)`
+8. `chore: hapus komponen v1 yang tidak terpakai`
+
+Setiap commit harus lolos `npm run typecheck` sebelum lanjut.
+
+### 9.8 Tidak ikut diporting dari v1
+
+`ThemeToggle`, `theme.ts`, token `:root[data-theme="light"]`, `--portrait-filter`,
+`CustomCursor` v1 (diganti `Cursor` template), `Marquee` v1, `Projects.tsx`
+(daftar baris + float image), `.project-*` CSS, `reveal` fade v1 (diganti mask reveal).
+Hapus pada commit terakhir setelah semua section v2 terbukti jalan.
+
+---
+
+## 10. Verifikasi sebelum usul merge (Langkah 5)
 
 - [ ] `npm run typecheck` bersih
 - [ ] `npm test` lulus
@@ -181,5 +297,7 @@ struktur bilingual `en`/`id`, form kontak + endpoint PHP, dan token di §3–§5
 - [ ] Dicek di desktop **dan** mobile (360px)
 - [ ] Dicek di ≥ 2 browser
 - [ ] Semua link, gambar, dan form berfungsi
-- [ ] Dark **dan** light mode sama-sama benar
+- [ ] Deep link `/work/bliho` dibuka langsung (bukan lewat klik) dan tidak 404
+- [ ] Form kontak benar-benar mengirim (endpoint `contact.php`)
+- [ ] Teks template (`FORM&CO`, Pexels, 60 projects) tidak tersisa di mana pun
 - [ ] Tidak ada teks/bahasa Inggris yang bocor di locale `id` (dan sebaliknya)
