@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router';
 import { Providers } from './components/Providers';
+import { LocaleHygiene } from './i18n/LocaleHygiene';
 import { HomePage } from './pages/HomePage';
 import { WorkPage } from './pages/WorkPage';
 import { WorkDetailPage } from './pages/WorkDetailPage';
@@ -12,6 +13,9 @@ import { ContactPage } from './pages/ContactPage';
 function App() {
   return (
     <Providers>
+      {/* Keeps <html lang> and the document title in step with the locale.
+          Mounted here, not per page, so every route inherits it. */}
+      <LocaleHygiene />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/work" element={<WorkPage />} />
