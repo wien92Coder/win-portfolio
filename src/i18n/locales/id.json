@@ -36,6 +36,12 @@
     "colophon": "Kolofon",
     "rights": "Seluruh hak cipta"
   },
+  "home": {
+    "scroll": "Gulir"
+  },
+  "work": {
+    "nextProject": "Proyek berikutnya"
+  },
   "hero": {
     "h1": "Saya Tidak Sekadar Menulis Kode. Saya Membangun Sistem yang Mengoptimalkan Operasi.",
     "subheadline": "Memadukan 30+ tahun kepemimpinan operasional hospitality & healthcare dengan kekuatan Vibe Coding (Claude Code, n8n, Notion, & AI) untuk menciptakan otomatisasi, sistem operasi digital, dan solusi kustom yang menggerakkan profitabilitas bisnis Anda.",
