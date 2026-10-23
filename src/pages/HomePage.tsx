@@ -4,11 +4,18 @@ import { useTranslation } from 'react-i18next';
 import { PageWrapper } from '../components/PageWrapper';
 import { AnimatedText } from '../components/AnimatedText';
 import { HeroSlider } from '../components/HeroSlider';
+import { Lookbook } from '../components/Lookbook';
 import { Marquee } from '../components/Marquee';
 import { RevealImage } from '../components/RevealImage';
 import { TransitionLink } from '../components/TransitionLink';
 import { useProjects } from '../content/projects';
 import { site } from '../content/site';
+
+/** One row of the services list (`home.services` in the locale files). */
+type Service = { n: string; t: string; d: string };
+
+/** One counter in the stats strip (`home.stats`), e.g. 92% / CSI at SMC. */
+type Stat = { value: string; label: string };
 
 /**
  * Home hero — an editorial collage rather than a centred stack: a cobalt band
@@ -19,6 +26,8 @@ export function HomePage() {
   const { t } = useTranslation();
   const projects = useProjects();
   const intro = t('home.intro.body', { returnObjects: true }) as string[];
+  const services = t('home.services', { returnObjects: true }) as Service[];
+  const stats = t('home.stats', { returnObjects: true }) as Stat[];
   const reducedMotion = useReducedMotion();
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -237,6 +246,56 @@ export function HomePage() {
             {t('home.viewAll')} — {projects.length} {t('projects.countLabel').toLowerCase()} →
           </TransitionLink>
         </div>
+      </section>
+
+      <Lookbook />
+
+      {/* ---------- SERVICES ---------- */}
+      <section className="px-5 sm:px-8">
+        <div className="grid grid-cols-1 gap-8 border-t hairline border-t-ink/20 pt-8 sm:grid-cols-12">
+          <p className="label text-ink/50 sm:col-span-3">{t('home.servicesLabel')}</p>
+          <div className="sm:col-span-9">
+            {services.map((service, i) => (
+              <motion.div
+                key={service.n}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-12% 0px' }}
+                transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: i * 0.05 }}
+                className="grid grid-cols-12 items-baseline gap-2 border-b hairline border-b-ink/15 py-7 sm:py-9"
+              >
+                <span className="col-span-2 font-display text-lg text-accent sm:col-span-1 sm:text-xl">
+                  {service.n}
+                </span>
+                <h3 className="col-span-10 font-display text-[6.5vw] lowercase leading-none tracking-tight sm:col-span-6 sm:text-[2.4vw]">
+                  {service.t}
+                </h3>
+                <p className="body-copy col-span-10 col-start-3 mt-2 !text-[14px] text-ink/60 sm:col-span-4 sm:col-start-8 sm:mt-0">
+                  {service.d}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- STATS ---------- */}
+      <section className="grid grid-cols-2 gap-y-12 px-5 py-20 sm:grid-cols-4 sm:px-8 sm:py-28">
+        {stats.map((stat, i) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-10% 0px' }}
+            transition={{ duration: 0.6, delay: i * 0.07 }}
+            className="border-l hairline border-l-ink/15 pl-4 sm:pl-6"
+          >
+            <p className="font-display text-[13vw] leading-[0.85] tracking-tighter sm:text-[3.6vw]">
+              {stat.value}
+            </p>
+            <p className="label mt-3 max-w-[20ch] text-ink/50">{stat.label}</p>
+          </motion.div>
+        ))}
       </section>
     </PageWrapper>
   );

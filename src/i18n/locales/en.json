@@ -46,7 +46,41 @@
         "Code is an operational tool, not an end in itself. Every system here started as a real problem in a real business."
       ]
     },
-    "viewAll": "View all work"
+    "viewAll": "View all work",
+    "servicesLabel": "Services",
+    "services": [
+      {
+        "n": "01",
+        "t": "operational systems",
+        "d": "Payroll, menu engineering, and food-cost tools that protect margin."
+      },
+      {
+        "n": "02",
+        "t": "service culture",
+        "d": "SMART Care training and one-to-one coaching, from hospital directors to the front desk."
+      },
+      {
+        "n": "03",
+        "t": "web & apps",
+        "d": "Sites and web apps: menus, reservations, and rate management."
+      },
+      {
+        "n": "04",
+        "t": "automation",
+        "d": "n8n and Notion workflows that take the admin out of daily operations."
+      }
+    ],
+    "stats": [
+      { "value": "92%", "label": "CSI at SMC Tlogorejo (from 70%)" },
+      { "value": "4.8", "label": "Google rating, Santa Elisabeth (from 4.1)" },
+      { "value": "12x", "label": "Staff income, Patuno Resort" },
+      { "value": "33", "label": "Years in operations" }
+    ]
+  },
+  "lookbook": {
+    "title": "from the field",
+    "hint": "Drag — selected frames",
+    "captions": ["Rekam Jejak Hanania", "Akar Jogja", "Bliho", "Win Winarno, Semarang"]
   },
   "marquee": {
     "ariaLabel": "Highlights",

@@ -46,7 +46,41 @@
         "Kode adalah alat operasional, bukan tujuan. Setiap sistem di sini lahir dari masalah nyata di bisnis nyata."
       ]
     },
-    "viewAll": "Lihat semua karya"
+    "viewAll": "Lihat semua karya",
+    "servicesLabel": "Layanan",
+    "services": [
+      {
+        "n": "01",
+        "t": "sistem operasional",
+        "d": "Alat payroll, menu engineering, dan food cost yang menjaga margin."
+      },
+      {
+        "n": "02",
+        "t": "budaya layanan",
+        "d": "Pelatihan SMART Care dan coaching satu-satu, dari direktur hingga front office."
+      },
+      {
+        "n": "03",
+        "t": "web & aplikasi",
+        "d": "Situs dan web app: menu, reservasi, dan manajemen harga kamar."
+      },
+      {
+        "n": "04",
+        "t": "otomasi",
+        "d": "Alur kerja n8n dan Notion yang memangkas administrasi harian."
+      }
+    ],
+    "stats": [
+      { "value": "92%", "label": "CSI di SMC Tlogorejo (dari 70%)" },
+      { "value": "4.8", "label": "Rating Google, Santa Elisabeth (dari 4.1)" },
+      { "value": "12x", "label": "Pendapatan staf, Patuno Resort" },
+      { "value": "33", "label": "Tahun di operasional" }
+    ]
+  },
+  "lookbook": {
+    "title": "dari lapangan",
+    "hint": "Geser — bingkai pilihan",
+    "captions": ["Rekam Jejak Hanania", "Akar Jogja", "Bliho", "Win Winarno, Semarang"]
   },
   "marquee": {
     "ariaLabel": "Sorotan",
