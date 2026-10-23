@@ -95,7 +95,20 @@
     ]
   },
   "work": {
-    "nextProject": "Proyek berikutnya"
+    "title": "karya",
+    "indexLabel": "Indeks",
+    "indexMeta": "{{count}} proyek",
+    "intro": "Empat bangunan digital: kafe, lembaga pelatihan hospitality, marketplace digital, dan manajemen harga kamar hotel. Arahkan kursor untuk pratinjau; klik untuk detail.",
+    "open": "Buka",
+    "statusLive": "live",
+    "project": "Proyek",
+    "overview": "Ringkasan",
+    "stack": "Stack",
+    "status": "Status",
+    "live": "Situs live",
+    "nextProject": "Proyek berikutnya",
+    "back": "Kembali ke karya",
+    "notFound": "tidak ditemukan"
   },
   "hero": {
     "h1": "Saya Tidak Sekadar Menulis Kode. Saya Membangun Sistem yang Mengoptimalkan Operasi.",

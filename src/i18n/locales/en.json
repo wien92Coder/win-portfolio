@@ -95,7 +95,20 @@
     ]
   },
   "work": {
-    "nextProject": "Next project"
+    "title": "work",
+    "indexLabel": "Index",
+    "indexMeta": "{{count}} projects",
+    "intro": "Four builds across a café, a hospitality school, a digital marketplace, and hotel rate management. Hover an entry to preview it; open it for the detail.",
+    "open": "Open",
+    "statusLive": "live",
+    "project": "Project",
+    "overview": "Overview",
+    "stack": "Stack",
+    "status": "Status",
+    "live": "Live site",
+    "nextProject": "Next project",
+    "back": "Back to work",
+    "notFound": "not found"
   },
   "hero": {
     "h1": "I Don't Just Write Code. I Build Systems That Optimize Operations.",
