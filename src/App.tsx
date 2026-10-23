@@ -1,19 +1,26 @@
-import { MotionConfig } from 'motion/react';
-import { CustomCursor } from './components/CustomCursor';
-import { Home } from './Home';
+import { Navigate, Route, Routes } from 'react-router';
+import { Providers } from './components/Providers';
+import { HomePage } from './pages/HomePage';
+import { WorkPage } from './pages/WorkPage';
+import { WorkDetailPage } from './pages/WorkDetailPage';
+import { StudioPage } from './pages/StudioPage';
+import { ContactPage } from './pages/ContactPage';
 
-/** Single-page app: Home is the only route (the former /web-project page was
- *  replaced by the in-page Projects section). Kept as a component so the
- *  MotionConfig + CustomCursor wiring stays untouched. */
+/** v2 is a multi-page editorial site: home, work index, case study detail,
+ *  studio profile, and contact. The wipe, cursor, and smooth scroll live in
+ *  <Providers /> so they survive every route change. */
 function App() {
   return (
-    // reducedMotion="user" disables transform/layout animations for
-    // visitors who prefer reduced motion (design-system.md §8) — opacity
-    // fades are kept, which is the recommended fallback.
-    <MotionConfig reducedMotion="user">
-      <CustomCursor />
-      <Home />
-    </MotionConfig>
+    <Providers>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/work" element={<WorkPage />} />
+        <Route path="/work/:slug" element={<WorkDetailPage />} />
+        <Route path="/studio" element={<StudioPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Providers>
   );
 }
 
