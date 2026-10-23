@@ -37,7 +37,28 @@
     "rights": "Seluruh hak cipta"
   },
   "home": {
-    "scroll": "Gulir"
+    "scroll": "Gulir",
+    "intro": {
+      "label": "Yang saya kerjakan",
+      "title": "saya membangun sistem digital yang menjalankan bisnis.",
+      "body": [
+        "Operasional mengajari saya di mana uang bocor — food cost, shift bertingkat, harga kamar. Jadi saya membangun alat yang mengawasi angka-angka itu.",
+        "Kode adalah alat operasional, bukan tujuan. Setiap sistem di sini lahir dari masalah nyata di bisnis nyata."
+      ]
+    },
+    "viewAll": "Lihat semua karya"
+  },
+  "marquee": {
+    "ariaLabel": "Sorotan",
+    "items": [
+      "Win Winarno",
+      "Operasional Hospitality",
+      "IT Healthcare",
+      "Vibe Coding",
+      "Sistem Operasi Digital",
+      "30+ Tahun",
+      "Otomatisasi"
+    ]
   },
   "work": {
     "nextProject": "Proyek berikutnya"
@@ -223,7 +244,7 @@
   "projects": {
     "label": "Karya Terpilih",
     "title": "Projects",
-    "countLabel": "Projects",
+    "countLabel": "Proyek",
     "cta": "Lihat",
     "listLabel": "Daftar proyek",
     "items": [

@@ -37,7 +37,28 @@
     "rights": "All rights reserved"
   },
   "home": {
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "intro": {
+      "label": "What I do",
+      "title": "i build the digital systems that run the business.",
+      "body": [
+        "Operations taught me where the money leaks — food cost, staggered shifts, room rates. So I built the tools that watch those numbers.",
+        "Code is an operational tool, not an end in itself. Every system here started as a real problem in a real business."
+      ]
+    },
+    "viewAll": "View all work"
+  },
+  "marquee": {
+    "ariaLabel": "Highlights",
+    "items": [
+      "Win Winarno",
+      "Hospitality Ops",
+      "Healthcare IT",
+      "Vibe Coding",
+      "Digital Operating Systems",
+      "30+ Years",
+      "Automation"
+    ]
   },
   "work": {
     "nextProject": "Next project"

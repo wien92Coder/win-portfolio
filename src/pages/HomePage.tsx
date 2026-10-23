@@ -4,6 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { PageWrapper } from '../components/PageWrapper';
 import { AnimatedText } from '../components/AnimatedText';
 import { HeroSlider } from '../components/HeroSlider';
+import { Marquee } from '../components/Marquee';
+import { RevealImage } from '../components/RevealImage';
+import { TransitionLink } from '../components/TransitionLink';
+import { useProjects } from '../content/projects';
 import { site } from '../content/site';
 
 /**
@@ -13,6 +17,8 @@ import { site } from '../content/site';
  */
 export function HomePage() {
   const { t } = useTranslation();
+  const projects = useProjects();
+  const intro = t('home.intro.body', { returnObjects: true }) as string[];
   const reducedMotion = useReducedMotion();
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -141,6 +147,95 @@ export function HomePage() {
               ↓
             </motion.span>
           </div>
+        </div>
+      </section>
+
+      <Marquee />
+
+      {/* ---------- INTRO STATEMENT ---------- */}
+      <section className="px-5 py-24 sm:px-8 sm:py-32">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-12">
+          <p className="label flex items-center gap-3 text-ink/50 sm:col-span-3">
+            <span className="inline-block h-px w-8 bg-ink/30" />
+            {t('home.intro.label')}
+          </p>
+          <div className="sm:col-span-9">
+            <AnimatedText
+              as="h2"
+              text={t('home.intro.title')}
+              className="block max-w-[20ch] font-display text-[8vw] lowercase leading-[1.02] tracking-tight sm:text-[3.6vw]"
+              stagger={0.03}
+            />
+            <div className="mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
+              {intro.map((paragraph) => (
+                <p key={paragraph} className="body-copy">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- SELECTED WORK ---------- */}
+      <section className="px-5 pb-8 sm:px-8">
+        <div className="mb-12 flex items-end justify-between border-t hairline border-t-ink/20 pt-6">
+          <AnimatedText
+            as="h2"
+            text={t('projects.label')}
+            className="block font-display text-huge lowercase leading-[0.85] tracking-tight"
+          />
+          <p className="label hidden text-ink/50 sm:block">
+            [ {String(projects.length).padStart(2, '0')} {t('projects.countLabel').toLowerCase()} ]
+          </p>
+        </div>
+
+        <div className="grid items-start gap-x-6 gap-y-16 sm:grid-cols-2">
+          {projects.map((project, i) => (
+            <TransitionLink
+              key={project.slug}
+              href={`/work/${project.slug}`}
+              cursorMode="view"
+              className={`group block ${i % 2 === 1 ? 'sm:mt-24' : ''}`}
+            >
+              <div className="relative mb-5 aspect-[16/9] w-full">
+                <RevealImage
+                  src={project.image}
+                  alt={project.name}
+                  className="h-full w-full"
+                  parallax
+                  hoverZoom
+                  priority={i === 0}
+                />
+                {project.badge ? (
+                  <span className="label absolute bottom-3 left-3 z-20 bg-paper px-2.5 py-1.5 text-accent">
+                    {project.badge}
+                  </span>
+                ) : null}
+              </div>
+              <div className="flex items-baseline justify-between border-t hairline border-t-ink/20 pt-3">
+                <span className="font-display text-2xl lowercase tracking-tight">
+                  {project.name}
+                </span>
+                <span className="label text-ink/50">{project.index}</span>
+              </div>
+              <p className="micro-copy mt-2 line-clamp-2 min-h-[42px] max-w-[46ch]">
+                {project.description}
+              </p>
+              <div className="mt-1 flex items-center justify-between">
+                <span className="label text-ink/45">{project.tech.join(' · ')}</span>
+                <span className="label inline-flex items-center gap-2 text-ink/45 transition-transform duration-500 group-hover:translate-x-1">
+                  <span className="text-accent">→</span>
+                </span>
+              </div>
+            </TransitionLink>
+          ))}
+        </div>
+
+        <div className="mt-14 flex justify-center">
+          <TransitionLink href="/work" cursorMode="link" className="label link-line text-ink/70">
+            {t('home.viewAll')} — {projects.length} {t('projects.countLabel').toLowerCase()} →
+          </TransitionLink>
         </div>
       </section>
     </PageWrapper>

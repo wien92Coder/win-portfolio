@@ -617,6 +617,31 @@ body::after {
   display: block;
 }
 
+/* ── MARQUEE — infinite ticker ──────────────────────────────────────
+   CSS rather than JS: an endless decorative loop should not hold a rAF
+   callback open, and the compositor can keep it off the main thread. The
+   track holds two copies of the word list, so -50% lands exactly on the
+   start of the second copy and the loop is seamless. */
+.marquee-track {
+  animation: marquee-slide 26s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee-slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* CSS-level reduced-motion safety net (JS motion is handled by MotionConfig). */
 @media (prefers-reduced-motion: reduce) {
   *,
