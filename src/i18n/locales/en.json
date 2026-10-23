@@ -80,7 +80,14 @@
   "lookbook": {
     "title": "from the field",
     "hint": "Drag — selected frames",
-    "captions": ["Rekam Jejak Hanania", "Akar Jogja", "Bliho", "Win Winarno, Semarang"]
+    "captions": [
+      "Rekam Jejak Hanania",
+      "Healthcare service culture",
+      "Akar Jogja",
+      "Win Winarno, Semarang",
+      "Bliho",
+      "Hospitality operations"
+    ]
   },
   "marquee": {
     "ariaLabel": "Highlights",
@@ -272,8 +279,30 @@
     ],
     "closing": "From Bellboy in 1993 to an Operational Manager building his own digital systems — this journey was never about changing professions. It was about continually finding the most effective tool to solve real operational problems. Today, that tool is code."
   },
+  "studio": {
+    "label": "Studio",
+    "title": "three decades of operations, now shipping the systems.",
+    "lead": "From bellboy in 1993 to operations manager building his own tools — the role changed, the job never did: make the operation work.",
+    "body": [
+      "30+ years of hospitality and healthcare operations, now building the systems that run them: automation, digital operating systems, and custom web apps.",
+      "I use code as an operational tool, not an end in itself. Every system here started as a real problem in a real business."
+    ],
+    "careerLabel": "Career"
+  },
   "contact": {
     "title": "Contact",
+    "headline": "tell me what needs running better.",
+    "intro": "A process that leaks margin, a service standard that slipped, or a system that should exist and doesn't yet. Describe it in a few lines and I'll reply.",
+    "thanks": "thanks — it's on its way.",
+    "again": "Send another",
+    "required": "Required",
+    "invalidEmail": "Enter a valid email",
+    "tooShort": "A little more detail",
+    "placeholders": {
+      "name": "your name",
+      "email": "you@company.com",
+      "message": "what needs fixing…"
+    },
     "form": {
       "name": "Name",
       "email": "Email",

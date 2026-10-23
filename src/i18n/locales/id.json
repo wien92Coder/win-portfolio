@@ -80,7 +80,14 @@
   "lookbook": {
     "title": "dari lapangan",
     "hint": "Geser — bingkai pilihan",
-    "captions": ["Rekam Jejak Hanania", "Akar Jogja", "Bliho", "Win Winarno, Semarang"]
+    "captions": [
+      "Rekam Jejak Hanania",
+      "Budaya layanan healthcare",
+      "Akar Jogja",
+      "Win Winarno, Semarang",
+      "Bliho",
+      "Operasional hospitality"
+    ]
   },
   "marquee": {
     "ariaLabel": "Sorotan",
@@ -272,8 +279,30 @@
     ],
     "closing": "Dari Bellboy tahun 1993 hingga menjadi Operational Manager yang membangun sistem digitalnya sendiri — perjalanan ini bukan soal ganti profesi, tapi soal terus mencari alat yang paling efektif untuk menyelesaikan masalah operasional nyata. Hari ini, alat itu adalah kode."
   },
+  "studio": {
+    "label": "Studio",
+    "title": "tiga dekade operasional, sekarang mengirim sistemnya.",
+    "lead": "Dari bellboy tahun 1993 hingga operations manager yang membangun alatnya sendiri — jabatannya berubah, pekerjaannya tetap: membuat operasi berjalan.",
+    "body": [
+      "30+ tahun operasional hospitality dan healthcare, sekarang membangun sistem yang menjalankannya: otomatisasi, sistem operasi digital, dan web app kustom.",
+      "Saya pakai kode sebagai alat operasional, bukan tujuan. Setiap sistem di sini lahir dari masalah nyata di bisnis nyata."
+    ],
+    "careerLabel": "Perjalanan karier"
+  },
   "contact": {
     "title": "Kontak",
+    "headline": "ceritakan apa yang perlu dijalankan lebih baik.",
+    "intro": "Proses yang membocorkan margin, standar layanan yang menurun, atau sistem yang seharusnya ada tapi belum ada. Tuliskan singkat, saya balas.",
+    "thanks": "terima kasih — pesanmu sudah terkirim.",
+    "again": "Kirim lagi",
+    "required": "Wajib diisi",
+    "invalidEmail": "Format email belum benar",
+    "tooShort": "Tambahkan sedikit detail",
+    "placeholders": {
+      "name": "nama Anda",
+      "email": "anda@perusahaan.com",
+      "message": "apa yang perlu diperbaiki…"
+    },
     "form": {
       "name": "Nama",
       "email": "Email",

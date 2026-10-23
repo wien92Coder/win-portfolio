@@ -4,15 +4,18 @@ import { useUI } from '../context/UIContext';
 import { AnimatedText } from './AnimatedText';
 
 /**
- * Frames shown in the rail. Only work that exists in the v1 project list is
- * included — the three unlisted cube faces were left out rather than presented
- * as client work. The fourth frame is the studio portrait.
+ * Frames shown in the rail. Project frames are the v1 cube art for projects
+ * that exist in the project list; the portrait is the studio photo. The two
+ * photographs are free-licence Unsplash stock (see CREDITS.md) used as sector
+ * atmosphere — they are captioned as the field, never as client work.
  */
 const FRAMES = [
   { src: '/cube/face-01.webp', index: '01' },
-  { src: '/cube/face-02.webp', index: '02' },
-  { src: '/cube/face-04.webp', index: '03' },
+  { src: '/images/healthcare-service.jpg', index: '02' },
+  { src: '/cube/face-02.webp', index: '03' },
   { src: '/portrait.jpg', index: '04' },
+  { src: '/cube/face-04.webp', index: '05' },
+  { src: '/images/hospitality-operations.jpg', index: '06' },
 ];
 
 /**
