@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, type Variants } from 'motion/react';
 import { LanguageToggle } from '../i18n/LanguageToggle';
-import { ThemeToggle } from './ThemeToggle';
 
 const LINKS = [
   { id: 'playground', key: 'playground' },
@@ -85,7 +84,6 @@ export function Nav() {
         <div className="flex items-center gap-2">
           {/* Desktop toggles */}
           <div className="hidden items-center gap-2 md:flex">
-            <ThemeToggle />
             <LanguageToggle />
           </div>
 
@@ -147,7 +145,6 @@ export function Nav() {
             </motion.ul>
 
             <div className="mt-auto flex items-center gap-3 pt-10">
-              <ThemeToggle />
               <LanguageToggle />
             </div>
           </nav>
