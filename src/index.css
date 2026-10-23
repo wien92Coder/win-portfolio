@@ -8,80 +8,65 @@
    fallback for the whole session. Serving them same-origin removes that risk.
    ─────────────────────────────────────────────────────────────────────────── */
 
-/* Display serif (LUMEN design system) — hero/section headings */
+/* v2 display face — Archivo Black, the oversized wordmark and headings. */
 @font-face {
-  font-family: "Cormorant Garamond";
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url("/fonts/cormorant-garamond-latin-300-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Cormorant Garamond";
-  font-style: italic;
-  font-weight: 300;
-  font-display: swap;
-  src: url("/fonts/cormorant-garamond-latin-300-italic.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Cormorant Garamond";
+  font-family: "Archivo Black";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/cormorant-garamond-latin-400-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Cormorant Garamond";
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/cormorant-garamond-latin-400-italic.woff2") format("woff2");
+  src: url("/fonts/archivo-black-latin-400-normal.woff2") format("woff2");
 }
 
-/* Geometric sans (LUMEN design system) — logo, card titles, numeric badges */
+/* v2 workhorse sans — one variable file covers 400/500/600. */
 @font-face {
-  font-family: "Syne";
+  font-family: "Archivo";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 100 900;
   font-display: swap;
-  src: url("/fonts/syne-latin-600-normal.woff2") format("woff2");
+  src: url("/fonts/archivo-latin-variable-normal.woff2") format("woff2");
+}
+
+/* v2 mono — the tiny uppercase labels. */
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/space-mono-latin-400-normal.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Syne";
+  font-family: "Space Mono";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("/fonts/syne-latin-700-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Syne";
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url("/fonts/syne-latin-800-normal.woff2") format("woff2");
+  src: url("/fonts/space-mono-latin-700-normal.woff2") format("woff2");
 }
 
-/* Monospace body font */
-@font-face {
-  font-family: "DM Mono";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/dm-mono-latin-400-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "DM Mono";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("/fonts/dm-mono-latin-500-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "DM Mono";
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/dm-mono-latin-400-italic.woff2") format("woff2");
+/* ───────────────────────────────────────────────────────────────────────────
+   v2 design tokens (FORM&CO-derived). Declared in @theme so Tailwind v4
+   generates the matching utilities — bg-paper, text-ink/60, text-mega,
+   tracking-label, ease-editorial — while the same names stay readable from
+   plain CSS. Changing a value here changes the whole site.
+   ─────────────────────────────────────────────────────────────────────────── */
+@theme {
+  --color-paper: #faf9f6;
+  --color-ink: #101014;
+  --color-accent: #2f50f2;
+  --color-moss: #e8ecff;
+
+  --font-display: "Archivo Black", "Archivo", sans-serif;
+  --font-sans: "Archivo", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  --text-mega: clamp(4.5rem, 18vw, 16rem);
+  --text-mega--line-height: 0.78;
+  --text-huge: clamp(3rem, 9vw, 8rem);
+  --text-huge--line-height: 0.85;
+
+  --tracking-label: 0.22em;
+
+  --ease-editorial: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ───────────────────────────────────────────────────────────────────────────
@@ -96,67 +81,45 @@
    toggle (theme.ts, §7.1).
    ─────────────────────────────────────────────────────────────────────────── */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Semantic — dark (exact LUMEN values) */
-  --bg: #060608;
-  --bg2: #0d0d12;
-  --bg3: #12121a;
-  --border: rgba(255, 255, 255, 0.06);
-  --fg: #d4cfc8;
-  --warm: #f0e8d8;
-  --muted: #6b6870;
-  --accent: #f5c97a; /* amber */
-  --accent-dim: #a8823a;
-  --accent-glow: rgba(245, 201, 122, 0.15);
-  --card-bg: rgba(6, 6, 8, 0.8);
-  --card-border: var(--border);
-  --radius: 4px;
+  /* v2 palette — mirrors @theme so plain CSS can read the same values. */
+  --paper: #faf9f6;
+  --ink: #101014;
+  --moss: #e8ecff;
+  --accent: #2f50f2;
+  --muted: rgba(16, 16, 20, 0.55);
 
-  /* Typography */
-  --font-display: "Cormorant Garamond", serif;
-  --font-accent: "Syne", sans-serif;
-  --font-mono: "DM Mono", monospace;
+  /* Legacy aliases — keep v1 components on-palette while they are ported
+     out. Deleted together with the last v1 component. */
+  --bg: var(--paper);
+  --bg2: #f4f2ec;
+  --bg3: var(--moss);
+  --border: rgba(16, 16, 20, 0.13);
+  --fg: var(--ink);
+  --warm: var(--ink);
+  --accent-dim: #253fc4;
+  --accent-glow: rgba(47, 80, 242, 0.15);
+  --card-bg: rgba(250, 249, 246, 0.82);
+  --card-border: rgba(16, 16, 20, 0.13);
+  --radius: 0px;
+  --font-accent: var(--font-display);
 
   /* Spacing & misc */
   --hairline: 0.0625rem;
   --ui-inset: 2rem;
   --z-ui: 10;
 
-  /* Grain overlay (body::after) */
-  --grain-opacity: 0.5;
+  /* Grain overlay */
+  --grain-opacity: 0.05;
 
   /* Status semantics (calculator margin badges) */
-  --status-ok: #4ade80;
-  --status-warn: #fbbf24;
-  --status-crit: #f87171;
-
-  /* Portrait duotone (design-system.md §7.2) — warm amber-tinted B&W on dark */
-  --portrait-filter: grayscale(1) sepia(0.42) contrast(1.05);
-}
-
-:root[data-theme="light"] {
-  color-scheme: light;
-  /* Palette intentionally unchanged from the previous light theme. */
-  --bg: #f0ece3;
-  --bg2: #e7e2d7;
-  --bg3: #ded8cb;
-  --border: rgba(13, 13, 20, 0.12);
-  --fg: #0d0d14;
-  --warm: #0d0d14;
-  --muted: #9a9aaa;
-  --accent: #3a6e00;
-  --accent-dim: #3a6e00;
-  --accent-glow: rgba(58, 110, 0, 0.12);
-  --card-bg: rgba(240, 236, 227, 0.08);
-  --card-border: rgba(58, 110, 0, 0.14);
-  --grain-opacity: 0.3;
   --status-ok: #15803d;
   --status-warn: #b45309;
-  --status-crit: #dc2626;
+  --status-crit: #b91c1c;
 
-  /* Green monochrome duotone for light mode, matching --accent-light */
-  --portrait-filter: grayscale(1) sepia(1) hue-rotate(75deg) saturate(1.5) contrast(1.03);
+  /* Editorial imagery is greyscale until hovered (see .img-editorial) */
+  --portrait-filter: grayscale(1) contrast(1.05);
 }
 
 html {
@@ -547,6 +510,121 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .burger-icon span {
     transition: none;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   v2 editorial utilities — ported from the template's globals.css.
+   Written as plain CSS (not @apply) so they never depend on Tailwind theme
+   keys that a later refactor might rename.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Tiny uppercase mono label — the recurring micro-typography motif. */
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: var(--tracking-label, 0.22em);
+  text-transform: uppercase;
+}
+
+@media (min-width: 40rem) {
+  .label {
+    font-size: 11px;
+  }
+}
+
+/* Small mono caption. */
+.micro-copy {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.75;
+  color: rgba(16, 16, 20, 0.65);
+}
+
+/* Editorial running text. */
+.body-copy {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(16, 16, 20, 0.8);
+}
+
+@media (min-width: 40rem) {
+  .body-copy {
+    font-size: 17px;
+  }
+}
+
+/* Hairline that wipes in from the left on hover. */
+.link-line {
+  position: relative;
+  display: inline-block;
+}
+.link-line::after {
+  content: "";
+  position: absolute;
+  bottom: -0.125rem;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 420ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+.link-line:hover::after,
+.link-line:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Editorial imagery: desaturated until hovered. Colour and scale land together
+   because both use the same expo-out curve. */
+.img-editorial {
+  filter: grayscale(1) contrast(1.06) brightness(0.99);
+  transition: filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .img-editorial,
+.img-editorial:hover {
+  filter: grayscale(0) contrast(1.02);
+}
+
+/* Fixed film-grain overlay. No mix-blend-mode: blending a fixed full-screen
+   layer re-composites the page on every scroll frame and visibly stutters. */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  transform: translateZ(0);
+}
+
+/* Horizontal rails without a visible scrollbar. */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Clip mask for line-by-line text reveals. */
+.reveal-mask {
+  overflow: hidden;
+  display: block;
+}
+
+/* CSS-level reduced-motion safety net (JS motion is handled by MotionConfig). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 
