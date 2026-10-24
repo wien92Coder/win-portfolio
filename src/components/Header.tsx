@@ -19,7 +19,7 @@ export function Header() {
   const links = [
     { href: '/work', key: 'menu.work' },
     { href: '/karya', key: 'menu.caseStudies' },
-    { href: '/studio', key: 'menu.studio' },
+    { href: '/about', key: 'menu.studio' },
     { href: '/contact', key: 'menu.contact' },
   ];
 

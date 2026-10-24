@@ -240,7 +240,7 @@ kompatibel dengan `framer-motion` v11 template). Semua animasi tetap tunduk pada
 | `/` | Hero, 4 project terpilih, services/competency, stats, CTA | `app/page.tsx` |
 | `/work` | Daftar lengkap 4 project + filter/kategori | `app/work/page.tsx` |
 | `/work/:slug` | Case study per project (Pillar A/B v1) | `app/work/[slug]` |
-| `/studio` | About + Timeline + kompetensi lengkap | `app/studio/page.tsx` |
+| `/about` | About + Timeline + kompetensi lengkap | `app/studio/page.tsx` |
 | `/contact` | Form kontak + CountrySelect + endpoint PHP | `app/contact/page.tsx` |
 
 Slug: `rekam-jejak-hanania`, `akar-jogja`, `bliho`, `revenue-management-system`.

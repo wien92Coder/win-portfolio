@@ -202,7 +202,7 @@ Catatan penerapan:
 - [ ] Verifikasi (semua dari mesin lokal):
 
   ```bash
-  for u in / /work /work/bliho /karya /karya/large-private-hospital /studio /contact; do
+  for u in / /work /work/bliho /karya /karya/large-private-hospital /about /contact; do
     printf "%-14s " "$u"
     curl -s -o /dev/null -w "%{http_code} %{content_type}\n" "https://win-portfolio.my.id$u"
   done
@@ -282,7 +282,7 @@ lalu:
 - [ ] Tombol ID/EN mengganti seluruh studi kasus tanpa layout rusak
 - [ ] `/work/rekam-jejak-hanania`, `/work/akar-jogja`,
       `/work/revenue-management-system` → semua tampil
-- [ ] `/studio` dan `/contact` tampil
+- [ ] `/about` dan `/contact` tampil
 - [ ] URL ngawur (`/tidak-ada`) → diarahkan ke beranda (perilaku desain; bukan 404)
 - [ ] Bahasa: toggle ID↔EN, lalu reload → pilihan bertahan; `?lang=en` bekerja
 - [ ] Form kontak:

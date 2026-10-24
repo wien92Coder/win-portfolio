@@ -26,7 +26,7 @@ export const NAV_ITEMS: NavItem[] = [
     image: '/images/healthcare-service.jpg',
   },
   {
-    href: '/studio',
+    href: '/about',
     key: 'menu.studio',
     metaKey: 'menu.studioMeta',
     index: '04',

@@ -40,7 +40,7 @@ function App() {
           <Route path="/work/:slug" element={<WorkDetailPage />} />
           <Route path="/karya" element={<CaseStudiesPage />} />
           <Route path="/karya/:slug" element={<CaseStudyDetailPage />} />
-          <Route path="/studio" element={<StudioPage />} />
+          <Route path="/about" element={<StudioPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
