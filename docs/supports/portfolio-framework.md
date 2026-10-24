@@ -16,15 +16,15 @@
 | Total pengalaman hospitality | 33 tahun (1993–2026), "30+ tahun" |
 | Jabatan puncak operasional | General Manager, Patuno Resort Wakatobi (Mar 2013–Mei 2014) |
 | Pre-opening | Pre-Opening GM, Rumah Kito Resort, Jambi (Jun 2014–Mar 2015) — 80+ staf |
-| Konsultan HR rumah sakit | 2015–2024, 6 klien RS (SMC Tlogorejo, RSUD Rembang, Indriati Solo, Santa Elisabeth, Samsoe Hidajat, Brayat Minulya) |
+| Konsultan HR rumah sakit | 2015–2024, 6 klien RS di Jawa Tengah (nama klien dirahasiakan) |
 | Head of Operation platform LMS | AJAR Media Digital, Jan 2018–Mar 2022 — kemitraan lintas negara (TAFE Queensland, Dusit Thani, École Hôtelière de Lausanne) |
 | Peran sekarang | Operational Manager, Hanania Kitchen and Brew, Semarang (April 2026–sekarang); sebelumnya HR & Operations Consultant di tempat sama (Des 2023–Nov 2025) |
 | Sertifikasi | TAE40116 Trainer & Assessor, TAFE Queensland, Australia (2017); Certified Virtual Assistant, SGB-VA Singapore (2025) |
 | Kontak | Semarang, Jawa Tengah · linkedin.com/in/win-va |
 
 **Angka pencapaian utama yang dipakai di Hero Proof Strip (lihat §3.1) — spesifik per sumber, tidak lagi digeneralisir:**
-- CSI SMC Tlogorejo: **70% → 92%**
-- Google Review RS Santa Elisabeth: **4.1 → 4.8 ⭐**
+- CSI rumah sakit swasta, Jawa Tengah: **70% → 92%**
+- Rating Google rumah sakit bersejarah: **4.1 → 4.8 ⭐**
 - Staff service-charge earnings, Patuno Resort: **12x lipat** (Rp 75.000 → Rp 900.000/bulan)
 - Pengalaman lapangan: **33 tahun** (1993–sekarang)
 
@@ -85,8 +85,8 @@ Single Page Application, 6 section, smooth-scroll nav:
 
 | Angka | Konteks |
 |---|---|
-| **70% → 92%** | CSI, SMC Tlogorejo |
-| **4.1 → 4.8 ⭐** | Google Review, RS Santa Elisabeth |
+| **70% → 92%** | CSI, private hospital in Central Java |
+| **4.1 → 4.8 ⭐** | Google rating, heritage hospital |
 | **12x** | Kenaikan pendapatan staf, Patuno Resort Wakatobi |
 | **33 tahun** | Pengalaman lapangan (1993–sekarang) |
 
@@ -150,12 +150,12 @@ Direstrukturisasi jadi **dua pilar**, selaras dengan Dual Competency Grid (§3.4
 
 ---
 
-**A1. RS SMC Tlogorejo, Semarang**
+**A1. Large Private Hospital, Central Java**
 *RS ambisius yang ingin naik kelas ke standar hotel — transformasi budaya besar-besaran berujung lonjakan CSI dua digit.*
 
 | | |
 |---|---|
-| **Klien** | RS swasta berbasis yayasan keagamaan, 1.800–2.000 staf |
+| **Klien** | Rumah sakit swasta di bawah naungan yayasan, ±2.000 staf dan dokter |
 | **Periode** | Maret 2015 – Mei 2016 (1,5 tahun) |
 
 - **Kondisi Awal:** RS sedang ekspansi gedung baru dan ingin menghadirkan standar layanan setara hotel internasional. Seluruh lini staf dan dokter — meski RS sudah lama berdiri — membutuhkan *refreshment training* menyeluruh di bidang Service Excellence.
@@ -164,30 +164,30 @@ Direstrukturisasi jadi **dua pilar**, selaras dengan Dual Competency Grid (§3.4
 
 ---
 
-**A2. RSUD Rembang**
+**A2. Regional Government Hospital, Central Java**
 *RS pemerintah dengan mindset birokratis — pembuktian bahwa perubahan sistemik lebih bernilai daripada angka instan.*
 
 | | |
 |---|---|
-| **Klien** | RS Pemerintah, 1.000–1.300 karyawan |
+| **Klien** | Rumah sakit pemerintah daerah, 1.000+ staf |
 | **Periode** | Mei 2016 – Desember 2017 (1,5 tahun) |
 
 - **Kondisi Awal:** Tantangan klasik institusi pemerintah — mindset "bekerja sampai pensiun", motivasi kerja rendah, sistem reward-punishment yang tidak berjalan, dan peran kepemimpinan lini yang sangat lemah.
-- **Solusi:** Menerapkan kerangka SMART Care yang sama seperti di Tlogorejo, ditambah *coaching* intensif satu-per-satu untuk seluruh *leader* agar mampu menggerakkan kesadaran perbaikan diri staf mereka sendiri — bukan sekadar instruksi top-down. Turut merombak sistem reservasi pasien yang sebelumnya hanya bisa datang langsung, dipecah menjadi kanal telepon (CS) dan WhatsApp.
-- **Hasil:** Perbaikan CSI di sini berjalan lebih bertahap dibanding dua RS lainnya — bukti nyata bahwa mengubah birokrasi butuh waktu lebih panjang dari mengubah institusi swasta. Namun perubahan struktural yang ditanamkan justru lebih tahan lama: **RSUD Rembang kini dikenal sebagai salah satu RSUD dengan pelayanan terbaik di Indonesia**, dengan akses reservasi yang jauh lebih modern. Modul yang diterapkan: *People*, *Process*, sebagian *Product*.
+- **Solusi:** Menerapkan kerangka SMART Care yang sama seperti pada kasus sebelumnya, ditambah *coaching* intensif satu-per-satu untuk seluruh *leader* agar mampu menggerakkan kesadaran perbaikan diri staf mereka sendiri — bukan sekadar instruksi top-down. Turut merombak sistem reservasi pasien yang sebelumnya hanya bisa datang langsung, dipecah menjadi kanal telepon (CS) dan WhatsApp.
+- **Hasil:** Perbaikan CSI di sini berjalan lebih bertahap dibanding dua RS lainnya — bukti nyata bahwa mengubah birokrasi butuh waktu lebih panjang dari mengubah institusi swasta. Namun perubahan struktural yang ditanamkan justru lebih tahan lama: **institusi ini kini dikenal luas karena kualitas pelayanannya**, dengan akses reservasi yang jauh lebih modern. Modul yang diterapkan: *People*, *Process*, sebagian *Product*.
 
 ---
 
-**A3. RS Santa Elisabeth**
-*RS berusia hampir satu abad dengan disiplin tinggi warisan Belanda — hasil tercepat dan paling memuaskan dari ketiganya.*
+**A3. Heritage Private Hospital, Central Java**
+*RS dengan tradisi disiplin yang kuat — hasil tercepat dan paling memuaskan dari ketiganya.*
 
 | | |
 |---|---|
-| **Klien** | RS swasta berbasis yayasan keagamaan, berdiri sejak era Hindia Belanda (~100 tahun) |
+| **Klien** | Rumah sakit swasta di bawah naungan yayasan, dengan sejarah pelayanan yang panjang |
 | **Periode** | November 2023 – November 2024 (1 tahun) |
 
-- **Kondisi Awal:** Standar kerja yang diwariskan turun-temurun sejak era suster-suster Belanda — sangat disiplin, tapi kaku dalam pendekatan layanan. Rating Google Review hanya **4,1 bintang** (November 2023), mengindikasikan banyak keluhan sisi pelayanan meski disiplin operasional tinggi.
-- **Solusi:** Kerangka SMART Care yang sama, dijalankan dengan intensitas coaching individual tertinggi — bekerja langsung dan rutin bersama para Direktur dan Suster Kepala.
+- **Kondisi Awal:** Dengan sejarah pelayanan yang panjang, rumah sakit ini memiliki budaya disiplin dan standar kerja yang sangat kuat. Rating Google hanya **4,1 bintang**, mengindikasikan keluhan sisi pelayanan meski disiplin operasional tinggi.
+- **Solusi:** Kerangka SMART Care yang sama, dijalankan dengan intensitas coaching individual tertinggi — bekerja langsung dan rutin bersama para Direktur dan pimpinan unit.
 - **Hasil:** **Google Review naik dari 4,1 → 4,8 bintang** dalam satu tahun. Engagement antara atasan dan bawahan meningkat tajam, teamwork ikut terbentuk kuat. Modul yang diterapkan hanya *People* — namun eksekusinya paling konsisten di antara ketiga RS, menghasilkan dampak paling memuaskan secara keseluruhan.
 
 ---

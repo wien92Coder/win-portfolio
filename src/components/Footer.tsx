@@ -46,22 +46,31 @@ export function Footer() {
         </div>
 
         <div className="col-span-1 sm:col-span-3">
-          <p className="label mb-5 text-ink/50">{t('menu.studioLabel')}</p>
+          <p className="label mb-5 text-ink/50">{t('menu.connected')}</p>
           <ul className="flex flex-col gap-2">
+            <li>
+              <a
+                href={site.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="label link-line text-ink/80 hover:text-accent"
+              >
+                LinkedIn ↗
+              </a>
+            </li>
             <li className="label text-ink/80">{site.location}</li>
-            <li className="label text-ink/80">{site.est}</li>
-            <li className="label text-ink/80">{site.season}</li>
+            <li className="label text-ink/80">{t('site.season')}</li>
           </ul>
         </div>
 
         <div className="col-span-2 sm:col-span-3">
           <p className="label mb-5 text-ink/50">{t('menu.availabilityLabel')}</p>
-          <p className="label max-w-[24ch] text-ink/80">{site.availability}</p>
+          <p className="label max-w-[24ch] text-ink/80">{t('site.availability')}</p>
         </div>
 
         <div className="col-span-2 sm:col-span-3">
           <p className="label mb-5 text-ink/50">{t('menu.colophon')}</p>
-          <p className="micro-copy max-w-[28ch]">{site.descriptor}</p>
+          <p className="micro-copy max-w-[28ch]">{t('site.descriptor')}</p>
         </div>
       </div>
 

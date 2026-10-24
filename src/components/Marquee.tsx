@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next';
  * `marquee-slide` animation moves it -50%, so the seam is invisible and the
  * loop costs no main-thread work. Words come from the locale files.
  */
-export function Marquee() {
+export function Marquee({ items: override }: { items?: string[] } = {}) {
   const { t } = useTranslation();
-  const items = t('marquee.items', { returnObjects: true }) as string[];
+  const items = override ?? (t('marquee.items', { returnObjects: true }) as string[]);
 
   return (
     <section className="border-y hairline border-y-ink/15 py-4">

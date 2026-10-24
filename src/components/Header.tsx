@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { useUI } from '../context/UIContext';
 import { site } from '../content/site';
 import { TransitionLink } from './TransitionLink';
+import { LanguageToggle } from './LanguageToggle';
 
 /**
  * Persistent header: wordmark left, a live location tag, and one Menu trigger.
@@ -10,8 +12,16 @@ import { TransitionLink } from './TransitionLink';
  */
 export function Header() {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
   const { setCursor, menuOpen, setMenuOpen } = useUI();
   const [scrolled, setScrolled] = useState(false);
+
+  const links = [
+    { href: '/work', key: 'menu.work' },
+    { href: '/karya', key: 'menu.caseStudies' },
+    { href: '/studio', key: 'menu.studio' },
+    { href: '/contact', key: 'menu.contact' },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -36,14 +46,32 @@ export function Header() {
           <span className="label ml-1 hidden translate-y-[-2px] text-paper/60 sm:inline">®</span>
         </TransitionLink>
 
-        <p className="label pointer-events-auto hidden text-paper/60 md:block">{site.season}</p>
+        <nav aria-label={t('menu.label')} className="pointer-events-auto hidden items-center gap-6 lg:flex">
+          {links.map((link) => (
+            <TransitionLink
+              key={link.href}
+              href={link.href}
+              cursorMode="link"
+              aria-current={pathname === link.href ? 'page' : undefined}
+              className={`label flex min-h-[44px] items-center py-2 transition-colors hover:text-paper ${
+                pathname === link.href ? 'text-paper' : 'text-paper/55'
+              }`}
+            >
+              {t(link.key)}
+            </TransitionLink>
+          ))}
+        </nav>
+
+        <div className="pointer-events-auto flex items-center gap-4 sm:gap-5">
+          <LanguageToggle tone="paper" />
+          <p className="label hidden text-paper/60 xl:block">{t('site.season')}</p>
 
         <button
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
           onMouseEnter={() => setCursor('link')}
           onMouseLeave={() => setCursor('default')}
-          className="group label pointer-events-auto flex items-center gap-3 text-paper"
+          className="group label pointer-events-auto -my-4 flex min-h-[44px] items-center gap-3 py-4 text-paper"
           aria-expanded={menuOpen}
           aria-controls="site-menu"
           aria-label={menuOpen ? t('menu.close') : t('menu.openMenu')}
@@ -56,6 +84,7 @@ export function Header() {
             <span className="h-px w-3/5 bg-accent transition-[width] duration-500 ease-expo group-hover:w-full" />
           </span>
         </button>
+        </div>
       </div>
     </header>
   );

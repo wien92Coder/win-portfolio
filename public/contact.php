@@ -78,6 +78,7 @@ if (!is_array($data)) {
 $name      = trim((string) ($data['name'] ?? ''));
 $email     = trim((string) ($data['email'] ?? ''));
 $phone     = trim((string) ($data['phone'] ?? ''));
+$topic     = trim((string) ($data['topic'] ?? '')); // pre-selected CTA goal
 $message   = trim((string) ($data['message'] ?? ''));
 $honeypot  = trim((string) ($data['website'] ?? '')); // hidden field; bots fill it
 
@@ -92,7 +93,7 @@ if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL
     echo json_encode(['ok' => false, 'error' => 'Invalid submission']);
     exit;
 }
-if (strlen($name) > 100 || strlen($email) > 254 || strlen($phone) > 32 || strlen($message) > 5000) {
+if (strlen($name) > 100 || strlen($email) > 254 || strlen($phone) > 32 || strlen($topic) > 80 || strlen($message) > 5000) {
     http_response_code(422);
     echo json_encode(['ok' => false, 'error' => 'Submission too large']);
     exit;
@@ -102,6 +103,9 @@ $subject = 'Portfolio contact from ' . $name;
 $body    = "Name: $name\nEmail: $email";
 if ($phone !== '') {
     $body .= "\nPhone: $phone";
+}
+if ($topic !== '') {
+    $body .= "\nTopic: $topic";
 }
 $body   .= "\n\nMessage:\n$message";
 

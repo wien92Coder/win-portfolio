@@ -15,6 +15,22 @@ any project.
 The Unsplash License allows free commercial and non-commercial use without
 attribution. Attribution is listed here anyway so the provenance is traceable.
 
+### Temporary lane and case-study placeholders
+
+These five photographs stand in for owned imagery on the home lanes and the
+case-study pages. They are abstract or atmospheric, are captioned as
+illustrations, and are **not** presented as client premises. The two lane
+photographs are 900 × 1200 portrait crops, sized for the home hero. Replace
+them with owned photography before go-live.
+
+| File | Source | Licence |
+|------|--------|---------|
+| `public/images/lane-digital.jpg` | [unsplash.com/photos/1498050108023-c5249f4df085](https://unsplash.com/photos/1498050108023-c5249f4df085) | [Unsplash License](https://unsplash.com/license) |
+| `public/images/lane-hospitality.jpg` | [unsplash.com/photos/1566073771259-6a8506099945](https://unsplash.com/photos/1566073771259-6a8506099945) | [Unsplash License](https://unsplash.com/license) |
+| `public/images/case-large-private.jpg` | [unsplash.com/photos/1518005020951-eccb494ad742](https://unsplash.com/photos/1518005020951-eccb494ad742) | [Unsplash License](https://unsplash.com/license) |
+| `public/images/case-regional-government.jpg` | [unsplash.com/photos/1486406146926-c627a92ad1ab](https://unsplash.com/photos/1486406146926-c627a92ad1ab) | [Unsplash License](https://unsplash.com/license) |
+| `public/images/case-heritage.jpg` | [unsplash.com/photos/1524230572899-a752b3835840](https://unsplash.com/photos/1524230572899-a752b3835840) | [Unsplash License](https://unsplash.com/license) |
+
 ## Other imagery
 
 - `public/projects/*.webp` — screenshots of Win Winarno's own projects.

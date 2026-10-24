@@ -67,11 +67,11 @@ export function StudioPage() {
           <dl className="mt-12 grid grid-cols-1 gap-4 border-t hairline border-t-ink/20 pt-6 sm:grid-cols-2">
             <div>
               <dt className="label mb-2 text-ink/50">{t('menu.seasonLabel')}</dt>
-              <dd className="label text-ink/80">{site.season}</dd>
+              <dd className="label text-ink/80">{t('site.season')}</dd>
             </div>
             <div>
               <dt className="label mb-2 text-ink/50">{t('menu.availabilityLabel')}</dt>
-              <dd className="label text-ink/80">{site.availability}</dd>
+              <dd className="label text-ink/80">{t('site.availability')}</dd>
             </div>
           </dl>
         </div>

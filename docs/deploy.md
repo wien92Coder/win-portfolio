@@ -14,6 +14,10 @@ push ke main ──► GitHub Actions (npm ci + npm run build)
 
 File workflow: `.github/workflows/deploy.yml` (sudah commit di repo).
 
+> Rilis v2 (multi-halaman) punya urutan langkah sendiri — preflight, nginx,
+> endpoint form, smoke test, dan rollback. Ikuti
+> [`docs/go-live-v2.md`](go-live-v2.md), bukan dokumen ini, saat go-live.
+
 ## Komponen penting
 
 | Komponen | Nilai |

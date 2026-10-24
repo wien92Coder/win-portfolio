@@ -36,8 +36,14 @@ export function detectLanguage(): Language {
     return urlLang as Language;
   }
 
-  // 2. Persisted preference from a previous visit
-  const stored = window.localStorage.getItem(STORAGE_KEY);
+  // 2. Persisted preference from a previous visit. Private browsing and
+  //    blocked-storage modes throw on access, so this must never break boot.
+  let stored: string | null = null;
+  try {
+    stored = window.localStorage.getItem(STORAGE_KEY);
+  } catch {
+    /* storage unavailable — fall through to browser detection */
+  }
   if (stored && SUPPORTED.has(stored)) {
     return stored as Language;
   }
@@ -54,7 +60,11 @@ export function detectLanguage(): Language {
 }
 
 export function persistLanguage(lang: Language): void {
-  window.localStorage.setItem(STORAGE_KEY, lang);
+  try {
+    window.localStorage.setItem(STORAGE_KEY, lang);
+  } catch {
+    /* a blocked write only costs the preference, not the language switch */
+  }
 }
 
 /** Normalizes any resolved i18next language to the supported union. */

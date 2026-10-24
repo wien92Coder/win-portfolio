@@ -11,6 +11,12 @@ const WorkPage = lazy(() => import('./pages/WorkPage').then((m) => ({ default: m
 const WorkDetailPage = lazy(() =>
   import('./pages/WorkDetailPage').then((m) => ({ default: m.WorkDetailPage })),
 );
+const CaseStudiesPage = lazy(() =>
+  import('./pages/CaseStudiesPage').then((m) => ({ default: m.CaseStudiesPage })),
+);
+const CaseStudyDetailPage = lazy(() =>
+  import('./pages/CaseStudyDetailPage').then((m) => ({ default: m.CaseStudyDetailPage })),
+);
 const StudioPage = lazy(() => import('./pages/StudioPage').then((m) => ({ default: m.StudioPage })));
 const ContactPage = lazy(() =>
   import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })),
@@ -32,6 +38,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/work/:slug" element={<WorkDetailPage />} />
+          <Route path="/karya" element={<CaseStudiesPage />} />
+          <Route path="/karya/:slug" element={<CaseStudyDetailPage />} />
           <Route path="/studio" element={<StudioPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

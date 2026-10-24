@@ -13,4 +13,5 @@ export const site = {
   availability: 'Open for consulting & build projects',
   /** Canonical origin, used for absolute links and structured data. */
   url: 'https://win-portfolio.my.id',
+  linkedin: 'https://linkedin.com/in/win-va',
 } as const;

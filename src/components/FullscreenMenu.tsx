@@ -6,6 +6,7 @@ import { useUI } from '../context/UIContext';
 import { useTransition } from '../context/TransitionContext';
 import { NAV_ITEMS } from '../content/nav';
 import { site } from '../content/site';
+import { LanguageToggle } from './LanguageToggle';
 
 const EASE = [0.76, 0, 0.24, 1] as const;
 
@@ -96,6 +97,8 @@ export function FullscreenMenu() {
             <p className="label text-paper/60">
               {site.brand} — {t('menu.label')}
             </p>
+            <div className="flex items-center gap-6">
+              <LanguageToggle tone="paper" />
             <button
               type="button"
               onClick={() => setMenuOpen(false)}
@@ -108,6 +111,7 @@ export function FullscreenMenu() {
                 <span className="absolute left-1/2 top-1/2 h-px w-4 -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-paper" />
               </span>
             </button>
+            </div>
           </motion.div>
 
           <div className="grid flex-1 grid-cols-1 sm:grid-cols-12">
@@ -188,7 +192,7 @@ export function FullscreenMenu() {
             </div>
             <div>
               <p className="label mb-2 text-paper/40">{t('menu.seasonLabel')}</p>
-              <p className="label text-paper/80">{site.season}</p>
+              <p className="label text-paper/80">{t('site.season')}</p>
             </div>
             <div>
               <p className="label mb-2 text-paper/40">{t('menu.estLabel')}</p>

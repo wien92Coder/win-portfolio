@@ -19,17 +19,24 @@ export const NAV_ITEMS: NavItem[] = [
     image: '/projects/rjHanania.webp',
   },
   {
+    href: '/karya',
+    key: 'menu.caseStudies',
+    metaKey: 'menu.caseStudiesMeta',
+    index: '03',
+    image: '/images/healthcare-service.jpg',
+  },
+  {
     href: '/studio',
     key: 'menu.studio',
     metaKey: 'menu.studioMeta',
-    index: '03',
+    index: '04',
     image: '/photo.jpg',
   },
   {
     href: '/contact',
     key: 'menu.contact',
     metaKey: 'menu.contactMeta',
-    index: '04',
+    index: '05',
     image: '/portrait.jpg',
   },
 ];

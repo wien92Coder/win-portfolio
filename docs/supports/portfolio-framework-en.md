@@ -16,15 +16,15 @@
 | Total hospitality experience | 33 years (1993–2026), "30+ years" |
 | Highest operational title | General Manager, Patuno Resort Wakatobi (Mar 2013–May 2014) |
 | Pre-opening | Pre-Opening GM, Rumah Kito Resort, Jambi (Jun 2014–Mar 2015) — 80+ staff |
-| Hospital HR consulting | 2015–2024, 6 hospital clients (SMC Tlogorejo, RSUD Rembang, Indriati Solo, Santa Elisabeth, Samsoe Hidajat, Brayat Minulya) |
+| Hospital HR consulting | 2015–2024, 6 hospital clients in Central Java (client names withheld) |
 | Head of Operation, LMS platform | AJAR Media Digital, Jan 2018–Mar 2022 — cross-country partnerships (TAFE Queensland, Dusit Thani, École Hôtelière de Lausanne) |
 | Current role | Operational Manager, Hanania Kitchen and Brew, Semarang (April 2026–present); previously HR & Operations Consultant at the same company (Dec 2023–Nov 2025) |
 | Certifications | TAE40116 Trainer & Assessor, TAFE Queensland, Australia (2017); Certified Virtual Assistant, SGB-VA Singapore (2025) |
 | Contact | Semarang, Central Java · linkedin.com/in/win-va |
 
 **Key achievement numbers used in the Hero Proof Strip (see §3.1) — specific per source, no longer generalized:**
-- CSI, SMC Tlogorejo: **70% → 92%**
-- Google Review, RS Santa Elisabeth: **4.1 → 4.8 ⭐**
+- CSI, private hospital in Central Java: **70% → 92%**
+- Google rating, heritage hospital: **4.1 → 4.8 ⭐**
 - Staff service-charge earnings, Patuno Resort: **12x increase** (Rp 75,000 → Rp 900,000/month)
 - Field experience: **33 years** (1993–present)
 
@@ -85,8 +85,8 @@ Single Page Application, 6 sections, smooth-scroll nav:
 
 | Number | Context |
 |---|---|
-| **70% → 92%** | CSI, SMC Tlogorejo |
-| **4.1 → 4.8 ⭐** | Google Review, RS Santa Elisabeth |
+| **70% → 92%** | CSI, private hospital in Central Java |
+| **4.1 → 4.8 ⭐** | Google rating, heritage hospital |
 | **12x** | Staff income increase, Patuno Resort Wakatobi |
 | **33 years** | Field experience (1993–present) |
 
@@ -150,12 +150,12 @@ Restructured into **two pillars**, aligned with the Dual Competency Grid (§3.4)
 
 ---
 
-**A1. SMC Tlogorejo Hospital, Semarang**
+**A1. Large Private Hospital, Central Java**
 *An ambitious hospital aiming for hotel-grade standards — a large-scale culture transformation that ended in a double-digit CSI jump.*
 
 | | |
 |---|---|
-| **Client** | Private hospital under a religious foundation, 1,800–2,000 staff |
+| **Client** | Private hospital under a foundation, ~2,000 staff and doctors |
 | **Period** | March 2015 – May 2016 (1.5 years) |
 
 - **Starting Condition:** The hospital was expanding with a new building and wanted to deliver service on par with international hotel standards. Across every level of staff and doctors — despite the hospital's long history — a comprehensive Service Excellence refresher was needed.
@@ -164,30 +164,30 @@ Restructured into **two pillars**, aligned with the Dual Competency Grid (§3.4)
 
 ---
 
-**A2. RSUD Rembang (Regional Public Hospital)**
+**A2. Regional Government Hospital, Central Java**
 *A government hospital with a bureaucratic mindset — proof that systemic change matters more than instant numbers.*
 
 | | |
 |---|---|
-| **Client** | Government hospital, 1,000–1,300 employees |
+| **Client** | Regional government hospital, 1,000+ staff |
 | **Period** | May 2016 – December 2017 (1.5 years) |
 
 - **Starting Condition:** The classic challenges of a government institution — a "work until retirement" mindset, low work motivation, a non-functioning reward-and-punishment system, and very weak frontline leadership.
-- **Solution:** Applied the same SMART Care framework used at Tlogorejo, plus intensive one-on-one coaching for every leader to help them drive their own staff's self-awareness and improvement — not just issue top-down instructions. Also overhauled the patient reservation system, which previously required walk-ins only, splitting it into a phone/customer-service channel and WhatsApp.
-- **Result:** CSI improvement here was more gradual than at the other two hospitals — clear evidence that shifting a bureaucracy takes longer than shifting a private institution. But the structural changes put in place proved more durable: **RSUD Rembang is now recognized as one of the best-performing regional public hospitals in Indonesia**, with a far more modern reservation experience. Modules applied: *People*, *Process*, partial *Product*.
+- **Solution:** Applied the same SMART Care framework used in the previous case, plus intensive one-on-one coaching for every leader to help them drive their own staff's self-awareness and improvement — not just issue top-down instructions. Also overhauled the patient reservation system, which previously required walk-ins only, splitting it into a phone/customer-service channel and WhatsApp.
+- **Result:** CSI improvement here was more gradual than at the other two hospitals — clear evidence that shifting a bureaucracy takes longer than shifting a private institution. But the structural changes put in place proved more durable: **the institution is now widely recognized for the quality of its service**, with a far more modern reservation experience. Modules applied: *People*, *Process*, partial *Product*.
 
 ---
 
-**A3. Santa Elisabeth Hospital**
-*A nearly century-old hospital with Dutch-era discipline — the fastest and most satisfying result of the three.*
+**A3. Heritage Private Hospital, Central Java**
+*A hospital with a strong tradition of discipline — the fastest and most satisfying result of the three.*
 
 | | |
 |---|---|
-| **Client** | Private hospital under a religious foundation, founded during the Dutch colonial era (~100 years old) |
+| **Client** | Private hospital under a foundation, with a long history of service |
 | **Period** | November 2023 – November 2024 (1 year) |
 
-- **Starting Condition:** Work standards inherited across generations from the era of Dutch nuns — highly disciplined, but rigid in its approach to service. Google Review rating stood at just **4.1 stars** (November 2023), signaling significant service-side complaints despite high operational discipline.
-- **Solution:** The same SMART Care framework, run with the highest intensity of individual coaching — working directly and consistently with the Directors and Head Sisters.
+- **Starting Condition:** With a long history of service, the hospital carries a deeply rooted culture of discipline and high work standards. The Google rating stood at just **4.1 stars**, signaling service-side complaints despite high operational discipline.
+- **Solution:** The same SMART Care framework, run with the highest intensity of individual coaching — working directly and consistently with the Directors and unit leaders.
 - **Result:** **Google Review rose from 4.1 → 4.8 stars** within a single year. Engagement between superiors and subordinates rose sharply, and teamwork strengthened as a result. Only the *People* module was applied — but its execution was the most consistent of the three hospitals, producing the most satisfying overall outcome.
 
 ---

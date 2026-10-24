@@ -1,4 +1,5 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
+import { useSearchParams } from 'react-router';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { PageWrapper } from '../components/PageWrapper';
@@ -17,6 +18,13 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 type Errors = { name?: string; email?: string; message?: string };
+type GoalId = 'digital' | 'hospitality' | 'other';
+const GOAL_IDS: GoalId[] = ['digital', 'hospitality', 'other'];
+
+/** The home CTA passes its lane as ?goal=; a direct visit starts at "other". */
+function goalFromParam(value: string | null): GoalId {
+  return value === 'digital' || value === 'hospitality' ? value : 'other';
+}
 
 const FIELD =
   'mt-3 w-full cursor-text border-b border-ink/25 bg-transparent pb-3 pt-2 font-display text-lg lowercase tracking-tight placeholder:text-ink/30 transition-colors focus:border-accent focus:outline-none';
@@ -26,6 +34,13 @@ export function ContactPage() {
   const [status, setStatus] = useState<Status>('idle');
   const [errors, setErrors] = useState<Errors>({});
   const [country, setCountry] = useState(DEFAULT_COUNTRY);
+  const [searchParams] = useSearchParams();
+  const [goal, setGoal] = useState<GoalId>(() => goalFromParam(searchParams.get('goal')));
+
+  // A second CTA click can change the query without remounting this page.
+  useEffect(() => {
+    setGoal(goalFromParam(searchParams.get('goal')));
+  }, [searchParams]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -40,6 +55,7 @@ export function ContactPage() {
         return digits ? `${country.dialCode} ${digits}` : '';
       })(),
       message: String(data.get('message') ?? '').trim(),
+      topic: t(`contact.goals.${goal}`),
       website: String(data.get('website') ?? ''), // honeypot
       sentAt: new Date().toISOString(),
     };
@@ -99,7 +115,7 @@ export function ContactPage() {
             </div>
             <div>
               <dt className="label mb-2 text-ink/50">{t('menu.availabilityLabel')}</dt>
-              <dd className="label text-ink/80">{site.availability}</dd>
+              <dd className="label text-ink/80">{t('site.availability')}</dd>
             </div>
           </dl>
         </aside>
@@ -141,6 +157,27 @@ export function ContactPage() {
                   aria-hidden="true"
                   className="hidden"
                 />
+
+                <div>
+                  <span className="label text-ink/50">{t('contact.goalLabel')}</span>
+                  <div role="group" aria-label={t('contact.goalLabel')} className="mt-3 grid gap-2 sm:grid-cols-3">
+                    {GOAL_IDS.map((id) => (
+                      <button
+                        key={id}
+                        type="button"
+                        aria-pressed={goal === id}
+                        onClick={() => setGoal(id)}
+                        className={`label border px-3 py-3 text-left transition-colors ${
+                          goal === id
+                            ? 'border-accent bg-accent text-ink'
+                            : 'border-ink/20 text-ink/60 hover:border-ink/50'
+                        }`}
+                      >
+                        {t(`contact.goals.${id}`)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
                 <div className="grid gap-9 sm:grid-cols-2">
                   <label className="block">
