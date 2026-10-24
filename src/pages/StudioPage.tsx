@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { PageWrapper } from '../components/PageWrapper';
 import { AnimatedText } from '../components/AnimatedText';
+import { CountUp } from '../components/CountUp';
 import { RevealImage } from '../components/RevealImage';
 import { TransitionLink } from '../components/TransitionLink';
 import { site } from '../content/site';
@@ -130,10 +131,10 @@ export function StudioPage() {
 
       {/* Numbers */}
       <section className="grid grid-cols-2 border-y hairline border-y-ink/20 sm:grid-cols-4">
-        {stats.map((stat) => (
+        {stats.map((stat, i) => (
           <div key={stat.label} className="border-r hairline border-r-ink/15 px-4 py-8 last:border-r-0 sm:px-6 sm:py-10">
             <p className="font-display text-[12vw] leading-[0.85] tracking-tighter sm:text-[3.4vw]">
-              {stat.value}
+              <CountUp value={stat.value} delay={i * 0.06} />
             </p>
             <p className="label mt-3 max-w-[18ch] text-ink/50">{stat.label}</p>
           </div>

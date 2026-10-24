@@ -3,6 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { PageWrapper } from '../components/PageWrapper';
 import { AnimatedText } from '../components/AnimatedText';
+import { CountUp } from '../components/CountUp';
 import { Lookbook } from '../components/Lookbook';
 import { Marquee } from '../components/Marquee';
 import { TransitionLink } from '../components/TransitionLink';
@@ -366,7 +367,7 @@ export function HomePage() {
             className="border-l hairline border-l-ink/15 pl-4 sm:pl-6"
           >
             <p className="font-display text-[13vw] leading-[0.85] tracking-tighter sm:text-[3.6vw]">
-              {stat.value[lang]}
+              <CountUp value={stat.value[lang]} delay={i * 0.06} />
             </p>
             <p className="label mt-3 max-w-[20ch] text-ink/50">{stat.label[lang]}</p>
           </motion.div>
