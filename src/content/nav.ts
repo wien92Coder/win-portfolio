@@ -30,7 +30,7 @@ export const NAV_ITEMS: NavItem[] = [
     key: 'menu.studio',
     metaKey: 'menu.studioMeta',
     index: '04',
-    image: '/about.png',
+    image: '/about.jpg',
   },
   {
     href: '/contact',

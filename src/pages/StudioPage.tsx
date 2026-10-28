@@ -44,7 +44,7 @@ export function StudioPage() {
       <section className="mb-24 grid gap-10 sm:grid-cols-12 sm:gap-6">
         <div className="order-2 sm:order-1 sm:col-span-5">
           <RevealImage
-            src="/about.png"
+            src="/about.jpg"
             alt={site.brand}
             className="aspect-[4/5] w-full"
             parallax

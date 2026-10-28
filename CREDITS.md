@@ -21,8 +21,10 @@ attribution. Attribution is listed here anyway so the provenance is traceable.
 - `public/projects/*.webp` — screenshots of Win Winarno's own projects.
 - `public/cube/face-*.webp` — hero frames of Win's projects, carried over from v1.
 - `public/portrait.jpg`, `public/photo.jpg`, `public/og-image.png` — supplied by Win.
-- `public/about.png`, `public/hanania-1.png`, and the photographs in
+- `public/about.jpg`, `public/images/hanania-1.jpg`, and the photographs in
   `public/images/` used by the menu, lanes, and lookbook — supplied by Win.
+  Photographs are capped at 1600px on the long side and re-encoded so the
+  deployed site ships kilobytes, not tens of megabytes.
 
 ## Type
 

@@ -9,7 +9,7 @@ import { AnimatedText } from './AnimatedText';
  * is Win's own photography or project art.
  */
 const FRAMES = [
-  { src: '/hanania-1.png', index: '01' },
+  { src: '/images/hanania-1.jpg', index: '01' },
   { src: '/images/healthcare.jpg', index: '02' },
   { src: '/images/akar-jogja.jpg', index: '03' },
   { src: '/images/cafe%20operations.jpg', index: '04' },
