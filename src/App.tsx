@@ -1,19 +1,51 @@
-import { MotionConfig } from 'motion/react';
-import { CustomCursor } from './components/CustomCursor';
-import { Home } from './Home';
+import { lazy, Suspense } from 'react';
+import { Navigate, Route, Routes } from 'react-router';
+import { Providers } from './components/Providers';
+import { LocaleHygiene } from './i18n/LocaleHygiene';
 
-/** Single-page app: Home is the only route (the former /web-project page was
- *  replaced by the in-page Projects section). Kept as a component so the
- *  MotionConfig + CustomCursor wiring stays untouched. */
+/** Pages are split per route: the shell (chrome, motion, i18n) stays eager, so
+ *  the first paint does not carry the case-study and studio code. Named
+ *  exports are mapped to `default` for lazy(). */
+const HomePage = lazy(() => import('./pages/HomePage').then((m) => ({ default: m.HomePage })));
+const WorkPage = lazy(() => import('./pages/WorkPage').then((m) => ({ default: m.WorkPage })));
+const WorkDetailPage = lazy(() =>
+  import('./pages/WorkDetailPage').then((m) => ({ default: m.WorkDetailPage })),
+);
+const CaseStudiesPage = lazy(() =>
+  import('./pages/CaseStudiesPage').then((m) => ({ default: m.CaseStudiesPage })),
+);
+const CaseStudyDetailPage = lazy(() =>
+  import('./pages/CaseStudyDetailPage').then((m) => ({ default: m.CaseStudyDetailPage })),
+);
+const StudioPage = lazy(() => import('./pages/StudioPage').then((m) => ({ default: m.StudioPage })));
+const ContactPage = lazy(() =>
+  import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })),
+);
+
+/** v2 is a multi-page editorial site: home, work index, case study detail,
+ *  studio profile, and contact. The wipe, cursor, and smooth scroll live in
+ *  <Providers /> so they survive every route change. */
 function App() {
   return (
-    // reducedMotion="user" disables transform/layout animations for
-    // visitors who prefer reduced motion (design-system.md §8) — opacity
-    // fades are kept, which is the recommended fallback.
-    <MotionConfig reducedMotion="user">
-      <CustomCursor />
-      <Home />
-    </MotionConfig>
+    <Providers>
+      {/* Keeps <html lang> and the document title in step with the locale.
+          Mounted here, not per page, so every route inherits it. */}
+      <LocaleHygiene />
+      {/* Paper-coloured placeholder: a split page lands onto the same ground it
+          will paint, so the swap never flashes white. */}
+      <Suspense fallback={<div className="min-h-[100svh] bg-paper" />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/work" element={<WorkPage />} />
+          <Route path="/work/:slug" element={<WorkDetailPage />} />
+          <Route path="/karya" element={<CaseStudiesPage />} />
+          <Route path="/karya/:slug" element={<CaseStudyDetailPage />} />
+          <Route path="/about" element={<StudioPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Suspense>
+    </Providers>
   );
 }
 

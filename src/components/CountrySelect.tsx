@@ -8,8 +8,10 @@ interface CountrySelectProps {
   labelId: string;
 }
 
+// Styled to sit inside the v2 contact form: an underline field, not a boxed
+// control, so it reads as part of the same editorial form.
 const BUTTON_CLASS =
-  'mt-2 flex w-full items-center gap-2.5 border border-[color:var(--card-border)] bg-transparent px-3 py-2 text-[0.75rem] focus:border-[var(--accent)] focus:outline-none';
+  'mt-3 flex w-full items-center gap-2.5 border-b border-ink/25 bg-transparent pb-3 pt-2 text-left font-display text-lg lowercase tracking-tight transition-colors focus:border-accent focus:outline-none';
 
 export function CountrySelect({ value, onChange, labelId }: CountrySelectProps) {
   const [open, setOpen] = useState(false);
@@ -85,7 +87,7 @@ export function CountrySelect({ value, onChange, labelId }: CountrySelectProps) 
         className={BUTTON_CLASS}
       >
         <value.Flag className="h-3.5 w-5 shrink-0" aria-hidden="true" />
-        <span className="text-[var(--accent)]">{value.dialCode}</span>
+        <span className="font-mono text-xs normal-case tracking-normal text-accent">{value.dialCode}</span>
         <span className="min-w-0 flex-1 truncate text-left">{value.name}</span>
         <svg
           viewBox="0 0 12 12"
@@ -93,7 +95,7 @@ export function CountrySelect({ value, onChange, labelId }: CountrySelectProps) 
           stroke="currentColor"
           strokeWidth="1.5"
           aria-hidden="true"
-          className={`h-3 w-3 shrink-0 text-[var(--muted)] transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+          className={`h-3 w-3 shrink-0 text-ink/40 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
         >
           <path d="M2 4l4 4 4-4" />
         </svg>
@@ -105,7 +107,7 @@ export function CountrySelect({ value, onChange, labelId }: CountrySelectProps) 
           role="listbox"
           aria-labelledby={labelId}
           onKeyDown={onListKeyDown}
-          className="absolute left-0 right-0 z-20 mt-1 max-h-56 overflow-y-auto border border-[color:var(--card-border)] bg-[color:var(--card-bg)] backdrop-blur-sm"
+          className="absolute left-0 right-0 z-20 mt-1 max-h-56 overflow-y-auto border hairline border-ink/15 bg-paper"
         >
           {COUNTRIES.map((country, index) => {
             const selected = country.code === value.code;
@@ -121,13 +123,13 @@ export function CountrySelect({ value, onChange, labelId }: CountrySelectProps) 
                   setOpen(false);
                   buttonRef.current?.focus();
                 }}
-                className={`flex w-full items-center gap-2.5 px-3 py-2 text-left text-[0.72rem] transition-colors duration-150 focus:outline-none focus:bg-[color:var(--card-border)] ${
-                  selected ? 'bg-[color:var(--card-border)] text-[var(--accent)]' : 'text-[var(--fg)]'
+                className={`flex w-full items-center gap-2.5 px-3 py-2 text-left font-mono text-[11px] transition-colors duration-150 focus:bg-ink/5 focus:outline-none ${
+                  selected ? 'bg-ink/5 text-accent' : 'text-ink'
                 }`}
               >
                 <country.Flag className="h-3 w-5 shrink-0" aria-hidden="true" />
                 <span className="min-w-0 flex-1 truncate">{country.name}</span>
-                <span className="shrink-0 text-[var(--muted)]">{country.dialCode}</span>
+                <span className="shrink-0 text-ink/40">{country.dialCode}</span>
               </button>
             );
           })}

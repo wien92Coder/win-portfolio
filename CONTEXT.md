@@ -33,5 +33,5 @@ Win's service-excellence training framework, cascaded via train-the-trainer; the
 _Avoid_: training program (generic)
 
 **Case-study pillars**:
-The two groupings of case studies — Pillar A, Healthcare Service Culture Transformation (SMC Tlogorejo, RSUD Rembang, Santa Elisabeth); Pillar B, Hospitality & Business Operations (Hanania Kitchen and Brew, Patuno Resort Wakatobi).
+The two groupings of case studies — Pillar A, Healthcare Service Culture Transformation (three anonymised hospital case studies in Central Java); Pillar B, Hospitality & Business Operations (Hanania Kitchen and Brew, Patuno Resort Wakatobi).
 _Avoid_: sections, projects, testimonials
