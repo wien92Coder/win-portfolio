@@ -160,11 +160,13 @@ body {
    keys that a later refactor might rename.
    ─────────────────────────────────────────────────────────────────────────── */
 
-/* Tiny uppercase mono label — the recurring micro-typography motif. */
+/* Tiny uppercase mono label — the recurring micro-typography motif. Most sit
+   on one line, but the proof-stat and card captions wrap, so the leading is
+   set for multi-line reading rather than for a single tight line. */
 .label {
   font-family: var(--font-mono);
   font-size: 10px;
-  line-height: 1;
+  line-height: 1.45;
   letter-spacing: var(--tracking-label, 0.22em);
   text-transform: uppercase;
 }

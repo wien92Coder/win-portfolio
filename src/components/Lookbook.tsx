@@ -4,18 +4,17 @@ import { useUI } from '../context/UIContext';
 import { AnimatedText } from './AnimatedText';
 
 /**
- * Frames shown in the rail. Project frames are the v1 cube art for projects
- * that exist in the project list; the portrait is the studio photo. The two
- * photographs are free-licence Unsplash stock (see CREDITS.md) used as sector
- * atmosphere — they are captioned as the field, never as client work.
+ * Frames shown in the rail, captioned from `lookbook.captions` index for index
+ * — the FRAMES order and the caption order must stay in step. Every image here
+ * is Win's own photography or project art.
  */
 const FRAMES = [
-  { src: '/cube/face-01.webp', index: '01' },
-  { src: '/images/healthcare-service.jpg', index: '02' },
-  { src: '/cube/face-02.webp', index: '03' },
-  { src: '/portrait.jpg', index: '04' },
-  { src: '/cube/face-04.webp', index: '05' },
-  { src: '/images/hospitality-operations.jpg', index: '06' },
+  { src: '/hanania-1.png', index: '01' },
+  { src: '/images/healthcare.jpg', index: '02' },
+  { src: '/images/akar-jogja.jpg', index: '03' },
+  { src: '/images/cafe%20operations.jpg', index: '04' },
+  { src: '/images/digi-product.jpg', index: '05' },
+  { src: '/images/hotel%20operations.jpg', index: '06' },
 ];
 
 /**

@@ -24,7 +24,10 @@ export function StudioPage() {
 
   return (
     <PageWrapper className="px-5 pb-24 pt-32 sm:px-8 sm:pt-40">
-      <header className="mb-20 max-w-[24ch] sm:mb-28">
+      {/* The headline runs the full content width: capping the header at a ch
+          measure of its 16px label font squeezed the 3.5vw display type into a
+          narrow column and doubled its height. */}
+      <header className="mb-20 sm:mb-28">
         <p className="label mb-8 flex items-center gap-3 text-ink/50">
           <span className="inline-block h-px w-8 bg-ink/30" />
           {t('studio.label')} — {site.est}
@@ -41,7 +44,7 @@ export function StudioPage() {
       <section className="mb-24 grid gap-10 sm:grid-cols-12 sm:gap-6">
         <div className="order-2 sm:order-1 sm:col-span-5">
           <RevealImage
-            src="/portrait.jpg"
+            src="/about.png"
             alt={site.brand}
             className="aspect-[4/5] w-full"
             parallax

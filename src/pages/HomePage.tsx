@@ -145,7 +145,7 @@ export function HomePage() {
                         {item.name[lang]}
                       </span>
                       <span
-                        className={`label mt-1.5 block ${active ? 'text-paper/55' : 'text-ink/45'}`}
+                        className={`label mt-3 block ${active ? 'text-paper/55' : 'text-ink/45'}`}
                       >
                         {item.note[lang]}
                       </span>

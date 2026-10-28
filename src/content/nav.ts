@@ -10,33 +10,33 @@ export type NavItem = {
 };
 
 export const NAV_ITEMS: NavItem[] = [
-  { href: '/', key: 'menu.home', metaKey: 'menu.homeMeta', index: '01', image: '/portrait.jpg' },
+  { href: '/', key: 'menu.home', metaKey: 'menu.homeMeta', index: '01', image: '/images/home-1.jpg' },
   {
     href: '/work',
     key: 'menu.work',
     metaKey: 'menu.workMeta',
     index: '02',
-    image: '/projects/rjHanania.webp',
+    image: '/images/work.jpg',
   },
   {
     href: '/karya',
     key: 'menu.caseStudies',
     metaKey: 'menu.caseStudiesMeta',
     index: '03',
-    image: '/images/healthcare-service.jpg',
+    image: '/images/case-studi.jpg',
   },
   {
     href: '/about',
     key: 'menu.studio',
     metaKey: 'menu.studioMeta',
     index: '04',
-    image: '/photo.jpg',
+    image: '/about.png',
   },
   {
     href: '/contact',
     key: 'menu.contact',
     metaKey: 'menu.contactMeta',
     index: '05',
-    image: '/portrait.jpg',
+    image: '/images/contact.jpg',
   },
 ];

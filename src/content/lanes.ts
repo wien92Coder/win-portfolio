@@ -6,8 +6,8 @@ import type { L10n } from './caseStudies';
  * the pre-selected contact goal — is read from here, so switching lanes never
  * needs new markup.
  *
- * Images are temporary Unsplash placeholders, not client work. Swap the URLs
- * for owned photography before go-live.
+ * Hero images are served from `public/images`; the stock credits that remain
+ * for other sections are listed in CREDITS.md.
  */
 export type LaneId = 'digital' | 'hospitality';
 
@@ -31,7 +31,7 @@ export interface Lane {
   worksLink: L10n;
 }
 
-/** Temporary Unsplash placeholders, served locally (see CREDITS.md). */
+/** Local hero images (see CREDITS.md for stock credits). */
 const IMG = (file: string) => `/images/${file}`;
 
 export const LANES: Lane[] = [
@@ -40,10 +40,10 @@ export const LANES: Lane[] = [
     index: '001',
     name: { id: 'Digital & Web', en: 'Digital & Web' },
     note: { id: 'website, web-app, SaaS', en: 'websites, web apps, SaaS' },
-    image: IMG('lane-digital.jpg'),
+    image: IMG('digital.jpg'),
     imageAlt: {
-      id: 'Laptop dengan editor kode di meja kerja.',
-      en: 'Laptop running a code editor on a desk.',
+      id: 'Komputer retro menampilkan pixel-art di meja dekat jendela.',
+      en: 'A retro computer showing pixel art on its screen beside a window.',
     },
     keywords: {
       id: ['Website', 'Web-app', 'SaaS', 'Desain grafis', 'Otomasi'],
@@ -83,10 +83,10 @@ export const LANES: Lane[] = [
     index: '002',
     name: { id: 'Hospitality & Healthcare', en: 'Hospitality & Healthcare' },
     note: { id: 'operasional, people', en: 'operations, people' },
-    image: IMG('lane-hospitality.jpg'),
+    image: IMG('resort.jpg'),
     imageAlt: {
-      id: 'Kolam dan area bersantai sebuah resor saat senja.',
-      en: 'A resort pool and lounge area at dusk.',
+      id: 'Halaman resor dengan kolam kecil dan sofa santai saat senja.',
+      en: 'A resort courtyard with a small pool and lounge seating at dusk.',
     },
     keywords: {
       id: ['Operasional', 'Budaya layanan', 'Pelatihan', 'Kepemimpinan'],
