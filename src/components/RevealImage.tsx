@@ -12,6 +12,8 @@ type Props = {
   /** Zoom the image inside its frame while the nearest `.group` is hovered. */
   hoverZoom?: boolean;
   priority?: boolean;
+  /** CSS object-position for the crop. Defaults to the frame's top edge. */
+  objectPosition?: string;
 };
 
 /**
@@ -26,6 +28,7 @@ export function RevealImage({
   parallaxAmount = 80,
   hoverZoom = false,
   priority = false,
+  objectPosition,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -55,7 +58,7 @@ export function RevealImage({
           src={src}
           alt={alt}
           loading={priority ? 'eager' : 'lazy'}
-          style={{ y }}
+          style={{ y, objectPosition }}
           className="img-editorial absolute -top-[10%] inset-0 h-[120%] w-full object-cover object-top will-change-transform"
           initial={{ scale: 1.35 }}
           whileInView={{ scale: 1 }}

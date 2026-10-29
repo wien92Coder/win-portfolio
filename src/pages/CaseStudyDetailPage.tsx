@@ -99,6 +99,7 @@ export function CaseStudyDetailPage() {
         <RevealImage
           src={study.image}
           alt={study.imageAlt[lang]}
+          objectPosition={study.imagePosition}
           className="aspect-[16/9] w-full"
           priority
           parallax

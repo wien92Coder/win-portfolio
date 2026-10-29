@@ -40,6 +40,9 @@ export interface CaseStudy {
   /** Abstract Unsplash placeholder — illustrative, not the client's premises. */
   image: string;
   imageAlt: L10n;
+  /** Crop anchor for the 16:9 frame. Portrait photos need a lower anchor than
+   *  the default top edge, or the frame shows only their ceiling. */
+  imagePosition?: string;
   /** Reserved for an anonymous testimonial; not rendered until copy exists.
    *  quote?: { text: L10n; attribution: L10n };
    */
@@ -127,8 +130,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     image: ARCHITECTURE,
     imageAlt: {
-      id: 'Ilustrasi arsitektur modern — bukan lokasi klien.',
-      en: 'Modern architecture illustration — not the client’s premises.',
+      id: 'Ilustrasi koridor rumah sakit dengan seorang klinisi — bukan lokasi klien.',
+      en: 'Hospital corridor illustration with a clinician — not the client’s premises.',
     },
   },
   {
@@ -289,6 +292,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     image: ARCHES,
+    imagePosition: '50% 55%',
     imageAlt: {
       id: 'Ilustrasi koridor dengan lengkungan — bukan lokasi klien.',
       en: 'Arched corridor illustration — not the client’s premises.',
