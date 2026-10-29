@@ -127,18 +127,23 @@ Kalau spam mulai masuk, tambahkan `limit_req` di nginx untuk `/contact.php`
 
 ## Gate C — Nginx (butuh persetujuan eksplisit)
 
+> **Status 29 Okt 2026:** butir 2 di C.2 — header `no-cache` untuk HTML —
+> **sudah terpasang di produksi**, termasuk untuk fallback `@spa` (lihat C.5).
+> Butir 1, 3, gzip, dan C.4 masih usulan.
+
 Nginx **tidak perlu dirombak**: fallback SPA sudah terbukti jalan. Empat blok
 di bawah (plus `gzip_types`) bersifat pengerasan dan semuanya kompatibel mundur
 dengan v1, jadi rollback aplikasi tidak menuntut rollback nginx.
 
 ### C.1 Backup & inspeksi
 
-- [ ] `sudo cp /etc/nginx/sites-available/win-portfolio /etc/nginx/sites-available/win-portfolio.bak-2026-10-23`
+- [x] `sudo cp /etc/nginx/sites-available/win-portfolio /etc/nginx/sites-available/win-portfolio.bak-20261029-144002`
+      — dibuat otomatis oleh skrip patch sebelum butir 2 diterapkan
 - [ ] `sudo nginx -T | sed -n '/server_name win-portfolio.my.id/,/^}/p'`
       — simpan output ini; semua blok Certbot, `location /stats/`, dan
       `location ~ \.php$` **dipertahankan apa adanya**
 
-### C.2 Patch yang diusulkan
+### C.2 Patch (butir 2 sudah diterapkan, sisanya masih usulan)
 
 Tambahkan/ sesuaikan **hanya** blok berikut di dalam `server { ... }` untuk
 `win-portfolio.my.id`.
@@ -151,9 +156,18 @@ location /assets/ {
     add_header Cache-Control "public, max-age=31536000, immutable";
 }
 
-# 2. index.html tidak boleh di-cache: setiap deploy harus langsung terlihat.
+# 2. HTML tidak boleh di-cache: setiap deploy harus langsung terlihat.
+#    WAJIB dua tempat. Rewrite ... break di @spa menghentikan pencocokan ulang
+#    location, jadi rute dalam seperti /karya/... tidak pernah memakai header
+#    dari blok `= /index.html` — tanpa header di @spa, deep link tetap tanpa
+#    Cache-Control dan bisa disajikan dari cache heuristik browser.
 location = /index.html {
     add_header Cache-Control "no-cache";
+}
+
+location @spa {
+    add_header Cache-Control "no-cache";
+    rewrite ^ /index.html break;
 }
 
 # 3. Config lokal tidak untuk publik. Blok ini HARUS di atas blok PHP,
@@ -163,9 +177,10 @@ location ~ ^/(config\.local\.php|vendor/) {
     return 404;
 }
 
-# 4. Fallback SPA — kemungkinan sudah ada. Jangan diduplikasi.
+# 4. Fallback SPA — produksi memakai @spa, bukan /index.html langsung.
+#    Jangan diganti bentuknya; cukup pastikan @spa ada dan berisi header di atas.
 location / {
-    try_files $uri $uri/ /index.html;
+    try_files $uri @spa;
 }
 ```
 
@@ -189,6 +204,10 @@ Catatan penerapan:
   `X-Content-Type-Options`, `Referrer-Policy`), ulangi header tersebut di setiap
   blok yang memakai `add_header` — atau pakai `expires -1` untuk `index.html`
   dan `expires 1y` untuk aset, yang tidak memutus pewarisan.
+- Varian yang **terpasang sekarang** memakai `add_header Cache-Control
+  "no-cache"` di dua location (`= /index.html` dan `@spa`), bukan `expires -1`.
+  Kalau nanti header keamanan ditambahkan di level `server`, ulangi juga di
+  kedua blok itu.
 - `gzip_types` yang sekarang hanya mencakup HTML — itulah sebabnya JS/CSS
   terkirim tanpa kompresi. Ini satu-satunya perubahan dengan dampak performa
   nyata: chunk utama v2 311 kB akan turun ke ±99 kB, CSS 37,9 kB ke ±9 kB.
@@ -226,7 +245,8 @@ Catatan penerapan:
   ```
 
 - [ ] Form masih 405/204/422 seperti Gate B setelah nginx diubah
-- [ ] Kalau ada yang gagal: `sudo cp ...bak-2026-10-23 ... && sudo nginx -t && sudo systemctl reload nginx`
+- [ ] Kalau ada yang gagal: `sudo cp ...bak-20261029-144002 ... && sudo nginx -t && sudo systemctl reload nginx`
+      — nama backup terbaru ada di C.5
 
 ### C.4 Opsional (keputusanmu, bukan blocker)
 
@@ -235,6 +255,35 @@ Catatan penerapan:
 - [ ] **Redirect `www` → apex**, supaya tidak ada dua URL untuk konten yang sama.
       Perlu blok `server` terpisah + sertifikat Certbot yang mencakup `www`.
 - [ ] **HSTS** (`Strict-Transport-Security`) setelah yakin HTTPS stabil.
+
+### C.5 Status penerapan header HTML (29 Okt 2026)
+
+Butir 2 sudah diterapkan di produksi: backup dibuat, `nginx -t` sukses, lalu
+`systemctl reload nginx` (tanpa downtime). Hasil pengukuran:
+
+| Permintaan | `Cache-Control` |
+|---|---|
+| `/` | `no-cache` |
+| `/index.html` | `no-cache` |
+| `/karya/heritage-private-hospital` (fallback `@spa`) | `no-cache` |
+| `/assets/index-*.js` | `max-age=2592000` + `public, immutable` (tidak berubah) |
+| `/images/*.jpg` | `max-age=2592000` + `public, immutable` (tidak berubah) |
+
+Revalidasi terbukti bekerja: `curl -H 'If-None-Match: <etag>'` ke `/` menjawab
+`304 Not Modified`, jadi browser tetap menanyakan kesegaran HTML tetapi hanya
+mengunduh ulang saat isinya benar-benar berubah — ongkos tambahannya satu
+permintaan 304 yang murah per kunjungan.
+
+Karena header ini hanya menyentuh HTML, foto yang isinya diganti tetap perlu
+nama baru (mis. akhiran `-v2`) supaya lolos dari cache `immutable` 30 hari.
+
+Rollback:
+
+```bash
+sudo cp /etc/nginx/sites-available/win-portfolio.bak-20261029-144002 \
+        /etc/nginx/sites-available/win-portfolio
+sudo nginx -t && sudo systemctl reload nginx
+```
 
 ---
 
