@@ -21,6 +21,8 @@ attribution. Attribution is listed here anyway so the provenance is traceable.
 - `public/projects/*.webp` — screenshots of Win Winarno's own projects.
 - `public/cube/face-*.webp` — hero frames of Win's projects, carried over from v1.
 - `public/portrait.jpg`, `public/photo.jpg` — supplied by Win.
+- `public/arrow.svg` — supplied by Win; the hand-drawn pointer in the hero,
+  loaded as an image and nudged by the `.hero-arrow` CSS loop.
 - `public/og-cover.jpg` — the 1200×630 social share card, composed from
   `public/images/resort.jpg` (supplied by Win) using the site's own type and
   palette. Regenerate it from that photo if the brand palette changes.
@@ -33,6 +35,8 @@ attribution. Attribution is listed here anyway so the provenance is traceable.
 
 - Archivo Black, Archivo, Space Mono — SIL Open Font License 1.1, self-hosted in
   `public/fonts/`.
+- Marck Script (Google Fonts) — SIL Open Font License 1.1, self-hosted in
+  `public/fonts/`. Used only for the hand-written hero annotation.
 
 ## Template
 

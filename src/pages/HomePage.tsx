@@ -104,9 +104,36 @@ export function HomePage() {
               </span>
             </h1>
 
-            <p className="mt-8 max-w-[20ch] font-display text-[8vw] lowercase leading-[1.02] tracking-tight sm:mt-10 sm:text-[2.8vw]">
-              {HOME_COPY.heroLine[lang]}
-            </p>
+            <div className="mt-8 flex items-start gap-6 sm:mt-10 sm:items-end sm:gap-8">
+              <p className="max-w-[20ch] font-display text-[8vw] lowercase leading-[1.02] tracking-tight sm:text-[2.8vw]">
+                {HOME_COPY.heroLine[lang]}
+              </p>
+
+              {/* Hand-written aside pointing at the lane rows. They are radio
+                  buttons rather than links, so the affordance needs saying.
+                  Hidden on phones, where the rows sit immediately below. */}
+              {/* Negative bottom margin drops the aside below the headline's
+                  baseline, clear of the longer Indonesian hero line, and puts
+                  the arrow head beside the lane rows it points at. */}
+              <motion.div
+                initial={reducedMotion ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.7, ease: EASE, delay: 0.85 }}
+                className="hidden shrink-0 pb-1 sm:-mb-6 sm:ml-4 sm:block lg:-mb-8 lg:ml-8"
+              >
+                <p className="font-script text-[clamp(1.15rem,1.7vw,1.6rem)] leading-[1.15] text-ink/75">
+                  <span className="block">{HOME_COPY.clickHint[lang][0]}</span>
+                  <span className="block">{HOME_COPY.clickHint[lang][1]}</span>
+                </p>
+                <img
+                  src="/arrow.svg"
+                  alt=""
+                  width={195}
+                  height={256}
+                  className="hero-arrow mt-1 h-14 w-auto opacity-80 lg:h-16"
+                />
+              </motion.div>
+            </div>
 
             <div className="mt-8">
               <span className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-4 py-2 md:whitespace-nowrap">

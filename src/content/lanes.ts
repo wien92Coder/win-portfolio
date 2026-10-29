@@ -166,6 +166,12 @@ export const HOME_COPY = {
     id: 'Operator hospitality yang membangun teknologinya sendiri.',
     en: 'A hospitality operator who builds his own technology.',
   },
+  /* Two lines on purpose: the hero renders them as a hand-written aside next
+     to the headline, and the arrow below points at the lane rows. */
+  clickHint: {
+    id: ['Klik proyek', 'untuk lihat lebih jauh'],
+    en: ['Click any project', 'to learn more'],
+  },
   statementTitle: {
     id: 'saya membangun produk digital dan memimpin operasional dengan kejelasan dan ketelitian.',
     en: 'I build digital products and lead operations with clarity and care.',

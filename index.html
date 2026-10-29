@@ -41,7 +41,8 @@
     />
     <!-- Fonts are self-hosted in public/fonts (see @font-face in src/index.css) —
          no third-party font CDN. Preload the faces used above the fold:
-         the display wordmark and the mono micro-labels. -->
+         the display wordmark, the mono micro-labels, and the hand-written
+         hero annotation. -->
     <link
       rel="preload"
       href="/fonts/archivo-black-latin-400-normal.woff2"
@@ -52,6 +53,13 @@
     <link
       rel="preload"
       href="/fonts/space-mono-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/marck-script-latin-400-normal.woff2"
       as="font"
       type="font/woff2"
       crossorigin

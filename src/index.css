@@ -35,6 +35,16 @@
   src: url("/fonts/space-mono-latin-400-normal.woff2") format("woff2");
 }
 
+/* Hand-written annotation face — used only for the hero's "click any project"
+   pointer. Self-hosted like the rest (no third-party font CDN). */
+@font-face {
+  font-family: "Marck Script";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/marck-script-latin-400-normal.woff2") format("woff2");
+}
+
 /* ───────────────────────────────────────────────────────────────────────────
    v2 design tokens (FORM&CO-derived). Declared in @theme so Tailwind v4
    generates the matching utilities — bg-paper, text-ink/60, text-mega,
@@ -50,6 +60,7 @@
   --font-display: "Archivo Black", "Archivo", sans-serif;
   --font-sans: "Archivo", system-ui, sans-serif;
   --font-mono: "Space Mono", ui-monospace, monospace;
+  --font-script: "Marck Script", cursive;
 
   --text-mega: clamp(4.5rem, 18vw, 16rem);
   --text-mega--line-height: 0.78;
@@ -281,6 +292,37 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
+    animation: none;
+  }
+}
+
+/* ── HERO ARROW — hand-drawn annotation nudge ───────────────────────
+   The artwork is loaded from public/arrow.svg as an <img>, so replacing or
+   retracing that file needs no code change. The loop travels along the
+   direction the doodle points (down-left) and eases back; the intermediate
+   keyframes bend the return leg so it reads as a drawn gesture, not a
+   mechanical shuttle. Delay matches the hero's fade-in. */
+.hero-arrow {
+  animation: hero-arrow-nudge 3.8s cubic-bezier(0.45, 0, 0.25, 1) 1.4s infinite;
+}
+
+@keyframes hero-arrow-nudge {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  45% {
+    transform: translate3d(-8px, 22px, 0);
+  }
+  78% {
+    transform: translate3d(-3px, 9px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-arrow {
     animation: none;
   }
 }
