@@ -48,10 +48,13 @@ export interface CaseStudy {
    */
 }
 
-/** Temporary Unsplash placeholders, served locally (see CREDITS.md). */
-const ARCHITECTURE = '/images/case-large-private.jpg';
-const GLASS_TOWERS = '/images/case-regional-government.jpg';
-const ARCHES = '/images/case-heritage.jpg';
+/** Served locally (see CREDITS.md). The `-v2` suffix is deliberate: nginx
+ *  caches /images/ for 30 days as immutable, so a new URL is the only way a
+ *  replaced photo reaches visitors who already hold the old one. Bump the
+ *  suffix whenever one of these files is swapped. */
+const ARCHITECTURE = '/images/case-large-private-v2.jpg';
+const GLASS_TOWERS = '/images/case-regional-government-v2.jpg';
+const ARCHES = '/images/case-heritage-v2.jpg';
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
