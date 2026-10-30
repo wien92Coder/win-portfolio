@@ -41,6 +41,9 @@ export function HomePage() {
   const [goal, setGoal] = useState<LaneId | 'other'>(() =>
     laneFromHash() === 'hospitality' ? 'hospitality' : 'digital',
   );
+  // Only a real click switches the hint: a deep link into #hospitality is not
+  // proof that the visitor has read the instruction.
+  const [hasChosen, setHasChosen] = useState(false);
 
   // Keep the lane in sync when the visitor follows a #hospitality link or uses
   // the back button. `replaceState` (not location.hash) avoids a scroll jump.
@@ -57,11 +60,13 @@ export function HomePage() {
   function selectLane(next: LaneId) {
     setLaneId(next);
     setGoal(next);
+    setHasChosen(true);
     window.history.replaceState(null, '', `#${next}`);
   }
 
   const lane = laneById(laneId);
   const laneNumber = laneId === 'digital' ? '01' : '02';
+  const clickHint = hasChosen ? HOME_COPY.clickHintAfter[lang] : HOME_COPY.clickHint[lang];
 
   // Work list is lane-dependent. Digital entries come from the project data;
   // hospitality entries are the anonymised case studies.
@@ -110,7 +115,8 @@ export function HomePage() {
               </p>
 
               {/* Hand-written aside pointing at the lane rows. They are radio
-                  buttons rather than links, so the affordance needs saying.
+                  buttons rather than links, so the affordance needs saying —
+                  and so does the scroll, since the work list is below.
                   Hidden on phones, where the rows sit immediately below. */}
               {/* Negative bottom margin drops the aside below the headline's
                   baseline, clear of the longer Indonesian hero line, and puts
@@ -122,8 +128,8 @@ export function HomePage() {
                 className="hidden shrink-0 pb-1 sm:-mb-6 sm:ml-4 sm:block lg:-mb-8 lg:ml-8"
               >
                 <p className="font-script text-[clamp(1.15rem,1.7vw,1.6rem)] leading-[1.15] text-ink/75">
-                  <span className="block">{HOME_COPY.clickHint[lang][0]}</span>
-                  <span className="block">{HOME_COPY.clickHint[lang][1]}</span>
+                  <span className="block">{clickHint[0]}</span>
+                  <span className="block">{clickHint[1]}</span>
                 </p>
                 <img
                   src="/arrow.svg"
@@ -189,6 +195,12 @@ export function HomePage() {
                 );
               })}
             </div>
+
+            {/* Phones hide the hand-written aside, so the same two steps get a
+                single script line right under the rows the visitor tapped. */}
+            <p className="mt-3 font-script text-[1.15rem] leading-tight text-ink/70 sm:hidden">
+              {clickHint.join(' ')}
+            </p>
           </div>
 
           {/* Lane visual — counter and caption follow the selected lane. */}

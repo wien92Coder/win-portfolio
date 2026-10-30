@@ -167,10 +167,20 @@ export const HOME_COPY = {
     en: 'A hospitality operator who builds his own technology.',
   },
   /* Two lines on purpose: the hero renders them as a hand-written aside next
-     to the headline, and the arrow below points at the lane rows. */
+     to the headline, and the arrow below points at the lane rows.
+     A lane is a radio button, not a link — choosing one changes the page in
+     place and the work list sits further down, so the hint names both steps.
+     Without the second step visitors click, see the photo swap, and assume
+     that was all there was. */
   clickHint: {
-    id: ['Klik proyek', 'untuk lihat lebih jauh'],
-    en: ['Click any project', 'to learn more'],
+    id: ['Klik salah satu,', 'lalu gulir ke bawah'],
+    en: ['Click an option,', 'then scroll down'],
+  },
+  /* Shown once a lane has been chosen, so the aside answers the moment the
+     visitor clicked instead of repeating the instruction they just followed. */
+  clickHintAfter: {
+    id: ['Sudah terpilih,', 'gulir ke bawah'],
+    en: ['Selected —', 'scroll down'],
   },
   statementTitle: {
     id: 'saya membangun produk digital dan memimpin operasional dengan kejelasan dan ketelitian.',
