@@ -165,6 +165,9 @@
   "playground": {
     "title": "Interactive Playground",
     "tagline": "Food Cost & Margin Calculator",
+    "intro": "The same food cost & margin calculator I run in cafe operations — enter the ingredients, the target selling price, and the target ratio; COGS, actual food cost, and the ideal selling price read out instantly.",
+    "inputs": "Inputs",
+    "results": "Results",
     "labels": {
       "menuName": "Menu Item Name",
       "targetFoodCost": "Target Food Cost %",

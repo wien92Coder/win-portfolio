@@ -135,7 +135,7 @@ export function FullscreenMenu() {
                         {link.index}
                       </span>
                       <span
-                        className={`font-display text-[16vw] lowercase leading-[0.95] tracking-tight transition-[opacity,transform] duration-500 group-hover:translate-x-2 sm:text-[7vw] ${
+                        className={`font-display text-[min(15vw,8.5vh)] lowercase leading-[0.95] tracking-tight transition-[opacity,transform] duration-500 group-hover:translate-x-2 sm:text-[min(6.6vw,10vh)] ${
                           isCurrent ? 'text-accent' : 'text-paper'
                         }`}
                       >

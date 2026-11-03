@@ -165,6 +165,9 @@
   "playground": {
     "title": "Playground Interaktif",
     "tagline": "Kalkulator Food Cost & Margin",
+    "intro": "Kalkulator food cost & margin yang sama dengan yang saya pakai di operasional kafe — isi bahan baku, target harga jual, dan rasio targetnya; HPP, food cost aktual, serta harga jual idealnya langsung terbaca.",
+    "inputs": "Masukan",
+    "results": "Hasil",
     "labels": {
       "menuName": "Nama Menu",
       "targetFoodCost": "Target Food Cost %",

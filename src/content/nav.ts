@@ -10,7 +10,13 @@ export type NavItem = {
 };
 
 export const NAV_ITEMS: NavItem[] = [
-  { href: '/', key: 'menu.home', metaKey: 'menu.homeMeta', index: '01', image: '/images/home-1.jpg' },
+  {
+    href: '/',
+    key: 'menu.home',
+    metaKey: 'menu.homeMeta',
+    index: '01',
+    image: '/images/home-1.jpg',
+  },
   {
     href: '/work',
     key: 'menu.work',
@@ -33,10 +39,17 @@ export const NAV_ITEMS: NavItem[] = [
     image: '/about.jpg',
   },
   {
+    href: '/playground',
+    key: 'nav.playground',
+    metaKey: 'playground.tagline',
+    index: '05',
+    image: '/images/playground.jpg',
+  },
+  {
     href: '/contact',
     key: 'menu.contact',
     metaKey: 'menu.contactMeta',
-    index: '05',
+    index: '06',
     image: '/images/contact.jpg',
   },
 ];

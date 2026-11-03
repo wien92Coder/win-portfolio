@@ -17,9 +17,11 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   const links = [
+    { href: '/', key: 'menu.home' },
     { href: '/work', key: 'menu.work' },
     { href: '/karya', key: 'menu.caseStudies' },
     { href: '/about', key: 'menu.studio' },
+    { href: '/playground', key: 'nav.playground' },
     { href: '/contact', key: 'menu.contact' },
   ];
 
