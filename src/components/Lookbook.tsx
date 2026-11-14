@@ -27,6 +27,7 @@ export function Lookbook() {
   const { t } = useTranslation();
   const { setCursor } = useUI();
   const captions = t('lookbook.captions', { returnObjects: true }) as string[];
+  const reasons = t('lookbook.reasons', { returnObjects: true }) as string[];
   const railRef = useRef<HTMLDivElement>(null);
   const s = useRef({
     dragging: false,
@@ -155,9 +156,13 @@ export function Lookbook() {
                 />
               </div>
             </div>
-            <figcaption className="mt-3 flex items-center justify-between">
-              <span className="label text-ink/55">{captions[i]}</span>
-              <span className="label text-ink/35">{frame.index}</span>
+            <figcaption className="mt-3">
+              <span className="flex items-center justify-between gap-4">
+                <span className="label text-ink/55">{captions[i]}</span>
+                <span className="label text-ink/35">{frame.index}</span>
+              </span>
+              {/* Why the frame is here, not just what it shows. */}
+              <span className="micro-copy mt-1 block max-w-[36ch] text-ink/50">{reasons[i]}</span>
             </figcaption>
           </figure>
         ))}

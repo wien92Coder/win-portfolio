@@ -102,6 +102,14 @@
       "Cafe Operations",
       "Bliho",
       "Hotel Operations"
+    ],
+    "reasons": [
+      "Menu, reservasi, dan data tamu yang dipakai tim setiap hari.",
+      "Pelatihan budaya layanan, dari direksi sampai front office.",
+      "Dua jalur pelatihan dalam satu halaman rujukan.",
+      "Tempat margin dibaca: menu, biaya bahan, dan harga jual.",
+      "Katalog SOP dan template untuk operator hospitality.",
+      "Harga kamar yang dibandingkan dengan set kompetitor."
     ]
   },
   "marquee": {
@@ -124,7 +132,9 @@
     "open": "Buka",
     "statusLive": "live",
     "project": "Proyek",
-    "overview": "Ringkasan",
+    "situation": "Situasi",
+    "decision": "Keputusan",
+    "result": "Hasil",
     "stack": "Stack",
     "status": "Status",
     "live": "Situs live",
@@ -355,6 +365,10 @@
         "id": "hanania",
         "name": "Rekam Jejak Hanania",
         "description": "Website kafe & resto — menu, reservasi & CRM untuk Hanania Kitchen and Brew.",
+        "situation": "Hanania Kitchen and Brew menerima reservasi lewat WhatsApp, telepon, dan pesan langsung, sementara menu serta data pelanggan tersebar di beberapa tempat dan berganti menurut siapa yang sedang bertugas.",
+        "decision": "Saya memilih membangun situs yang menyatukan menu, reservasi, dan data pelanggan dalam satu alur yang saya pakai sendiri sebagai operational manager, daripada menambah alat reservasi berlangganan yang memisahkan data tamu dari pekerjaan harian. Konsekuensinya situs ini harus saya pelihara sendiri; imbalannya, perubahan menu atau alur bisa langsung dilakukan ketika operasional menuntutnya.",
+        "result": "Live di rjhanania.com, dipakai sehari-hari oleh tim Hanania untuk menu dan reservasi.",
+        "outcome": "reservasi & data tamu satu alur",
         "tech": [
           "NextJS",
           "Reservasi",
@@ -367,6 +381,10 @@
         "id": "akar-jogja",
         "name": "Akar Jogja",
         "description": "Website lembaga pelatihan hospitality profesional — program housekeeping & kitchen.",
+        "situation": "Akar Jogja menjalankan dua jalur pelatihan, housekeeping dan kitchen, dan menerima calon peserta dari beberapa kota. Tanpa halaman rujukan, setiap pertanyaan dijawab ulang satu per satu lewat pesan pribadi, dan calon peserta tidak bisa menilai programnya sendiri.",
+        "decision": "Saya memilih membuat situs yang menjelaskan kedua program secara utuh dan mengarahkan pendaftaran ke satu jalur percakapan, bukan memasang formulir otomatis dengan pembayaran. Pelatihan seperti ini masih diputuskan lewat percakapan, karena jadwal, kualifikasi, dan kebutuhan peserta berbeda-beda, sehingga formulir otomatis justru menambah langkah alih-alih mengurangi.",
+        "result": "Live di akarjogja.com; calon peserta membaca programnya lebih dulu, lalu bertanya dengan pertanyaan yang lebih spesifik.",
+        "outcome": "dua program, satu alur pendaftaran",
         "tech": [
           "NextJS",
           "Edukasi",
@@ -380,6 +398,10 @@
         "name": "Bliho",
         "badge": "in development",
         "description": "Marketplace produk digital untuk kebutuhan industri hospitality — SOP, template & lainnya.",
+        "situation": "Operator hospitality sering memulai SOP dan template dari nol, karena materi yang bagus tersimpan di laptop masing-masing orang, bukan di satu tempat yang bisa dibeli atau dipakai ulang.",
+        "decision": "Saya memilih membangun katalog dan alur pembelian lebih dulu, lalu membuka tokonya setelah produknya benar-benar dipakai di lapangan, bukan meluncurkan halaman kosong dengan tanggal rilis. Konsekuensinya peluncuran mundur dan proyek ini masih berstatus in development; imbalannya, tidak ada pembeli yang membayar untuk sebuah janji.",
+        "result": "Belum dirilis. Halamannya menandai status in development, dan itu memang keadaannya sekarang.",
+        "outcome": "katalog & alur beli",
         "tech": [
           "E-commerce",
           "Produk Digital",
@@ -392,6 +414,10 @@
         "id": "rms",
         "name": "Revenue Management System",
         "description": "Web-App untuk mengatur Competitive Set dan menentukan harga kamar yang kompetitif dengan kompetitor lain di OTA.",
+        "situation": "Menetapkan harga kamar berarti membandingkan diri dengan hotel lain di kota yang sama, dan perbandingan itu biasanya dikerjakan manual: membuka beberapa tab OTA, mencatat harga, lalu memutuskan. Hasilnya harga tertinggal beberapa hari dari pasar.",
+        "decision": "Saya memilih menyusun aplikasi di sekitar set kompetitor yang dipilih operator sendiri, bukan rata-rata pasar yang tidak bisa ditindaklanjuti. Hotel yang dibandingkan harus hotel yang memang bersaing memperebutkan tamu yang sama; angka rata-rata kota terasa rapi tetapi tidak memberi tahu kamar mana yang harus digerakkan.",
+        "result": "Live di hotel-rms.my.id; keputusan harga sekarang dibaca dari satu layar, bukan dari beberapa tab.",
+        "outcome": "harga kamar vs set kompetitor",
         "tech": [
           "TanStack",
           "RMS",

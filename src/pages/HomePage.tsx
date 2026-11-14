@@ -77,7 +77,7 @@ export function HomePage() {
           href: `/work/${project.slug}`,
           index: project.index,
           name: project.name,
-          kind: project.tech[0],
+          kind: project.outcome,
           metric: project.badge ?? 'live',
           image: project.image,
         }))
@@ -285,6 +285,19 @@ export function HomePage() {
                 </p>
               ))}
             </div>
+
+            {/* The arc, not the job description: three moves that explain
+                why an operator ended up writing the software. */}
+            <ol className="mt-12 grid grid-cols-1 gap-6 border-t hairline border-t-ink/20 pt-6 sm:grid-cols-3">
+              {HOME_COPY.arc.map((step) => (
+                <li key={step.year.id} className="flex items-baseline gap-3">
+                  <span className="label shrink-0 text-ink/40">{step.year[lang]}</span>
+                  <span className="font-display text-[5.5vw] lowercase leading-[0.95] tracking-tight sm:text-[1.7vw]">
+                    {step.role[lang]}
+                  </span>
+                </li>
+              ))}
+            </ol>
             {laneId === 'digital' ? (
               <TransitionLink
                 href="/karya/large-private-hospital"

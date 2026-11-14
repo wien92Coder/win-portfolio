@@ -35,6 +35,10 @@ export interface CaseStudy {
   /** Areas addressed; explained in the UI as the SMART Care framework. */
   focus: L10n;
   context: L10n;
+  /** The fork in the road: what else was on the table, the constraint that
+   *  made it hard, and why this path was chosen. First person on purpose —
+   *  the reader is judging the judgement, not the deliverables. */
+  decision: L10n;
   approach: L10n[];
   results: L10n[];
   /** Abstract Unsplash placeholder — illustrative, not the client's premises. */
@@ -100,8 +104,12 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     context: {
-      id: 'Seiring ekspansi fasilitasnya, rumah sakit ini ingin menghadirkan pelayanan yang setara dengan standar hospitality internasional, dengan membangun di atas nilai dan pengalaman panjang seluruh staf dan dokternya.',
-      en: 'As its facilities expanded, the hospital set out to align its service with international hospitality standards, building on the values and long experience of its staff and doctors.',
+      id: 'Kapasitas rumah sakit bertambah, tetapi kepuasan pasien tertahan di 70%. Fasilitas baru membuat pasien menuntut pengalaman yang setara, sementara sekitar 2.000 staf dan dokter sudah bertahun-tahun bekerja dengan caranya masing-masing. Pelayanan tidak bisa berhenti untuk pelatihan, dan program punya batas waktu.',
+      en: 'Capacity grew, but patient satisfaction stayed at 70%. New facilities raised what patients expected to match, while around 2,000 staff and doctors had spent years working their own way. Service could not stop for training, and the program had a fixed window.',
+    },
+    decision: {
+      id: 'Saya memilih melatih pemimpin internal, bukan mendatangkan trainer untuk mengajar seluruh staf. Jalan yang lebih cepat adalah program massal dari luar: seragam, terukur, selesai dalam beberapa minggu — tetapi begitu kontrak berakhir, kebiasaan barunya ikut pergi. Kaskade train-the-trainer lebih lambat dan bergantung pada konsistensi tiap kepala unit. Risiko itu saya ambil karena perubahan harus tetap berjalan setelah saya pulang, dan staf lebih percaya pada atasan yang mereka kenal.',
+      en: 'I chose to train internal leaders rather than bring in trainers to teach every staff member. The faster route was a mass program from outside: uniform, measurable, finished in weeks — but when the contract ended, so did the new habits. The train-the-trainer cascade was slower and depended on the consistency of each unit head. I took that risk because the change had to keep running after I left, and staff trust leaders they already know.',
     },
     approach: [
       {
@@ -165,14 +173,10 @@ export const CASE_STUDIES: CaseStudy[] = [
       en: 'People, Process & Product (selected)',
     },
     heroMetric: {
-      value: { id: 'Dikenal luas', en: 'Widely recognized' },
-      label: { id: 'kualitas layanan', en: 'service quality' },
+      value: { id: '1.000+', en: '1,000+' },
+      label: { id: 'staf', en: 'staff' },
     },
     metrics: [
-      {
-        value: { id: 'Dikenal luas', en: 'Widely recognized' },
-        label: { id: 'kualitas layanan', en: 'service quality' },
-      },
       {
         value: { id: '1.000+', en: '1,000+' },
         label: { id: 'staf', en: 'staff' },
@@ -181,10 +185,21 @@ export const CASE_STUDIES: CaseStudy[] = [
         value: { id: '20 bulan', en: '20 months' },
         label: { id: 'durasi program', en: 'program duration' },
       },
+      {
+        // Recognition is real but it is not a measured figure: it closes the
+        // strip instead of holding the slot every other study fills with a
+        // before-and-after number.
+        value: { id: 'Dikenal luas', en: 'Widely recognized' },
+        label: { id: 'kualitas layanan', en: 'service quality' },
+      },
     ],
     context: {
-      id: 'Sebagai rumah sakit milik pemerintah daerah, institusi ini berkomitmen meningkatkan mutu pelayanan publik sekaligus memperkuat rasa memiliki dan semangat pengabdian seluruh insan rumah sakit.',
-      en: 'As a regional government hospital, the institution was committed to raising the quality of its public service and strengthening the sense of purpose and ownership among its people.',
+      id: 'Sebagai rumah sakit pemerintah daerah dengan 1.000+ staf, mutu layanannya dinilai langsung oleh warga yang datang dengan harapan tinggi dan pilihan terbatas. Semangat pengabdian sudah kuat, tetapi kebiasaan layanan berbeda antarbagian, dan pasien masih mengantre di loket untuk pendaftaran yang seharusnya bisa dipesan lebih dulu. Sebagai konsultan, saya tidak bisa mengubah struktur, kebijakan, atau komposisi pegawai.',
+      en: 'As a regional government hospital with 1,000+ staff, service quality was judged directly by citizens arriving with high expectations and few alternatives. Commitment was strong, but service habits differed between departments, and patients still queued at the counter for registrations that could have been booked ahead. As a consultant I could not change structure, policy, or the roster.',
+    },
+    decision: {
+      id: 'Saya memilih bergerak lewat hal yang bisa dikendalikan staf sendiri, yaitu satu kanal reservasi terpisah lewat telepon dan WhatsApp, daripada mengusulkan perubahan kebijakan pendaftaran. Perubahan kebijakan akan memakan waktu lebih lama dari 20 bulan program dan berisiko berhenti di meja birokrasi; kanal reservasi bisa jalan dalam hitungan minggu. Efek sampingnya justru yang saya cari: staf melihat sendiri bahwa perubahan kecil terasa oleh pasien, sehingga mereka lebih terbuka pada pelatihan budaya layanan yang lebih dalam.',
+      en: 'I chose to work through what staff could control themselves, a separate reservation channel by phone and WhatsApp, instead of proposing a change to registration policy. Policy change would have outlasted the 20-month program and could stall in bureaucracy; a reservation channel could run within weeks. The side effect was the one I wanted: staff saw for themselves that a small change reached patients, so they were more open to the deeper service-culture work.',
     },
     approach: [
       {
@@ -263,8 +278,12 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     context: {
-      id: 'Dengan sejarah pelayanan yang panjang, rumah sakit ini memiliki budaya disiplin dan standar kerja yang sangat kuat. Ambisinya adalah memadukan kekuatan tersebut dengan pengalaman pasien yang lebih personal dan hangat.',
-      en: 'With a long history of service, the hospital carries a deeply rooted culture of discipline and high work standards. Its ambition was to pair that strength with a more personal, warmer patient experience.',
+      id: 'Disiplin kerja di rumah sakit ini sudah tinggi dan bertahan puluhan tahun, tetapi pengalaman pasien belum mencerminkan kehangatannya: rating Google 4,1. Reputasi adalah kanal kedatangan pasien yang utama, jadi setiap bintang yang hilang berbiaya. Kendalanya waktu, hanya 12 bulan, dan Direksi yang sudah menjalankan standarnya sendiri bertahun-tahun; program yang terasa dari luar akan ditolak dengan sopan.',
+      en: 'Working discipline here was already high and had held for decades, but the patient experience did not reflect that warmth: a 4.1 Google rating. Reputation is the main arrival channel for a hospital of this standing, so every missing star costs. The constraint was time, twelve months only, and directors who had run their own standards for years; a program that felt imported would be politely refused.',
+    },
+    decision: {
+      id: 'Saya memilih tidak membawa standar layanan baru, melainkan meng-coach Direktur dan pimpinan unit satu per satu lebih dulu, lalu membiarkan kebiasaan baru tumbuh dari nilai yang sudah mereka pegang. Alternatifnya lebih rapi di atas kertas: satu SOP layanan seragam yang bisa saya presentasikan di hari pertama. Saya menolaknya karena di rumah sakit dengan tradisi sepanjang ini, SOP dari luar akan menjadi dokumen, bukan kebiasaan. Konsekuensinya lebih lambat dan tidak serapi rencana, tetapi hasilnya muncul di rating, bukan di kepatuhan formulir.',
+      en: 'I chose not to import a new service standard. Instead I coached the Directors and unit leaders one to one first, then let new habits grow from values they already held. The tidier alternative was a single uniform service SOP I could present on day one. I refused it because in a hospital with a tradition this long, an outside SOP becomes a document rather than a habit. The trade-off was slower, less tidy work, but the result shows up in the rating, not in form compliance.',
     },
     approach: [
       {
@@ -315,8 +334,14 @@ export const CASE_SECTION = {
     id: 'Tiga institusi di Jawa Tengah, tiga titik awal yang berbeda. Identitas klien dirahasiakan; angka dan hasilnya apa adanya.',
     en: 'Three institutions in Central Java, three different starting points. Client identities are withheld; the numbers and outcomes are as they are.',
   },
+  /** The one place SMART Care is explained: every later mention can assume it. */
+  smartCare: {
+    id: 'SMART Care adalah kerangka pelatihan budaya layanan yang saya susun dan turunkan lewat train-the-trainer: pemimpin dilatih dan di-coach lebih dulu, lalu mereka mengalirkannya ke seluruh staf. Kerangka yang sama dipakai di ketiga kasus di bawah.',
+    en: 'SMART Care is the service-culture training framework I built and cascade through train-the-trainer: leaders are trained and coached first, then they carry it to every staff member. The same framework runs through all three cases below.',
+  },
   labels: {
     context: { id: 'Konteks & Ambisi', en: 'Context & Ambition' },
+    decision: { id: 'Keputusan sulit', en: 'The hard call' },
     approach: { id: 'Pendekatan', en: 'Approach' },
     results: { id: 'Hasil', en: 'Results' },
     focus: { id: 'Area yang digarap', en: 'Areas addressed' },

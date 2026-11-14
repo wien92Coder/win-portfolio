@@ -44,6 +44,7 @@ describe('case study data', () => {
       expect(bilingual(study.role)).toBe(true);
       expect(bilingual(study.focus)).toBe(true);
       expect(bilingual(study.context)).toBe(true);
+      expect(bilingual(study.decision)).toBe(true);
       expect(bilingual(study.imageAlt)).toBe(true);
       expect(study.tags.every(bilingual)).toBe(true);
       expect(study.approach).toHaveLength(3);

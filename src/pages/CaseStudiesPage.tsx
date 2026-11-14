@@ -32,6 +32,12 @@ export function CaseStudiesPage() {
           stagger={0.02}
         />
         <p className="body-copy mt-8 max-w-[52ch]">{s.intro[lang]}</p>
+        {/* SMART Care is named in every study; this is the only place it is
+            explained, so the term is grounded before the cards use it. */}
+        <div className="mt-8 max-w-[58ch] border-l-2 border-accent pl-4 sm:pl-5">
+          <p className="label mb-2 text-ink/50">{s.labels.focusNote[lang]}</p>
+          <p className="body-copy">{s.smartCare[lang]}</p>
+        </div>
       </header>
 
       {/* Glance strip: all three hero metrics stay visible together on desktop,

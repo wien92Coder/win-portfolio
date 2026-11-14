@@ -110,17 +110,26 @@ export function CaseStudyDetailPage() {
         </figcaption>
       </figure>
 
-      {/* Context, approach, results */}
-      <div className="mt-16 grid grid-cols-1 gap-10 border-t hairline border-t-ink/20 pt-10 sm:grid-cols-3 sm:gap-8">
-        <section>
+      {/* Context, the decision that shaped the program, then how it ran and what changed */}
+      <div className="mt-16 grid grid-cols-1 gap-10 border-t hairline border-t-ink/20 pt-10 sm:grid-cols-12 sm:gap-8">
+        <section className="sm:col-span-4">
           <h2 className="label mb-4 flex items-center gap-2 text-ink/55">
             <span className="text-accent">01</span> {s.labels.context[lang]}
           </h2>
           <p className="body-copy">{study.context[lang]}</p>
         </section>
-        <section>
+
+        {/* The decision gets its own band: it is the part a prospective
+            client reads to judge whether the thinking travels to their case. */}
+        <section className="sm:col-span-8 sm:border-l sm:border-l-ink/20 sm:pl-8">
           <h2 className="label mb-4 flex items-center gap-2 text-ink/55">
-            <span className="text-accent">02</span> {s.labels.approach[lang]}
+            <span className="text-accent">02</span> {s.labels.decision[lang]}
+          </h2>
+          <p className="body-copy !text-[16px] text-ink">{study.decision[lang]}</p>
+        </section>
+        <section className="sm:col-span-6">
+          <h2 className="label mb-4 flex items-center gap-2 text-ink/55">
+            <span className="text-accent">03</span> {s.labels.approach[lang]}
           </h2>
           <ol className="flex flex-col gap-4">
             {study.approach.map((step, i) => (
@@ -131,9 +140,9 @@ export function CaseStudyDetailPage() {
             ))}
           </ol>
         </section>
-        <section>
+        <section className="sm:col-span-6">
           <h2 className="label mb-4 flex items-center gap-2 text-ink/55">
-            <span className="text-accent">03</span> {s.labels.results[lang]}
+            <span className="text-accent">04</span> {s.labels.results[lang]}
           </h2>
           <ul className="flex flex-col gap-4">
             {study.results.map((result) => (

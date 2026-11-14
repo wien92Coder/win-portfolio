@@ -5,6 +5,14 @@ export type ProjectItem = {
   id: string;
   name: string;
   description: string;
+  /** Where the project started, before anything was built. */
+  situation: string;
+  /** The fork taken while building it: alternative, constraint, reason. */
+  decision: string;
+  /** What exists now. An unpublished project says so instead of implying a launch. */
+  result: string;
+  /** One line for the home work list: the result, not the stack. */
+  outcome: string;
   tech: string[];
   href: string;
   image: string;

@@ -196,6 +196,16 @@ export const HOME_COPY = {
       en: 'Code is an operational tool, not an end in itself. Every system here started as a real problem in a real business.',
     },
   ],
+  /* The career arc, on the home page rather than buried in the timeline:
+     the same three moves the about page narrates, compressed to one row. */
+  arc: [
+    { year: { id: '1993', en: '1993' }, role: { id: 'bellboy', en: 'bellboy' } },
+    { year: { id: '2013', en: '2013' }, role: { id: 'general manager', en: 'general manager' } },
+    {
+      year: { id: 'sekarang', en: 'now' },
+      role: { id: 'membangun sistemnya sendiri', en: 'building his own systems' },
+    },
+  ],
   proofLink: {
     id: 'Pendekatan yang sama membawa CSI sebuah rumah sakit dari 70% ke 92%. Lihat studi kasusnya',
     en: 'The same approach took a hospital’s CSI from 70% to 92%. See the case study',

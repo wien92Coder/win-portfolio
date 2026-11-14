@@ -102,6 +102,14 @@
       "Cafe Operations",
       "Bliho",
       "Hotel Operations"
+    ],
+    "reasons": [
+      "Menu, reservations, and guest data the team uses every day.",
+      "Service-culture training, from the boardroom to the front office.",
+      "Two training tracks on one reference page.",
+      "Where margin is read: menu, ingredient cost, and selling price.",
+      "A catalogue of SOPs and templates for hospitality operators.",
+      "Room rates compared against the competitive set."
     ]
   },
   "marquee": {
@@ -124,7 +132,9 @@
     "open": "Open",
     "statusLive": "live",
     "project": "Project",
-    "overview": "Overview",
+    "situation": "Situation",
+    "decision": "The call",
+    "result": "Result",
     "stack": "Stack",
     "status": "Status",
     "live": "Live site",
@@ -355,6 +365,10 @@
         "id": "hanania",
         "name": "Rekam Jejak Hanania",
         "description": "Cafe & resto website — menu, reservations & CRM for Hanania Kitchen and Brew.",
+        "situation": "Hanania Kitchen and Brew took reservations through WhatsApp, phone calls, and direct messages, while its menu and guest data lived in several places and changed depending on who was on shift.",
+        "decision": "I chose to build the site around one flow for menu, reservations, and guest data, the flow I run myself as operations manager, instead of adding a subscription reservation tool that keeps guest data away from daily work. The cost is that I maintain the site myself; the payoff is that a menu change or a new flow can happen the moment operations needs it.",
+        "result": "Live at rjhanania.com, used every day by the Hanania team for the menu and reservations.",
+        "outcome": "reservations & guest data, one flow",
         "tech": [
           "NextJS",
           "Reservation",
@@ -367,6 +381,10 @@
         "id": "akar-jogja",
         "name": "Akar Jogja",
         "description": "Website for a professional hospitality training institution — housekeeping & kitchen programs.",
+        "situation": "Akar Jogja runs two training tracks, housekeeping and kitchen, and receives prospective participants from several cities. Without a reference page, every enquiry was answered again by hand, and enquirers could not judge the programme for themselves.",
+        "decision": "I chose a site that explains both programmes in full and routes enrolment into one conversation, rather than an automated form with payment. Training like this is still decided in conversation, since schedules, qualifications, and participant needs differ, so an automated form would add a step rather than remove one.",
+        "result": "Live at akarjogja.com; prospective participants now read the programme first, then ask more specific questions.",
+        "outcome": "two programmes, one enquiry path",
         "tech": [
           "NextJS",
           "Education",
@@ -380,6 +398,10 @@
         "name": "Bliho",
         "badge": "in development",
         "description": "Digital product marketplace built for hospitality industry needs — SOPs, templates & more.",
+        "situation": "Hospitality operators keep starting SOPs and templates from scratch, because good material lives on individual laptops rather than in one place that can be bought or reused.",
+        "decision": "I chose to build the catalogue and purchase flow first, then open the store once the products have actually been used in the field, rather than launch an empty page against a release date. The cost is a delayed launch: this project is still in development. The payoff is that nobody pays for a promise.",
+        "result": "Not released. The listing marks it in development, which is what it is today.",
+        "outcome": "catalogue & purchase flow",
         "tech": [
           "E-commerce",
           "Digital Products",
@@ -392,6 +414,10 @@
         "id": "rms",
         "name": "Revenue Management System",
         "description": "A web-app to manage the competitive set and set room rates that stay competitive against other listings on OTAs.",
+        "situation": "Setting room rates means comparing against other hotels in the same city, and that comparison is usually done by hand: open a few OTA tabs, note the rates, then decide. The result is rates that trail the market by days.",
+        "decision": "I built the app around a competitive set the operator chooses, rather than a market average nobody can act on. The hotels being compared have to be the ones chasing the same guests; a city average looks tidy but never tells you which room to move.",
+        "result": "Live at hotel-rms.my.id; rate decisions now come from one screen instead of several tabs.",
+        "outcome": "room rates vs the competitive set",
         "tech": [
           "TanStack",
           "RMS",
